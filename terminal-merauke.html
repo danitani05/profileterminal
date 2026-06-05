@@ -61,22 +61,22 @@ nav{
 .hero-bg{
   position:absolute;inset:0;
   background-size:cover;background-position:center 40%;
-  /* ✅ DIUBAH: brightness sedikit dinaikkan agar foto lebih kelihatan */
-  filter:brightness(0.62) saturate(0.9);
+  /* foto tampil natural, tidak ada desaturate */
+  filter:brightness(1.0) saturate(1.0);
   transform:scale(1.02);
 }
 .hero-overlay{
   position:absolute;inset:0;
-  /* ✅ DIUBAH: hapus warna biru — hitam transparan murni saja */
+  /* overlay sangat tipis — hanya gelap sedikit di pojok, tengah hampir bening */
   background:linear-gradient(160deg,
-    rgba(0,0,0,0.52) 0%,
-    rgba(0,0,0,0.22) 50%,
-    rgba(0,0,0,0.48) 100%);
+    rgba(0,0,0,0.28) 0%,
+    rgba(0,0,0,0.05) 50%,
+    rgba(0,0,0,0.22) 100%);
 }
 .hero-bottom{
-  position:absolute;bottom:0;left:0;right:0;height:55%;
-  /* ✅ DIUBAH: hitam murni tanpa tint biru */
-  background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,transparent 100%);
+  position:absolute;bottom:0;left:0;right:0;height:50%;
+  /* fade bawah ke hitam agar teks stats terbaca */
+  background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.3) 50%,transparent 100%);
 }
 .hero-accent{position:absolute;top:0;left:0;width:4px;height:100%;
   background:linear-gradient(to bottom,#FFB800 0%,transparent 100%);}
