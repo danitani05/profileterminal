@@ -61,22 +61,16 @@ nav{
 .hero-bg{
   position:absolute;inset:0;
   background-size:cover;background-position:center 40%;
-  /* foto tampil natural, tidak ada desaturate */
   filter:brightness(1.0) saturate(1.0);
   transform:scale(1.02);
 }
 .hero-overlay{
   position:absolute;inset:0;
-  /* overlay sangat tipis — hanya gelap sedikit di pojok, tengah hampir bening */
-  background:linear-gradient(160deg,
-    rgba(0,0,0,0.28) 0%,
-    rgba(0,0,0,0.05) 50%,
-    rgba(0,0,0,0.22) 100%);
+  background:transparent;
 }
 .hero-bottom{
-  position:absolute;bottom:0;left:0;right:0;height:50%;
-  /* fade bawah ke hitam agar teks stats terbaca */
-  background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.3) 50%,transparent 100%);
+  position:absolute;bottom:0;left:0;right:0;height:45%;
+  background:linear-gradient(to top,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.5) 40%,transparent 100%);
 }
 .hero-accent{position:absolute;top:0;left:0;width:4px;height:100%;
   background:linear-gradient(to bottom,#FFB800 0%,transparent 100%);}
@@ -86,20 +80,27 @@ nav{
   background-repeat:repeat-x;background-position:center;opacity:0.45;
 }
 .hero-content{position:relative;z-index:2;padding:0 72px;width:100%;}
-.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.hero-text-backdrop{
+  display:inline-block;
+  background:rgba(0,10,40,0.72);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  border-left:3px solid rgba(255,184,0,0.5);
+  border-radius:0 8px 8px 0;
+  padding:22px 32px 24px 28px;
+  margin-bottom:20px;
+}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
 .hero-tag{font-family:'Futura',sans-serif;font-size:10px;letter-spacing:4px;
   text-transform:uppercase;color:#FFB800;}
 .hero-sep{width:36px;height:1px;background:rgba(255,184,0,0.4);}
-.hero-loc{font-size:11px;color:rgba(255,255,255,0.38);letter-spacing:2px;text-transform:uppercase;}
+.hero-loc{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:2px;text-transform:uppercase;}
 .hero-title{font-family:'Futura',sans-serif;
   font-size:clamp(56px,9vw,108px);font-weight:400;letter-spacing:-1px;
-  text-transform:uppercase;color:#fff;line-height:0.88;margin-bottom:10px;
-  /* teks shadow agar tetap terbaca di foto terang */
-  text-shadow:0 2px 24px rgba(0,0,0,0.55),0 1px 4px rgba(0,0,0,0.4);}
+  text-transform:uppercase;color:#fff;line-height:0.88;margin-bottom:8px;}
 .hero-title em{color:#FFB800;font-style:normal;}
-.hero-tagline{font-size:14px;color:rgba(255,255,255,0.55);
-  letter-spacing:0.8px;font-style:italic;margin-bottom:44px;
-  text-shadow:0 1px 8px rgba(0,0,0,0.5);}
+.hero-tagline{font-size:14px;color:rgba(255,255,255,0.7);
+  letter-spacing:0.8px;font-style:italic;margin-bottom:0;}
 .hero-stats{display:inline-flex;border:1px solid rgba(255,184,0,0.18);
   border-radius:6px;overflow:hidden;backdrop-filter:blur(10px);
   background:rgba(0,0,0,0.48);}
@@ -355,13 +356,15 @@ body.light .sec-fullbg-img{filter:brightness(0.55) saturate(0.7) !important;}
   <div class="hero-accent"></div>
   <div class="hero-ukiran"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="hero-tag">Pelindo Terminal Petikemas</span>
-      <div class="hero-sep"></div>
-      <span class="hero-loc">Merauke &middot; Papua Selatan</span>
+    <div class="hero-text-backdrop">
+      <div class="hero-eyebrow">
+        <span class="hero-tag">Pelindo Terminal Petikemas</span>
+        <div class="hero-sep"></div>
+        <span class="hero-loc">Merauke &middot; Papua Selatan</span>
+      </div>
+      <h1 class="hero-title">TPK<br><em>Merauke</em></h1>
+      <p class="hero-tagline">Pintu Gerbang Logistik di Ujung Timur Nusantara</p>
     </div>
-    <h1 class="hero-title">TPK<br><em>Merauke</em></h1>
-    <p class="hero-tagline">Pintu Gerbang Logistik di Ujung Timur Nusantara</p>
     <div class="hero-stats">
       <div class="hstat">
         <span class="hstat-val">52.715<sup> TEUs</sup></span>
