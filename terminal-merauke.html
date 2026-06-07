@@ -6,7 +6,7 @@
 <title>TPK Merauke — Terminal Profile</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 
 @font-face {
@@ -17,12 +17,13 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 
 :root {
-  --navy:    #0a1628;
-  --navy-mid:#112240;
-  --navy-lt: #1a3560;
-  --gold:    #FFB800;
-  --gold-lt: #ffd055;
-  --gold-pale:#fff8e1;
+  /* Palet warna utama — Navy & Biru Pelindo, tanpa kuning */
+  --navy:    #003087;
+  --navy-mid:#0a4db8;
+  --navy-lt: #1a6ed4;
+  --accent:  #0EA5E9;      /* Sky blue menggantikan gold */
+  --accent-lt:#38BDF8;
+  --accent-pale:#e0f2fe;
   --white:   #ffffff;
   --off-white:#f8fafc;
   --gray-100:#f1f5f9;
@@ -63,7 +64,7 @@ nav{
 .nav-right{display:flex;align-items:center;gap:10px;}
 .nav-badge{
   font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;
-  text-transform:uppercase;background:var(--gold);color:var(--navy);
+  text-transform:uppercase;background:var(--navy);color:white;
   padding:4px 10px;border-radius:4px;font-weight:700;
 }
 .nav-back{
@@ -85,7 +86,7 @@ nav{
 }
 .hero-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(160deg,rgba(10,22,40,0.82) 0%,rgba(10,22,40,0.5) 50%,rgba(10,22,40,0.75) 100%);
+  background:linear-gradient(160deg,rgba(0,48,135,0.75) 0%,rgba(0,48,135,0.4) 50%,rgba(0,48,135,0.65) 100%);
 }
 .hero-bottom{
   position:absolute;bottom:0;left:0;right:0;height:40%;
@@ -93,7 +94,7 @@ nav{
 }
 .hero-ukiran{
   position:absolute;bottom:36px;left:0;right:0;height:36px;
-  background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNjAnIGhlaWdodD0nMzYnPgogIDxwb2x5bGluZSBwb2ludHM9JzAsMTggMTAsNiAyMCwxOCAzMCw2IDQwLDE4IDUwLDYgNjAsMTggNzAsNiA4MCwxOCA5MCw2IDEwMCwxOCAxMTAsNiAxMjAsMTggMTMwLDYgMTQwLDE4IDE1MCw2IDE2MCwxOCcKICAgIGZpbGw9J25vbmUnIHN0cm9rZT0ncmdiYSgyNTUsMTg0LDAsMC4zNSknIHN0cm9rZS13aWR0aD0nMS41Jy8+CiAgPHBvbHlsaW5lIHBvaW50cz0nMCwxOCAxMCwzMCAyMCwxOCAzMCwzMCA0MCwxOCA1MCwzMCA2MCwxOCA3MCwzMCA4MCwxOCA5MCwzMCAxMDAsMTggMTEwLDMwIDEyMCwxOCAxMzAsMzAgMTQwLDE4IDE1MCwzMCAxNjAsMTgnCiAgICBmaWxsPSdub25lJyBzdHJva2U9J3JnYmEoMjU1LDE4NCwwLDAuMTgpJyBzdHJva2Utd2lkdGg9JzEnLz4KICA8Y2lyY2xlIGN4PScxMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMjU1LDE4NCwwLDAuNDUpJy8+CiAgPGNpcmNsZSBjeD0nMzAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDI1NSwxODQsMCwwLjQ1KScvPgogIDxjaXJjbGUgY3g9JzUwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgyNTUsMTg0LDAsMC40NSknLz4KICA8Y2lyY2xlIGN4PSc3MCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMjU1LDE4NCwwLDAuNDUpJy8+CiAgPGNpcmNsZSBjeD0nOTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDI1NSwxODQsMCwwLjQ1KScvPgogIDxjaXJjbGUgY3g9JzExMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMjU1LDE4NCwwLDAuNDUpJy8+CiAgPGNpcmNsZSBjeD0nMTMwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgyNTUsMTg0LDAsMC40NSknLz4KICA8Y2lyY2xlIGN4PScxNTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDI1NSwxODQsMCwwLjQ1KScvPgo8L3N2Zz4=');
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNjAnIGhlaWdodD0nMzYnPgogIDxwb2x5bGluZSBwb2ludHM9JzAsMTggMTAsNiAyMCwxOCAzMCw2IDQwLDE4IDUwLDYgNjAsMTggNzAsNiA4MCwxOCA5MCw2IDEwMCwxOCAxMTAsNiAxMjAsMTggMTMwLDYgMTQwLDE4IDE1MCw2IDE2MCwxOCcKICAgIGZpbGw9J25vbmUnIHN0cm9rZT0ncmdiYSgxNCwxNjUsMjMzLDAuNCknIHN0cm9rZS13aWR0aD0nMS41Jy8+CiAgPHBvbHlsaW5lIHBvaW50cz0nMCwxOCAxMCwzMCAyMCwxOCAzMCwzMCA0MCwxOCA1MCwzMCA2MCwxOCA3MCwzMCA4MCwxOCA5MCwzMCAxMDAsMTggMTEwLDMwIDEyMCwxOCAxMzAsMzAgMTQwLDE4IDE1MCwzMCAxNjAsMTgnCiAgICBmaWxsPSdub25lJyBzdHJva2U9J3JnYmEoMTQsMTY1LDIzMywwLjIpJyBzdHJva2Utd2lkdGg9JzEnLz4KICA8Y2lyY2xlIGN4PScxMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMTQsMTY1LDIzMywwLjUpJy8+CiAgPGNpcmNsZSBjeD0nMzAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDE0LDE2NSwyMzMsMC41KScvPgogIDxjaXJjbGUgY3g9JzUwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgxNCwxNjUsMjMzLDAuNSknLz4KICA8Y2lyY2xlIGN4PSc3MCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMTQsMTY1LDIzMywwLjUpJy8+CiAgPGNpcmNsZSBjeD0nOTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDE0LDE2NSwyMzMsMC41KScvPgogIDxjaXJjbGUgY3g9JzExMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMTQsMTY1LDIzMywwLjUpJy8+CiAgPGNpcmNsZSBjeD0nMTMwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgxNCwxNjUsMjMzLDAuNSknLz4KICA8Y2lyY2xlIGN4PScxNTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDE0LDE2NSwyMzMsMC41KScvPgo8L3N2Zz4=');
   background-repeat:repeat-x;background-position:center;opacity:0.5;
 }
 .hero-content{
@@ -104,13 +105,13 @@ nav{
 }
 .hero-badge{
   display:inline-flex;align-items:center;gap:6px;
-  background:rgba(255,184,0,0.15);color:var(--gold);
+  background:rgba(14,165,233,0.15);color:var(--accent-lt);
   font-family:'Futura',sans-serif;font-size:10px;font-weight:700;
   letter-spacing:2px;text-transform:uppercase;
   padding:5px 14px;border-radius:99px;margin-bottom:1.5rem;
-  border:1px solid rgba(255,184,0,0.3);
+  border:1px solid rgba(14,165,233,0.3);
 }
-.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero h1{
   font-family:'Futura',sans-serif;
@@ -118,17 +119,17 @@ nav{
   font-weight:400;letter-spacing:-1px;text-transform:uppercase;
   color:white;line-height:0.9;margin-bottom:1rem;
 }
-.hero h1 em{color:var(--gold);font-style:normal;display:block;}
+.hero h1 em{color:var(--accent);font-style:normal;display:block;}
 .hero-desc{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:2rem;font-style:italic;}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
 .btn-primary{
-  background:var(--gold);color:var(--navy);
+  background:var(--accent);color:white;
   font-family:'Futura',sans-serif;font-size:11px;font-weight:700;
   letter-spacing:1.5px;text-transform:uppercase;
   padding:12px 26px;border-radius:var(--r-md);text-decoration:none;
   transition:all .2s;display:inline-flex;align-items:center;gap:6px;
 }
-.btn-primary:hover{background:var(--gold-lt);transform:translateY(-1px);}
+.btn-primary:hover{background:var(--accent-lt);transform:translateY(-1px);}
 .btn-ghost{
   background:rgba(255,255,255,0.1);color:white;
   font-family:'Futura',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
@@ -155,7 +156,7 @@ nav{
   padding:14px;border:1px solid var(--border);
 }
 .hm-num{font-family:'Futura',sans-serif;font-size:22px;color:var(--navy);line-height:1;margin-bottom:4px;}
-.hm-num.gold{color:var(--gold);}
+.hm-num.accent{color:var(--accent);}
 .hm-lbl{font-size:10px;color:var(--text-mt);letter-spacing:0.5px;}
 .hm-divider{border:none;border-top:1px solid var(--border);margin:14px 0;}
 .hm-status{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-sec);}
@@ -167,7 +168,7 @@ nav{
   display:flex;flex-direction:column;align-items:center;gap:6px;
   color:rgba(255,255,255,0.3);font-size:9px;letter-spacing:2px;text-transform:uppercase;
 }
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,transparent,rgba(255,184,0,0.4));}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,transparent,rgba(14,165,233,0.4));}
 
 /* ===== TRUSTED BAR ===== */
 .trusted{
@@ -183,7 +184,7 @@ nav{
 .sec-wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
 .section-eyebrow{
   font-family:'Futura',sans-serif;font-size:10px;letter-spacing:3px;
-  text-transform:uppercase;color:var(--gold);
+  text-transform:uppercase;color:var(--accent);
   display:inline-block;margin-bottom:.75rem;
 }
 .section-title{
@@ -197,9 +198,9 @@ nav{
 /* Ukiran row divider */
 .ukiran-row{
   width:100%;height:36px;
-  background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNjAnIGhlaWdodD0nMzYnPgogIDxwb2x5bGluZSBwb2ludHM9JzAsMTggMTAsNiAyMCwxOCAzMCw2IDQwLDE4IDUwLDYgNjAsMTggNzAsNiA4MCwxOCA5MCw2IDEwMCwxOCAxMTAsNiAxMjAsMTggMTMwLDYgMTQwLDE4IDE1MCw2IDE2MCwxOCcKICAgIGZpbGw9J25vbmUnIHN0cm9rZT0ncmdiYSgyNTUsMTg0LDAsMC4zNSknIHN0cm9rZS13aWR0aD0nMS41Jy8+CiAgPHBvbHlsaW5lIHBvaW50cz0nMCwxOCAxMCwzMCAyMCwxOCAzMCwzMCA0MCwxOCA1MCwzMCA2MCwxOCA3MCwzMCA4MCwxOCA5MCwzMCAxMDAsMTggMTEwLDMwIDEyMCwxOCAxMzAsMzAgMTQwLDE4IDE1MCwzMCAxNjAsMTgnCiAgICBmaWxsPSdub25lJyBzdHJva2U9J3JnYmEoMjU1LDE4NCwwLDAuMTgpJyBzdHJva2Utd2lkdGg9JzEnLz4KICA8Y2lyY2xlIGN4PScxMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMjU1LDE4NCwwLDAuNDUpJy8+CiAgPGNpcmNsZSBjeD0nMzAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDI1NSwxODQsMCwwLjQ1KScvPgogIDxjaXJjbGUgY3g9JzUwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgyNTUsMTg0LDAsMC40NSknLz4KICA8Y2lyY2xlIGN4PSc3MCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMjU1LDE4NCwwLDAuNDUpJy8+CiAgPGNpcmNsZSBjeD0nOTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDI1NSwxODQsMCwwLjQ1KScvPgogIDxjaXJjbGUgY3g9JzExMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMjU1LDE4NCwwLDAuNDUpJy8+CiAgPGNpcmNsZSBjeD0nMTMwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgyNTUsMTg0LDAsMC40NSknLz4KICA8Y2lyY2xlIGN4PScxNTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDI1NSwxODQsMCwwLjQ1KScvPgo8L3N2Zz4=');
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNjAnIGhlaWdodD0nMzYnPgogIDxwb2x5bGluZSBwb2ludHM9JzAsMTggMTAsNiAyMCwxOCAzMCw2IDQwLDE4IDUwLDYgNjAsMTggNzAsNiA4MCwxOCA5MCw2IDEwMCwxOCAxMTAsNiAxMjAsMTggMTMwLDYgMTQwLDE4IDE1MCw2IDE2MCwxOCcKICAgIGZpbGw9J25vbmUnIHN0cm9rZT0ncmdiYSgwLDg1LDE2NCwwLjI1KScgc3Ryb2tlLXdpZHRoPScxLjUnLz4KICA8cG9seWxpbmUgcG9pbnRzPScwLDE4IDEwLDMwIDIwLDE4IDMwLDMwIDQwLDE4IDUwLDMwIDYwLDE4IDcwLDMwIDgwLDE4IDkwLDMwIDEwMCwxOCAxMTAsMzAgMTIwLDE4IDEzMCwzMCAxNDAsMTggMTUwLDMwIDE2MCwxOCcKICAgIGZpbGw9J25vbmUnIHN0cm9rZT0ncmdiYSgwLDg1LDE2NCwwLjEyKScgc3Ryb2tlLXdpZHRoPScxJy8+CiAgPGNpcmNsZSBjeD0nMTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDAsODUsMTY0LDAuMyknLz4KICA8Y2lyY2xlIGN4PSczMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMCw4NSwxNjQsMC4zKScvPgogIDxjaXJjbGUgY3g9JzUwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgwLDg1LDE2NCwwLjMpJy8+CiAgPGNpcmNsZSBjeD0nNzAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDAsODUsMTY0LDAuMyknLz4KICA8Y2lyY2xlIGN4PSc5MCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMCw4NSwxNjQsMC4zKScvPgogIDxjaXJjbGUgY3g9JzExMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMCw4NSwxNjQsMC4zKScvPgogIDxjaXJjbGUgY3g9JzEzMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMCw4NSwxNjQsMC4zKScvPgogIDxjaXJjbGUgY3g9JzE1MCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMCw4NSwxNjQsMC4zKScvPgo8L3N2Zz4=');
   background-repeat:repeat-x;background-position:center;
-  opacity:0.4;
+  opacity:0.6;
 }
 
 /* ===== STATS ===== */
@@ -221,9 +222,65 @@ nav{
   font-family:'Futura',sans-serif;font-size:2.8rem;
   color:white;line-height:1;margin-bottom:.5rem;letter-spacing:-1px;
 }
-.stat-num span{color:var(--gold);}
+.stat-num span{color:var(--accent);}
 .stat-lbl{font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase;}
 .stat-desc{font-size:11px;color:rgba(255,255,255,0.28);margin-top:4px;}
+
+/* ===== ICON SECTION CARDS ===== */
+.icon-section{
+  background:var(--white);padding:5rem 2.5rem;
+}
+.icon-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
+  max-width:1100px;margin:0 auto;
+}
+.icon-card{
+  background:var(--gray-100);border-radius:var(--r-lg);
+  padding:2rem 1.5rem;
+  border:1px solid var(--border);border-top:3px solid var(--accent);
+  transition:all .25s;
+}
+.icon-card:hover{box-shadow:0 8px 28px rgba(0,48,135,0.1);transform:translateY(-3px);}
+.icon-card-ico{
+  width:48px;height:48px;border-radius:var(--r-md);
+  background:var(--accent-pale);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1rem;
+}
+.icon-card-ico svg{width:24px;height:24px;}
+.icon-card-val{
+  font-family:'Futura',sans-serif;font-size:2rem;color:var(--navy);
+  line-height:1;margin-bottom:4px;
+}
+.icon-card-unit{font-size:11px;color:var(--text-mt);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.icon-card-lbl{font-size:12px;color:var(--text-sec);}
+
+/* ===== DATA CARDS DARK ===== */
+.dc-dark{
+  background:rgba(255,255,255,0.06);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:16px;
+}
+.dc{
+  background:var(--gray-100);border:1px solid var(--border);
+  border-radius:var(--r-md);padding:14px;
+}
+.dc-val{font-family:'Futura',sans-serif;font-size:1.6rem;color:var(--accent);line-height:1;}
+.dc-lbl{font-size:10px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+.dc-dark .dc-val{color:var(--accent);}
+.dc-dark .dc-lbl{color:rgba(255,255,255,0.45);}
+
+/* ===== TABLE DARK ===== */
+.dt{width:100%;border-collapse:collapse;}
+.dt th{
+  font-family:'Futura',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
+  padding:11px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);
+  color:rgba(255,255,255,0.5);
+}
+.dt td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,255,255,0.68);}
+.dt tr:last-child td{border-bottom:none;}
+.dt tr:hover td{background:rgba(255,255,255,0.025);}
+.bu{background:rgba(0,200,100,0.12);color:#22c55e;font-size:9px;font-weight:700;padding:2px 7px;border-radius:2px;letter-spacing:.5px;}
+.bd{background:rgba(220,50,50,0.12);color:#f87171;font-size:9px;font-weight:700;padding:2px 7px;border-radius:2px;}
 
 /* ===== SPLIT PHOTO SECTION ===== */
 .photo-split{display:grid;grid-template-columns:1fr 1fr;min-height:520px;}
@@ -240,34 +297,6 @@ nav{
 .fullbg-ov{position:absolute;inset:0;}
 .fullbg-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 2.5rem;}
 
-/* ===== DATA CARDS ===== */
-.dc{background:var(--gray-100);border:1px solid var(--border);border-radius:var(--r-md);padding:16px;}
-.dc-val{font-family:'Futura',sans-serif;font-size:24px;color:var(--navy);line-height:1;}
-.dc-lbl{font-size:9px;color:var(--text-mt);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;}
-
-/* Dark dc */
-.dc-dark{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r-md);padding:16px;}
-.dc-dark .dc-val{color:var(--gold);}
-.dc-dark .dc-lbl{color:rgba(255,255,255,0.35);}
-
-/* ===== TABLE ===== */
-.dt{width:100%;border-collapse:collapse;font-size:13px;}
-.dt th{
-  background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);
-  font-family:'Futura',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
-  padding:11px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);
-}
-.dt td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,255,255,0.68);}
-.dt tr:last-child td{border-bottom:none;}
-.dt tr:hover td{background:rgba(255,255,255,0.025);}
-.bu{background:rgba(0,200,100,0.12);color:#22c55e;font-size:9px;font-weight:700;padding:2px 7px;border-radius:2px;letter-spacing:.5px;}
-.bd{background:rgba(220,50,50,0.12);color:#f87171;font-size:9px;font-weight:700;padding:2px 7px;border-radius:2px;}
-
-/* Light table */
-.dt-light th{background:var(--gray-100);color:var(--text-mt);border-bottom-color:var(--border);}
-.dt-light td{color:var(--text-sec);border-bottom-color:var(--border);}
-.dt-light tr:hover td{background:var(--gray-100);}
-
 /* ===== KPI CHART ===== */
 .chart-shell-light{
   background:var(--white);border:1px solid var(--border);
@@ -283,25 +312,24 @@ nav{
 .chart-bar-fill{width:100%;background:linear-gradient(to top,var(--navy),var(--navy-lt));border-radius:4px 4px 0 0;transition:height .6s ease;}
 .chart-labels{display:flex;margin-top:6px;}
 
-/* ===== FASILITAS ===== */
-.fasil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.fasil-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--r-lg);padding:1.75rem;
-  transition:all .25s;
-}
-.fasil-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.1);transform:translateY(-3px);}
-.fasil-icon{
-  width:44px;height:44px;border-radius:var(--r-md);
-  background:var(--gold-pale);
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;margin-bottom:1rem;
-}
-.fasil-title{font-family:'Futura',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:.5rem;}
-.fasil-desc{font-size:13px;color:var(--text-sec);line-height:1.6;}
-.fasil-tag{display:inline-block;background:var(--gold-pale);color:var(--navy);font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px;margin-top:.75rem;border:1px solid rgba(255,184,0,0.25);}
+/* ===== HL LIST ===== */
+.hl-list{list-style:none;}
+.hl-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-sec);}
+.hl-item:last-child{border-bottom:none;}
+.hl-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px;}
 
-/* ===== ALAT ===== */
+/* ===== INFRA CARDS ===== */
+.infra-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.infra-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-md);padding:1.25rem;
+  border-top:3px solid var(--accent);
+}
+.infra-lbl{font-size:9px;color:var(--text-mt);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+.infra-val{font-family:'Futura',sans-serif;font-size:28px;color:var(--navy);line-height:1;}
+.infra-unit{font-size:11px;color:var(--text-mt);margin-top:2px;}
+
+/* ===== ALAT CARDS ===== */
 .alat-grid-light{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
 .alat-card-light{
   background:var(--white);border:1px solid var(--border);
@@ -309,28 +337,11 @@ nav{
   display:flex;align-items:center;gap:12px;
   transition:all .2s;
 }
-.alat-card-light:hover{border-color:var(--gold);box-shadow:0 4px 16px rgba(255,184,0,0.1);}
+.alat-card-light:hover{border-color:var(--accent);box-shadow:0 4px 16px rgba(14,165,233,0.12);}
 .alat-ico{font-size:20px;flex-shrink:0;}
 .alat-num-lt{font-family:'Futura',sans-serif;font-size:24px;color:var(--navy);line-height:1;}
 .alat-sat-lt{font-size:9px;color:var(--text-mt);text-transform:uppercase;letter-spacing:1px;}
 .alat-nm-lt{font-size:12px;color:var(--text-sec);margin-top:2px;}
-
-/* ===== INFRA ===== */
-.infra-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
-.infra-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--r-md);padding:1.25rem;
-  border-top:3px solid var(--gold);
-}
-.infra-lbl{font-size:9px;color:var(--text-mt);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
-.infra-val{font-family:'Futura',sans-serif;font-size:28px;color:var(--navy);line-height:1;}
-.infra-unit{font-size:11px;color:var(--text-mt);margin-top:2px;}
-
-/* ===== HL LIST ===== */
-.hl-list{list-style:none;}
-.hl-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-sec);}
-.hl-item:last-child{border-bottom:none;}
-.hl-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:5px;}
 
 /* ===== TARIFF ===== */
 .tariff-block{margin-bottom:1.5rem;}
@@ -345,34 +356,15 @@ nav{
 .tariff-tbl td{padding:9px 13px;font-size:12.5px;border-bottom:1px solid var(--border);text-align:center;color:var(--text-sec);}
 .tariff-tbl td:first-child{text-align:left;font-weight:500;color:var(--text);}
 .tariff-tbl tr:last-child td{border-bottom:none;}
-.tariff-tbl tr.sub td{background:var(--gold-pale);color:var(--navy);font-weight:700;border-color:rgba(255,184,0,0.2);}
-.tariff-tbl tr.grand td{background:var(--navy);color:var(--gold);font-family:'Futura',sans-serif;font-size:13.5px;font-weight:700;}
-
-/* ===== TESTIMONIAL ===== */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.testi-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:var(--r-lg);padding:2rem;transition:all .25s;
-}
-.testi-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.08);transform:translateY(-3px);}
-.testi-quote{font-family:'DM Serif Display',serif;font-size:3rem;color:var(--gold);line-height:0.8;margin-bottom:1rem;}
-.testi-text{font-size:14px;color:var(--text-sec);line-height:1.75;margin-bottom:1.5rem;font-style:italic;}
-.testi-author{display:flex;align-items:center;gap:10px;}
-.testi-av{
-  width:38px;height:38px;border-radius:50%;
-  background:var(--navy);color:white;
-  font-family:'Futura',sans-serif;font-size:12px;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.testi-name{font-size:13px;font-weight:600;color:var(--text);}
-.testi-role{font-size:11px;color:var(--text-mt);}
+.tariff-tbl tr.sub td{background:var(--accent-pale);color:var(--navy);font-weight:700;border-color:rgba(14,165,233,0.2);}
+.tariff-tbl tr.grand td{background:var(--navy);color:var(--accent);font-family:'Futura',sans-serif;font-size:13.5px;font-weight:700;}
 
 /* ===== KONTAK ===== */
 .kontak-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
 .kontak-info-item{display:flex;gap:14px;margin-bottom:1.75rem;}
 .kontak-icon{
   width:40px;height:40px;border-radius:var(--r-md);
-  background:var(--gold-pale);border:1px solid rgba(255,184,0,0.2);
+  background:var(--accent-pale);border:1px solid rgba(14,165,233,0.2);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
 .kontak-icon svg{width:18px;height:18px;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
@@ -388,14 +380,21 @@ nav{
   font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);
   background:var(--white);transition:border-color .2s;outline:none;
 }
-.form-input:focus{border-color:var(--gold);}
+.form-input:focus{border-color:var(--accent);}
 textarea.form-input{min-height:100px;resize:vertical;}
 .btn-submit{
   width:100%;background:var(--navy);color:white;
   font-family:'Futura',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;
   padding:13px;border:none;border-radius:var(--r-md);cursor:pointer;transition:background .2s;
 }
-.btn-submit:hover{background:var(--navy-lt);}
+.btn-submit:hover{background:var(--navy-mid);}
+
+/* ===== ORG ROW ===== */
+.org-row{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--gray-100);border:1px solid var(--border);border-radius:var(--r-md);margin-bottom:8px;}
+.org-av{width:38px;height:38px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Futura',sans-serif;font-size:12px;color:white;flex-shrink:0;}
+.org-name{font-size:13px;font-weight:600;color:var(--text);}
+.org-role{font-size:10px;color:var(--text-mt);margin-top:1px;}
+.org-ph{font-size:10px;color:var(--text-mt);margin-top:1px;opacity:.7;}
 
 /* ===== CTA BANNER ===== */
 .cta-banner{
@@ -406,22 +405,33 @@ textarea.form-input{min-height:100px;resize:vertical;}
 .cta-banner::before{
   content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
   width:400px;height:400px;border-radius:50%;
-  background:rgba(255,184,0,0.06);pointer-events:none;
+  background:rgba(14,165,233,0.06);pointer-events:none;
 }
 .cta-banner h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:.75rem;}
 .cta-banner p{font-size:15px;color:rgba(255,255,255,0.55);max-width:480px;margin:0 auto 2rem;}
 .cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-cta-gold{background:var(--gold);color:var(--navy);font-family:'Futura',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:12px 28px;border-radius:var(--r-md);text-decoration:none;font-weight:700;transition:all .2s;}
-.btn-cta-gold:hover{background:var(--gold-lt);transform:translateY(-1px);}
+.btn-cta-accent{background:var(--accent);color:white;font-family:'Futura',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:12px 28px;border-radius:var(--r-md);text-decoration:none;font-weight:700;transition:all .2s;}
+.btn-cta-accent:hover{background:var(--accent-lt);transform:translateY(-1px);}
 .btn-cta-outline{background:transparent;color:white;font-family:'Futura',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:12px 28px;border-radius:var(--r-md);text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:all .2s;}
 .btn-cta-outline:hover{background:rgba(255,255,255,0.08);}
 
-/* ===== SDM ORG ===== */
-.org-row{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--gray-100);border:1px solid var(--border);border-radius:var(--r-md);margin-bottom:8px;}
-.org-av{width:38px;height:38px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Futura',sans-serif;font-size:12px;color:white;flex-shrink:0;}
-.org-name{font-size:13px;font-weight:600;color:var(--text);}
-.org-role{font-size:10px;color:var(--text-mt);margin-top:1px;}
-.org-ph{font-size:10px;color:var(--text-mt);margin-top:1px;opacity:.7;}
+/* ===== FASIL CARDS ===== */
+.fasil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.fasil-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:1.75rem;
+  transition:all .25s;
+}
+.fasil-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.1);transform:translateY(-3px);}
+.fasil-icon{
+  width:44px;height:44px;border-radius:var(--r-md);
+  background:var(--accent-pale);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;margin-bottom:1rem;
+}
+.fasil-title{font-family:'Futura',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:.5rem;}
+.fasil-desc{font-size:13px;color:var(--text-sec);line-height:1.6;}
+.fasil-tag{display:inline-block;background:var(--accent-pale);color:var(--navy);font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px;margin-top:.75rem;border:1px solid rgba(14,165,233,0.25);}
 
 /* ===== FOOTER ===== */
 footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
@@ -429,13 +439,13 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
 .footer-brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
 .footer-brand-mark{
-  width:36px;height:36px;border-radius:8px;background:var(--gold);
+  width:36px;height:36px;border-radius:8px;background:var(--accent);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Futura',sans-serif;font-size:10px;color:var(--navy);font-weight:700;letter-spacing:1px;
+  font-family:'Futura',sans-serif;font-size:10px;color:white;font-weight:700;letter-spacing:1px;
 }
 .footer-brand-name{font-family:'Futura',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:white;}
 .footer-brand-desc{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;}
-.footer-col-title{font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.footer-col-title{font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
 .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:.6rem;transition:color .2s;}
 .footer-col a:hover{color:white;}
 .footer-bottom{
@@ -445,9 +455,9 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
 }
 .ukiran-footer{
   width:100%;height:36px;
-  background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNjAnIGhlaWdodD0nMzYnPgogIDxwb2x5bGluZSBwb2ludHM9JzAsMTggMTAsNiAyMCwxOCAzMCw2IDQwLDE4IDUwLDYgNjAsMTggNzAsNiA4MCwxOCA5MCw2IDEwMCwxOCAxMTAsNiAxMjAsMTggMTMwLDYgMTQwLDE4IDE1MCw2IDE2MCwxOCcKICAgIGZpbGw9J25vbmUnIHN0cm9rZT0ncmdiYSgyNTUsMTg0LDAsMC4zNSknIHN0cm9rZS13aWR0aD0nMS41Jy8+CiAgPHBvbHlsaW5lIHBvaW50cz0nMCwxOCAxMCwzMCAyMCwxOCAzMCwzMCA0MCwxOCA1MCwzMCA2MCwxOCA3MCwzMCA4MCwxOCA5MCwzMCAxMDAsMTggMTEwLDMwIDEyMCwxOCAxMzAsMzAgMTQwLDE4IDE1MCwzMCAxNjAsMTgnCiAgICBmaWxsPSdub25lJyBzdHJva2U9J3JnYmEoMjU1LDE4NCwwLDAuMTgpJyBzdHJva2Utd2lkdGg9JzEnLz4KICA8Y2lyY2xlIGN4PScxMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMjU1LDE4NCwwLDAuNDUpJy8+CiAgPGNpcmNsZSBjeD0nMzAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDI1NSwxODQsMCwwLjQ1KScvPgogIDxjaXJjbGUgY3g9JzUwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgyNTUsMTg0LDAsMC40NSknLz4KICA8Y2lyY2xlIGN4PSc3MCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMjU1LDE4NCwwLDAuNDUpJy8+CiAgPGNpcmNsZSBjeD0nOTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDI1NSwxODQsMCwwLjQ1KScvPgogIDxjaXJjbGUgY3g9JzExMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMjU1LDE4NCwwLDAuNDUpJy8+CiAgPGNpcmNsZSBjeD0nMTMwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgyNTUsMTg0LDAsMC40NSknLz4KICA8Y2lyY2xlIGN4PScxNTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDI1NSwxODQsMCwwLjQ1KScvPgo8L3N2Zz4=');
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNjAnIGhlaWdodD0nMzYnPgogIDxwb2x5bGluZSBwb2ludHM9JzAsMTggMTAsNiAyMCwxOCAzMCw2IDQwLDE4IDUwLDYgNjAsMTggNzAsNiA4MCwxOCA5MCw2IDEwMCwxOCAxMTAsNiAxMjAsMTggMTMwLDYgMTQwLDE4IDE1MCw2IDE2MCwxOCcKICAgIGZpbGw9J25vbmUnIHN0cm9rZT0ncmdiYSgxNCwxNjUsMjMzLDAuNCknIHN0cm9rZS13aWR0aD0nMS41Jy8+CiAgPHBvbHlsaW5lIHBvaW50cz0nMCwxOCAxMCwzMCAyMCwxOCAzMCwzMCA0MCwxOCA1MCwzMCA2MCwxOCA3MCwzMCA4MCwxOCA5MCwzMCAxMDAsMTggMTEwLDMwIDEyMCwxOCAxMzAsMzAgMTQwLDE4IDE1MCwzMCAxNjAsMTgnCiAgICBmaWxsPSdub25lJyBzdHJva2U9J3JnYmEoMTQsMTY1LDIzMywwLjIpJyBzdHJva2Utd2lkdGg9JzEnLz4KICA8Y2lyY2xlIGN4PScxMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMTQsMTY1LDIzMywwLjUpJy8+CiAgPGNpcmNsZSBjeD0nMzAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDE0LDE2NSwyMzMsMC41KScvPgogIDxjaXJjbGUgY3g9JzUwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgxNCwxNjUsMjMzLDAuNSknLz4KICA8Y2lyY2xlIGN4PSc3MCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMTQsMTY1LDIzMywwLjUpJy8+CiAgPGNpcmNsZSBjeD0nOTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDE0LDE2NSwyMzMsMC41KScvPgogIDxjaXJjbGUgY3g9JzExMCcgY3k9JzYnIHI9JzInIGZpbGw9J3JnYmEoMTQsMTY1LDIzMywwLjUpJy8+CiAgPGNpcmNsZSBjeD0nMTMwJyBjeT0nNicgcj0nMicgZmlsbD0ncmdiYSgxNCwxNjUsMjMzLDAuNSknLz4KICA8Y2lyY2xlIGN4PScxNTAnIGN5PSc2JyByPScyJyBmaWxsPSdyZ2JhKDE0LDE2NSwyMzMsMC41KScvPgo8L3N2Zz4=');
   background-repeat:repeat-x;background-position:center;
-  opacity:0.25;margin-top:1.5rem;
+  opacity:0.2;margin-top:1.5rem;
 }
 
 /* ===== SECTION PADDING ===== */
@@ -472,6 +482,7 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
   </a>
   <div class="nav-center">
     <a href="#traffic">Traffic</a>
+    <a href="#kapasitas">Kapasitas</a>
     <a href="#performance">Performance</a>
     <a href="#sdm">SDM</a>
     <a href="#infrastruktur">Infrastruktur</a>
@@ -484,7 +495,8 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ===== S1: HERO ===== -->
+<!-- SATU-SATUNYA FOTO dalam halaman ini -->
 <section class="hero">
   <div class="hero-photo" style="background-image:url('foto-s1-hero.jpg');"></div>
   <div class="hero-overlay"></div>
@@ -501,14 +513,14 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
       </div>
     </div>
     <div class="hero-card">
-      <div class="hero-card-label">Kinerja Utama — Apr 2026</div>
+      <div class="hero-card-label">Kinerja Utama &mdash; Apr 2026</div>
       <div class="hero-metric-grid">
         <div class="hm">
           <div class="hm-num">52.715</div>
           <div class="hm-lbl">TEUs Volume 2025</div>
         </div>
         <div class="hm">
-          <div class="hm-num gold">+14%</div>
+          <div class="hm-num accent">+14%</div>
           <div class="hm-lbl">Pertumbuhan YoY</div>
         </div>
         <div class="hm">
@@ -516,7 +528,7 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
           <div class="hm-lbl">Pendapatan s.d. Apr</div>
         </div>
         <div class="hm">
-          <div class="hm-num">67</div>
+          <div class="hm-num">66</div>
           <div class="hm-lbl">Total SDM</div>
         </div>
       </div>
@@ -541,11 +553,11 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
   <span class="trusted-item">Irian Jaya Purnama</span>
 </div>
 
-<!-- STATS -->
-<section class="stats-section" id="traffic">
+<!-- ===== S2: TRAFFIC & KAPASITAS — ICON-BASED ===== -->
+<section id="traffic" class="stats-section">
   <div class="stats-header">
-    <div class="section-eyebrow" style="color:var(--gold);">Traffic &amp; Kapasitas</div>
-    <h2 class="stats-header h2" style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:white;margin-bottom:.75rem;">Angka Kunci Terminal</h2>
+    <div class="section-eyebrow" style="color:var(--accent);">02 &mdash; Traffic &amp; Kapasitas</div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:white;margin-bottom:.75rem;">Angka Kunci Terminal</h2>
     <p style="font-size:14px;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto;">Data historis dan kapasitas TPK Merauke per Juni 2026</p>
   </div>
   <div class="stats-grid">
@@ -574,102 +586,62 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
 
 <div class="ukiran-row"></div>
 
-<!-- TRAFFIC SPLIT -->
-<section id="traffic-chart" style="background:var(--white);">
-  <div class="photo-split">
-    <div class="ps-photo">
-      <img src='foto-s2-traffic.jpg' alt="Kapal Bongkar Muat TPK Merauke">
-    </div>
-    <div class="ps-body">
-      <div class="section-eyebrow">02 &mdash; Traffic</div>
-      <h2 class="section-title">Traffic Container<br><em>2020 &ndash; 2025</em></h2>
-      <div class="chart-shell-light">
-        <div class="chart-top">
-          <div>
-            <div class="chart-metric-num">52.715</div>
-            <div class="chart-metric-lbl">TEUs — 2025</div>
-          </div>
-          <div class="chart-trend">&#9650; +34,3% sejak 2020</div>
-        </div>
-        <div class="chart-area" id="chartBars"></div>
-        <div class="chart-labels" id="chartLabels"></div>
-      </div>
-      <p style="font-size:12px;color:var(--text-mt);margin-top:1rem;font-style:italic;">Pertumbuhan konsisten 6 tahun terakhir.</p>
-    </div>
-  </div>
-</section>
-
-<div class="ukiran-row"></div>
-
-<!-- PERFORMANCE FULLBG -->
-<section id="performance" class="fullbg">
-  <div class="fullbg-img" style="background-image:url('foto-s4-performance.jpg');"></div>
-  <div class="fullbg-ov" style="background:linear-gradient(160deg,rgba(10,22,40,0.92) 0%,rgba(10,22,40,0.75) 100%);"></div>
-  <div class="fullbg-content">
-    <div style="display:grid;grid-template-columns:260px 1fr;gap:4rem;align-items:start;">
+<!-- Traffic Chart Section — icon-based, tidak ada foto -->
+<section id="traffic-chart" class="sec-pad" style="background:var(--white);">
+  <div class="sec-wrap">
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:4rem;align-items:start;">
       <div>
-        <div class="section-eyebrow">04 &mdash; Performance</div>
-        <h2 style="font-family:'DM Serif Display',serif;font-size:2.2rem;color:white;line-height:1.2;margin-bottom:1rem;">Performance<br><em style="color:var(--gold);font-style:italic;">Highlights</em></h2>
-        <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.75;margin-bottom:1.5rem;">Realisasi s.d. April 2026 &middot; Data Internal PTP</p>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div class="dc-dark" style="text-align:center;padding:18px;">
-            <div class="dc-val" style="font-size:28px;">86,73%</div>
-            <div class="dc-lbl">Operating Ratio</div>
-            <div style="font-size:9px;color:rgba(255,255,255,0.25);margin-top:3px;">RKAP 102,11%</div>
-          </div>
-          <div class="dc-dark" style="text-align:center;padding:18px;">
-            <div class="dc-val" style="font-size:28px;">13,27%</div>
-            <div class="dc-lbl">Net Profit Margin</div>
-            <div style="font-size:9px;color:rgba(255,255,255,0.25);margin-top:3px;">RKAP &minus;2,11%</div>
+        <div class="section-eyebrow">Traffic Container</div>
+        <h2 class="section-title">Volume<br><em>2020 &ndash; 2025</em></h2>
+        <!-- Icon traffic -->
+        <div style="display:flex;align-items:center;gap:12px;background:var(--accent-pale);border-radius:var(--r-md);padding:16px;border:1px solid rgba(14,165,233,0.2);margin-bottom:1.5rem;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <div>
+            <div style="font-family:'Futura',sans-serif;font-size:1.4rem;color:var(--navy);">+34,3%</div>
+            <div style="font-size:11px;color:var(--text-mt);">Pertumbuhan kumulatif 2020&ndash;2025</div>
           </div>
         </div>
+        <p style="font-size:12px;color:var(--text-mt);font-style:italic;line-height:1.75;">Pertumbuhan konsisten 6 tahun terakhir dengan akselerasi signifikan di 2024&ndash;2025.</p>
       </div>
-      <div style="background:rgba(255,255,255,0.06);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r-lg);padding:2rem;overflow:auto;">
-        <table class="dt">
-          <thead><tr><th>Indikator</th><th>Realisasi Apr 2026</th><th>RKAP 2026</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>Pendapatan</td><td>Rp 39,4 M</td><td>Rp 101,0 M</td><td><span class="bu">ON TRACK</span></td></tr>
-            <tr><td>Beban Usaha</td><td>Rp 34,2 M</td><td>Rp 103,2 M</td><td><span class="bd">PERHATIAN</span></td></tr>
-            <tr><td>Laba Usaha</td><td>Rp 5,2 M</td><td>Rp &minus;2,1 M</td><td><span class="bu">OUTPERFORM</span></td></tr>
-            <tr><td>EBITDA</td><td>Rp 5,2 M</td><td>Rp 3,0 M</td><td><span class="bu">OUTPERFORM</span></td></tr>
-            <tr><td>Bongkar Kapal</td><td>7,69 B/S/H</td><td>8,00</td><td><span class="bd">BAWAH RKAP</span></td></tr>
-            <tr><td>Bongkar Crane</td><td>12,81 B/C/H</td><td>12,00</td><td><span class="bu">ATAS RKAP</span></td></tr>
-            <tr><td>ET/BT</td><td>46,82%</td><td>54,00%</td><td><span class="bd">BAWAH RKAP</span></td></tr>
-            <tr><td>Arus Petikemas</td><td>18.284 TEUs</td><td>52.465 TEUs</td><td><span class="bu">ON TRACK</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="ukiran-row"></div>
-
-<!-- SDM SPLIT -->
-<section id="sdm" style="background:var(--off-white);">
-  <div class="photo-split rev">
-    <div class="ps-photo">
-      <img src='foto-s5-sdm.jpg' alt="Tim Pelindo TPK Merauke">
-    </div>
-    <div class="ps-body" style="background:var(--off-white);">
-      <div class="section-eyebrow">05 &mdash; SDM</div>
-      <h2 class="section-title">Sumber Daya<br><em>Manusia</em></h2>
-      <div style="margin-bottom:1.5rem;">
-        <span style="font-family:'Futura',sans-serif;font-size:5rem;color:var(--navy);line-height:1;">67</span>
-        <span style="font-size:12px;color:var(--text-mt);letter-spacing:2px;text-transform:uppercase;margin-left:8px;">Total SDM</span>
-        <div style="font-size:12px;color:var(--text-mt);margin-top:4px;">RKAP 2026: 71 &middot; Real. Apr 2025: 60</div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:1.5rem;">
-        <div class="dc"><div class="dc-val">42</div><div class="dc-lbl">Operasional</div></div>
-        <div class="dc"><div class="dc-val">18</div><div class="dc-lbl">Penunjang</div></div>
-        <div class="dc"><div class="dc-val">7</div><div class="dc-lbl">Teknik</div></div>
-      </div>
-      <div class="org-row" style="border-left:3px solid var(--gold);">
-        <div class="org-av">MR</div>
-        <div>
-          <div class="org-name">Muhammad Rasul Irmadani</div>
-          <div class="org-role">Terminal Head &middot; ID 103547</div>
-          <div class="org-ph">rasulirmadani@pelindo.co.id &middot; 0821-2203-6751</div>
+      <div>
+        <div class="chart-shell-light">
+          <div class="chart-top">
+            <div>
+              <div class="chart-metric-num">52.715</div>
+              <div class="chart-metric-lbl">TEUs &mdash; 2025</div>
+            </div>
+            <div class="chart-trend">&#9650; +14% vs 2024</div>
+          </div>
+          <div class="chart-area" id="chartBars"></div>
+          <div class="chart-labels" id="chartLabels"></div>
+        </div>
+        <!-- Kapasitas bar visual -->
+        <div id="kapasitas" style="margin-top:1.5rem;">
+          <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-mt);margin-bottom:1rem;">Terminal Capacity (TEUs/thn)</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-sec);margin-bottom:3px;"><span>Shore Crane</span><span style="font-family:'Futura',sans-serif;color:var(--navy);">115.389</span></div>
+              <div style="background:var(--gray-200);border-radius:4px;height:8px;"><div style="width:100%;height:8px;background:var(--navy);border-radius:4px;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-sec);margin-bottom:3px;"><span>Yard Crane</span><span style="font-family:'Futura',sans-serif;color:var(--navy);">107.086</span></div>
+              <div style="background:var(--gray-200);border-radius:4px;height:8px;"><div style="width:92.8%;height:8px;background:var(--navy-mid);border-radius:4px;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-sec);margin-bottom:3px;"><span>Berth</span><span style="font-family:'Futura',sans-serif;color:var(--navy);">67.998</span></div>
+              <div style="background:var(--gray-200);border-radius:4px;height:8px;"><div style="width:58.9%;height:8px;background:var(--accent);border-radius:4px;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-sec);margin-bottom:3px;"><span>Yard</span><span style="font-family:'Futura',sans-serif;color:var(--navy);">54.811</span></div>
+              <div style="background:var(--gray-200);border-radius:4px;height:8px;"><div style="width:47.5%;height:8px;background:var(--accent-lt);border-radius:4px;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-sec);margin-bottom:3px;"><span>Gate RCV/DLV</span><span style="font-size:11px;color:#f87171;">Belum ada</span></div>
+              <div style="background:var(--gray-200);border-radius:4px;height:8px;"><div style="width:3%;height:8px;background:#f87171;border-radius:4px;"></div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -678,81 +650,368 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
 
 <div class="ukiran-row"></div>
 
-<!-- INFRASTRUKTUR -->
+<!-- ===== S4: PERFORMANCE — FULLBG dengan overlay navy, TANPA foto nyata ===== -->
+<section id="performance" style="background:var(--navy);padding:5rem 0;">
+  <div class="sec-wrap">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-eyebrow" style="color:var(--accent);">04 &mdash; Performance</div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:white;margin-bottom:.75rem;">Performance <em style="color:var(--accent);font-style:italic;">Highlights</em></h2>
+      <p style="font-size:14px;color:rgba(255,255,255,0.5);">Realisasi s.d. April 2026 &middot; Data Internal PTP</p>
+    </div>
+
+    <!-- KPI Cards row -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);border-radius:var(--r-lg);overflow:hidden;margin-bottom:2rem;">
+      <!-- Arus Petikemas -->
+      <div style="background:rgba(255,255,255,0.04);padding:2rem;text-align:center;">
+        <div style="margin:0 auto 1rem;width:44px;height:44px;background:rgba(14,165,233,0.15);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div style="font-family:'Futura',sans-serif;font-size:2rem;color:white;line-height:1;margin-bottom:4px;">18.284</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase;">Arus Petikemas</div>
+        <div style="font-size:11px;color:var(--accent);margin-top:6px;">103% vs RKAP s.d. Apr</div>
+      </div>
+      <!-- Pendapatan -->
+      <div style="background:rgba(255,255,255,0.04);padding:2rem;text-align:center;">
+        <div style="margin:0 auto 1rem;width:44px;height:44px;background:rgba(14,165,233,0.15);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div style="font-family:'Futura',sans-serif;font-size:2rem;color:white;line-height:1;margin-bottom:4px;">Rp39,4M</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase;">Pendapatan</div>
+        <div style="font-size:11px;color:var(--accent);margin-top:6px;">RKAP 2026: Rp101,0M</div>
+      </div>
+      <!-- Laba Usaha -->
+      <div style="background:rgba(255,255,255,0.04);padding:2rem;text-align:center;">
+        <div style="margin:0 auto 1rem;width:44px;height:44px;background:rgba(34,197,94,0.15);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div style="font-family:'Futura',sans-serif;font-size:2rem;color:white;line-height:1;margin-bottom:4px;">Rp5,2M</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase;">Laba Usaha</div>
+        <div style="font-size:11px;color:#22c55e;margin-top:6px;">OUTPERFORM vs RKAP &minus;2,1M</div>
+      </div>
+      <!-- EBITDA -->
+      <div style="background:rgba(255,255,255,0.04);padding:2rem;text-align:center;">
+        <div style="margin:0 auto 1rem;width:44px;height:44px;background:rgba(34,197,94,0.15);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        </div>
+        <div style="font-family:'Futura',sans-serif;font-size:2rem;color:white;line-height:1;margin-bottom:4px;">Rp5,2M</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:1px;text-transform:uppercase;">EBITDA</div>
+        <div style="font-size:11px;color:#22c55e;margin-top:6px;">171% dari RKAP Rp3,0M</div>
+      </div>
+    </div>
+
+    <!-- Rasio & Kinerja Operasional -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;">
+      <!-- Operating Ratio & NPM -->
+      <div style="background:rgba(255,255,255,0.05);border-radius:var(--r-lg);padding:2rem;border:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;">Rasio Keuangan</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div style="text-align:center;background:rgba(255,255,255,0.04);border-radius:var(--r-md);padding:1.5rem;">
+            <div style="font-family:'Futura',sans-serif;font-size:2.2rem;color:var(--accent);line-height:1;">86,73%</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:6px;letter-spacing:.5px;">Operating Ratio</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.25);margin-top:3px;">RKAP 102,11%</div>
+          </div>
+          <div style="text-align:center;background:rgba(255,255,255,0.04);border-radius:var(--r-md);padding:1.5rem;">
+            <div style="font-family:'Futura',sans-serif;font-size:2.2rem;color:var(--accent);line-height:1;">13,27%</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:6px;letter-spacing:.5px;">Net Profit Margin</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.25);margin-top:3px;">RKAP &minus;2,11%</div>
+          </div>
+        </div>
+      </div>
+      <!-- Kinerja Operasional -->
+      <div style="background:rgba(255,255,255,0.05);border-radius:var(--r-lg);padding:2rem;border:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;">Kinerja Operasional &mdash; April 2026</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span style="font-size:12px;color:rgba(255,255,255,0.6);">Bongkar Kapal</span>
+            </div>
+            <div style="text-align:right;">
+              <span style="font-family:'Futura',sans-serif;color:white;">7,69 B/S/H</span>
+              <span class="bd" style="margin-left:8px;">RKAP 8,00</span>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span style="font-size:12px;color:rgba(255,255,255,0.6);">Bongkar Crane</span>
+            </div>
+            <div style="text-align:right;">
+              <span style="font-family:'Futura',sans-serif;color:white;">12,81 B/C/H</span>
+              <span class="bu" style="margin-left:8px;">RKAP 12,00</span>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span style="font-size:12px;color:rgba(255,255,255,0.6);">ET/BT</span>
+            </div>
+            <div style="text-align:right;">
+              <span style="font-family:'Futura',sans-serif;color:white;">46,82%</span>
+              <span class="bd" style="margin-left:8px;">RKAP 54,00%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabel KPI Lengkap -->
+    <div style="background:rgba(255,255,255,0.06);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r-lg);padding:2rem;overflow:auto;">
+      <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1rem;">Tabel KPI vs RKAP</div>
+      <table class="dt">
+        <thead><tr><th>Indikator</th><th>Realisasi Apr 2026</th><th>RKAP 2026</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Pendapatan Usaha</td><td>Rp 39,4 M</td><td>Rp 101,0 M</td><td><span class="bu">ON TRACK</span></td></tr>
+          <tr><td>Beban Usaha</td><td>Rp 34,2 M</td><td>Rp 103,2 M</td><td><span class="bd">PERHATIAN</span></td></tr>
+          <tr><td>Laba Usaha</td><td>Rp 5,2 M</td><td>Rp &minus;2,1 M</td><td><span class="bu">OUTPERFORM</span></td></tr>
+          <tr><td>EBITDA</td><td>Rp 5,2 M</td><td>Rp 3,0 M</td><td><span class="bu">OUTPERFORM</span></td></tr>
+          <tr><td>Bongkar Kapal</td><td>7,69 B/S/H</td><td>8,00</td><td><span class="bd">BAWAH RKAP</span></td></tr>
+          <tr><td>Bongkar Crane</td><td>12,81 B/C/H</td><td>12,00</td><td><span class="bu">ATAS RKAP</span></td></tr>
+          <tr><td>ET/BT</td><td>46,82%</td><td>54,00%</td><td><span class="bd">BAWAH RKAP</span></td></tr>
+          <tr><td>Arus Petikemas</td><td>18.284 TEUs</td><td>52.465 TEUs (RKAP s.d. Apr: 17.706)</td><td><span class="bu">ON TRACK</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="ukiran-row"></div>
+
+<!-- ===== S5: SDM — ICON-BASED, TANPA FOTO ===== -->
+<section id="sdm" class="sec-pad" style="background:var(--off-white);">
+  <div class="sec-wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+      <div>
+        <div class="section-eyebrow">05 &mdash; SDM</div>
+        <h2 class="section-title">Sumber Daya<br><em>Manusia</em></h2>
+        <!-- Total SDM dengan ikon -->
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:1.5rem;background:var(--white);border-radius:var(--r-lg);padding:1.5rem;border:1px solid var(--border);">
+          <div style="width:56px;height:56px;background:var(--accent-pale);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Futura',sans-serif;font-size:3rem;color:var(--navy);line-height:1;">66</div>
+            <div style="font-size:12px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;margin-top:2px;">Total SDM Aktif</div>
+            <div style="font-size:11px;color:var(--text-mt);">RKAP 2026: 71 &middot; Real. Apr 2025: 60</div>
+          </div>
+        </div>
+        <!-- Breakdown 3 grup -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:1.5rem;">
+          <div class="dc">
+            <div style="font-size:10px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Operasional</div>
+            <div class="dc-val">42</div>
+            <div class="dc-lbl">orang</div>
+          </div>
+          <div class="dc">
+            <div style="font-size:10px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Penunjang</div>
+            <div class="dc-val">18</div>
+            <div class="dc-lbl">orang</div>
+          </div>
+          <div class="dc">
+            <div style="font-size:10px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Teknik</div>
+            <div class="dc-val">5</div>
+            <div class="dc-lbl">orang</div>
+          </div>
+        </div>
+        <!-- Entitas non-SPTP -->
+        <div style="background:var(--white);border-radius:var(--r-md);padding:12px 16px;border:1px solid var(--border);font-size:12px;color:var(--text-sec);">
+          <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mt);margin-bottom:8px;">Entitas Pelindo Non SPTP</div>
+          <div style="display:flex;gap:2rem;">
+            <div><strong>BIMA:</strong> Site Manager 1, Mekanik 6, Admin 1 = 8 org</div>
+            <div><strong>LEGI:</strong> Staff 1 = 1 org</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <!-- Pimpinan Terminal -->
+        <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-mt);margin-bottom:1rem;">Pimpinan Terminal</div>
+        <div class="org-row" style="border-left:3px solid var(--accent);margin-bottom:1rem;">
+          <div class="org-av">MR</div>
+          <div>
+            <div class="org-name">Muhammad Rasul Irmadani</div>
+            <div class="org-role">Terminal Head &middot; ID 103547</div>
+            <div class="org-ph">rasulirmadani@pelindo.co.id &middot; 0821-2203-6751</div>
+          </div>
+        </div>
+        <!-- Manager -->
+        <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-mt);margin-bottom:.75rem;margin-top:1.5rem;">Manager</div>
+        <div class="org-row">
+          <div class="org-av" style="font-size:10px;">YY</div>
+          <div>
+            <div class="org-name">Yacobus Yusuf Yingin</div>
+            <div class="org-role">Manager Operasi &middot; ID 105024</div>
+            <div class="org-ph">Yacobus@Pelindo.co.id &middot; 0821-9454-5456</div>
+          </div>
+        </div>
+        <div class="org-row">
+          <div class="org-av" style="font-size:10px;">AR</div>
+          <div>
+            <div class="org-name">Aam Eka Rahmatioko</div>
+            <div class="org-role">Manager Penunjang Operasi &middot; ID 106803</div>
+            <div class="org-ph">aamet@pelindo.co.id &middot; 0821-9927-2945</div>
+          </div>
+        </div>
+        <div class="org-row">
+          <div class="org-av" style="font-size:10px;">SN</div>
+          <div>
+            <div class="org-name">Silvester Rogabe Naibaho</div>
+            <div class="org-role">Manager Teknik &middot; ID 105792</div>
+            <div class="org-ph">Gabe@Pelindo.co.id &middot; 0821-8211-3134</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ukiran-row"></div>
+
+<!-- ===== S6: INFRASTRUKTUR — ICON-BASED ===== -->
 <section id="infrastruktur" class="sec-pad" style="background:var(--white);">
   <div class="sec-wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
-      <div>
-        <div class="section-eyebrow">06 &mdash; Infrastruktur</div>
-        <h2 class="section-title">Infrastruktur<br><em>Terminal</em></h2>
-        <p class="section-desc" style="margin-bottom:1.5rem;">Fasilitas dermaga dan lapangan penumpukan TPK Merauke.</p>
-        <div class="infra-grid" style="grid-template-columns:1fr 1fr;gap:12px;">
-          <div class="infra-card"><div class="infra-lbl">Panjang Dermaga</div><div class="infra-val">335</div><div class="infra-unit">Meter</div></div>
-          <div class="infra-card"><div class="infra-lbl">Lebar Dermaga</div><div class="infra-val">20</div><div class="infra-unit">Meter</div></div>
-          <div class="infra-card"><div class="infra-lbl">Draft / Kedalaman</div><div class="infra-val">&minus;5</div><div class="infra-unit">mLWS</div></div>
-          <div class="infra-card"><div class="infra-lbl">Container Yard</div><div class="infra-val">1,9</div><div class="infra-unit">Hektare</div></div>
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-eyebrow">06 &mdash; Infrastruktur</div>
+      <h2 class="section-title">Infrastruktur <em>Terminal</em></h2>
+      <p class="section-desc" style="margin:0 auto;">Fasilitas dermaga dan lapangan penumpukan TPK Merauke.</p>
+    </div>
+    <!-- 4 infra cards dengan ikon SVG -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:900px;margin:0 auto 2rem;">
+      <!-- Panjang Dermaga -->
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;border-top:3px solid var(--accent);text-align:center;">
+        <div style="width:44px;height:44px;background:var(--accent-pale);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </div>
-        <div style="margin-top:1rem;background:var(--gold-pale);border:1px solid rgba(255,184,0,0.25);border-radius:var(--r-md);padding:12px 16px;font-size:12px;color:var(--navy);">
-          &#128205; 8&deg;29&#39;35&#34;S &middot; 140&deg;21&#39;59&#34;E &nbsp;&middot;&nbsp; WIT (UTC+9)
-          <span style="color:var(--text-mt);margin-left:8px;">&#9888; Gate RCV/DLV belum tersedia</span>
+        <div style="font-family:'Futura',sans-serif;font-size:2rem;color:var(--navy);line-height:1;margin-bottom:4px;">335</div>
+        <div style="font-size:10px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;">Meter</div>
+        <div style="font-size:12px;color:var(--text-sec);margin-top:6px;">Panjang Dermaga</div>
+      </div>
+      <!-- Lebar -->
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;border-top:3px solid var(--accent);text-align:center;">
+        <div style="width:44px;height:44px;background:var(--accent-pale);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
         </div>
+        <div style="font-family:'Futura',sans-serif;font-size:2rem;color:var(--navy);line-height:1;margin-bottom:4px;">20</div>
+        <div style="font-size:10px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;">Meter</div>
+        <div style="font-size:12px;color:var(--text-sec);margin-top:6px;">Lebar Dermaga</div>
       </div>
-      <div style="border-radius:var(--r-xl);overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,0.12);height:380px;">
-        <img src='foto-s6-infra.jpg' alt="Gate Pelabuhan Merauke" style="width:100%;height:100%;object-fit:cover;">
+      <!-- Draft -->
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;border-top:3px solid var(--accent);text-align:center;">
+        <div style="width:44px;height:44px;background:var(--accent-pale);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M2 12c0 5.523 4.477 10 10 10s10-4.477 10-10"/><path d="M12 2v20"/></svg>
+        </div>
+        <div style="font-family:'Futura',sans-serif;font-size:2rem;color:var(--navy);line-height:1;margin-bottom:4px;">&minus;5</div>
+        <div style="font-size:10px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;">mLWS</div>
+        <div style="font-size:12px;color:var(--text-sec);margin-top:6px;">Draft / Kedalaman</div>
       </div>
+      <!-- CY -->
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;border-top:3px solid var(--accent);text-align:center;">
+        <div style="width:44px;height:44px;background:var(--accent-pale);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div style="font-family:'Futura',sans-serif;font-size:2rem;color:var(--navy);line-height:1;margin-bottom:4px;">1,9</div>
+        <div style="font-size:10px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;">Hektare</div>
+        <div style="font-size:12px;color:var(--text-sec);margin-top:6px;">Container Yard</div>
+      </div>
+    </div>
+    <!-- Koordinat & Catatan -->
+    <div style="max-width:900px;margin:0 auto;background:var(--accent-pale);border:1px solid rgba(14,165,233,0.2);border-radius:var(--r-md);padding:14px 20px;font-size:12px;color:var(--navy);display:flex;align-items:center;gap:10px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      8&deg;29&#39;35&quot;S &middot; 140&deg;21&#39;59&quot;E &nbsp;&middot;&nbsp; WIT (UTC+9)
+      <span style="color:var(--text-mt);margin-left:8px;">&#9888; Gate RCV/DLV belum tersedia</span>
     </div>
   </div>
 </section>
 
 <div class="ukiran-row"></div>
 
-<!-- PERALATAN FULLBG -->
-<section id="peralatan" class="fullbg">
-  <div class="fullbg-img" style="background-image:url('foto-s7-alat.jpg');"></div>
-  <div class="fullbg-ov" style="background:linear-gradient(160deg,rgba(10,22,40,0.9) 0%,rgba(10,22,40,0.72) 60%,rgba(10,22,40,0.9) 100%);"></div>
-  <div class="fullbg-content">
-    <div style="display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:start;">
-      <div>
-        <div class="section-eyebrow">07 &mdash; Peralatan</div>
-        <h2 style="font-family:'DM Serif Display',serif;font-size:2.2rem;color:white;line-height:1.2;margin-bottom:1rem;">Peralatan<br><em style="color:var(--gold);font-style:italic;">Terminal</em></h2>
-        <p style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.8;margin-bottom:1rem;">Total 18 unit aktif</p>
-        <div style="background:rgba(220,50,50,0.08);border:1px solid rgba(220,50,50,0.15);border-radius:var(--r-sm);padding:10px 14px;font-size:11px;color:rgba(255,150,150,0.7);">
-          &#9888; Perlu: QCC, RTG, Side Loader
+<!-- ===== S7: PERALATAN — ICON-BASED, TANPA FOTO ===== -->
+<section id="peralatan" style="background:var(--navy);padding:5rem 0;">
+  <div class="sec-wrap">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="section-eyebrow" style="color:var(--accent);">07 &mdash; Peralatan</div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:white;margin-bottom:.75rem;">Peralatan <em style="color:var(--accent);font-style:italic;">Terminal</em></h2>
+      <p style="font-size:14px;color:rgba(255,255,255,0.45);">Total 18 unit aktif &middot; Perlu: QCC, RTG, Side Loader tambahan</p>
+    </div>
+    <!-- Grid alat dengan ikon SVG inline -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:800px;margin:0 auto 1.5rem;">
+      <!-- Fixed Crane -->
+      <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:20px;display:flex;align-items:center;gap:14px;">
+        <div style="width:44px;height:44px;background:rgba(14,165,233,0.15);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Futura',sans-serif;font-size:2rem;color:white;line-height:1;">2</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px;">Fixed Crane</div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-        <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:14px;display:flex;align-items:center;gap:10px;">
-          <span style="font-size:20px;">&#127959;</span>
-          <div><div style="font-family:'Futura',sans-serif;font-size:22px;color:var(--gold);line-height:1;">2</div><div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div><div style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:2px;">Fixed Crane</div></div>
+      <!-- Reach Stacker -->
+      <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:20px;display:flex;align-items:center;gap:14px;">
+        <div style="width:44px;height:44px;background:rgba(14,165,233,0.15);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:14px;display:flex;align-items:center;gap:10px;">
-          <span style="font-size:20px;">&#128740;</span>
-          <div><div style="font-family:'Futura',sans-serif;font-size:22px;color:var(--gold);line-height:1;">4</div><div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div><div style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:2px;">Reach Stacker</div></div>
-        </div>
-        <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:14px;display:flex;align-items:center;gap:10px;">
-          <span style="font-size:20px;">&#9881;</span>
-          <div><div style="font-family:'Futura',sans-serif;font-size:22px;color:var(--gold);line-height:1;">1</div><div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div><div style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:2px;">Side Loader</div></div>
-        </div>
-        <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:14px;display:flex;align-items:center;gap:10px;">
-          <span style="font-size:20px;">&#9945;</span>
-          <div><div style="font-family:'Futura',sans-serif;font-size:22px;color:var(--gold);line-height:1;">3</div><div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div><div style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:2px;">Forklift</div></div>
-        </div>
-        <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:14px;display:flex;align-items:center;gap:10px;">
-          <span style="font-size:20px;">&#128666;</span>
-          <div><div style="font-family:'Futura',sans-serif;font-size:22px;color:var(--gold);line-height:1;">5</div><div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div><div style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:2px;">Head Truck</div></div>
-        </div>
-        <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:14px;display:flex;align-items:center;gap:10px;">
-          <span style="font-size:20px;">&#128667;</span>
-          <div><div style="font-family:'Futura',sans-serif;font-size:22px;color:var(--gold);line-height:1;">3</div><div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div><div style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:2px;">Tronton</div></div>
+        <div>
+          <div style="font-family:'Futura',sans-serif;font-size:2rem;color:white;line-height:1;">4</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px;">Reach Stacker</div>
         </div>
       </div>
+      <!-- Side Loader -->
+      <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:20px;display:flex;align-items:center;gap:14px;">
+        <div style="width:44px;height:44px;background:rgba(14,165,233,0.15);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="2" ry="2"/><circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Futura',sans-serif;font-size:2rem;color:white;line-height:1;">1</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px;">Side Loader</div>
+        </div>
+      </div>
+      <!-- Forklift -->
+      <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:20px;display:flex;align-items:center;gap:14px;">
+        <div style="width:44px;height:44px;background:rgba(14,165,233,0.15);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10l4 6-4 6H9m0-12v12m4-6h.01M5 7H1m4 4H1"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Futura',sans-serif;font-size:2rem;color:white;line-height:1;">3</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px;">Forklift</div>
+        </div>
+      </div>
+      <!-- Head Truck -->
+      <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:20px;display:flex;align-items:center;gap:14px;">
+        <div style="width:44px;height:44px;background:rgba(14,165,233,0.15);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Futura',sans-serif;font-size:2rem;color:white;line-height:1;">5</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px;">Head Truck</div>
+        </div>
+      </div>
+      <!-- Tronton -->
+      <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);padding:20px;display:flex;align-items:center;gap:14px;">
+        <div style="width:44px;height:44px;background:rgba(14,165,233,0.15);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="22" height="12" rx="2"/><circle cx="6" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Futura',sans-serif;font-size:2rem;color:white;line-height:1;">3</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;">unit</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px;">Tronton</div>
+        </div>
+      </div>
+    </div>
+    <!-- Alert kebutuhan alat -->
+    <div style="max-width:800px;margin:0 auto;background:rgba(220,50,50,0.08);border:1px solid rgba(220,50,50,0.2);border-radius:var(--r-sm);padding:12px 16px;font-size:12px;color:rgba(255,150,150,0.8);display:flex;align-items:center;gap:8px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(248,113,113,0.8)" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Kebutuhan pengembangan: QCC, RTG, Side Loader tambahan untuk meningkatkan kapasitas operasional
     </div>
   </div>
 </section>
 
 <div class="ukiran-row"></div>
 
-<!-- HINTERLAND -->
+<!-- ===== S8: HINTERLAND ===== -->
 <section id="hinterland" class="sec-pad" style="background:var(--white);">
   <div class="sec-wrap">
     <div style="text-align:center;margin-bottom:3rem;">
@@ -761,7 +1020,12 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;">
       <div>
-        <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Rute Pelayaran</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;">
+          <div style="width:28px;height:28px;background:var(--accent-pale);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><path d="M3 12h18M3 12l6-6M3 12l6 6"/></svg>
+          </div>
+          <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);">Rute Pelayaran</div>
+        </div>
         <ul class="hl-list">
           <li class="hl-item"><span class="hl-dot"></span><span><strong>SPIL</strong> &mdash; Surabaya &rarr; Makassar &rarr; Timika &rarr; Merauke</span></li>
           <li class="hl-item"><span class="hl-dot"></span><span><strong>Tanto</strong> &mdash; Surabaya &rarr; Makassar &rarr; Tual &rarr; Timika &rarr; Merauke</span></li>
@@ -770,33 +1034,44 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
         </ul>
       </div>
       <div>
-        <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Komoditas</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;">
+          <div style="width:28px;height:28px;background:var(--accent-pale);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);">Komoditas</div>
+        </div>
         <div style="font-size:11px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem;">Inbound</div>
         <ul class="hl-list">
           <li class="hl-item"><span class="hl-dot" style="background:var(--navy-lt)"></span>General Cargo &middot; Pupuk</li>
           <li class="hl-item"><span class="hl-dot" style="background:var(--navy-lt)"></span>Makanan &amp; Minuman</li>
           <li class="hl-item"><span class="hl-dot" style="background:var(--navy-lt)"></span>Semen, Material, Besi</li>
+          <li class="hl-item"><span class="hl-dot" style="background:var(--navy-lt)"></span>Alat Berat &amp; Elektronik</li>
         </ul>
         <div style="font-size:11px;color:var(--text-mt);letter-spacing:1px;text-transform:uppercase;margin:1rem 0 .5rem;">Outbound</div>
         <ul class="hl-list">
           <li class="hl-item"><span class="hl-dot"></span>Besi Tua &middot; Ikan Beku</li>
-          <li class="hl-item"><span class="hl-dot"></span>Minyak CPO, Kopra</li>
+          <li class="hl-item"><span class="hl-dot"></span>Minyak CPO, Kopra, Kernel</li>
           <li class="hl-item"><span class="hl-dot"></span>LPG &middot; Beras</li>
         </ul>
       </div>
       <div>
-        <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Top 10 JPT Customer</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;">
+          <div style="width:28px;height:28px;background:var(--accent-pale);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div style="font-family:'Futura',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);">Top 10 JPT Customer</div>
+        </div>
         <ul class="hl-list">
-          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--gold);font-size:11px;min-width:18px;">1</span>Berkah Mutiara Laut</li>
-          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--gold);font-size:11px;min-width:18px;">2</span>Jamarindo Sapta</li>
-          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--gold);font-size:11px;min-width:18px;">3</span>Lascar Utama Indah</li>
-          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--gold);font-size:11px;min-width:18px;">4</span>Karya Baruna Raya</li>
-          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--gold);font-size:11px;min-width:18px;">5</span>Lintas Papua Jaya</li>
-          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--gold);font-size:11px;min-width:18px;">6</span>Irian Jaya Purnama</li>
-          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--gold);font-size:11px;min-width:18px;">7</span>Hamlie Bersatu Sukses</li>
-          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--gold);font-size:11px;min-width:18px;">8</span>Jayanata Samudera</li>
-          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--gold);font-size:11px;min-width:18px;">9</span>Poleko Padaidi Jaya</li>
-          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--gold);font-size:11px;min-width:18px;">10</span>Bilba Alfatih Cargo</li>
+          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--accent);font-size:11px;min-width:18px;">1</span>Berkah Mutiara Laut</li>
+          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--accent);font-size:11px;min-width:18px;">2</span>Jamarindo Sapta</li>
+          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--accent);font-size:11px;min-width:18px;">3</span>Lascar Utama Indah</li>
+          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--accent);font-size:11px;min-width:18px;">4</span>Karya Baruna Raya</li>
+          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--accent);font-size:11px;min-width:18px;">5</span>Lintas Papua Jaya</li>
+          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--accent);font-size:11px;min-width:18px;">6</span>Irian Jaya Purnama</li>
+          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--accent);font-size:11px;min-width:18px;">7</span>Hamlie Bersatu Sukses</li>
+          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--accent);font-size:11px;min-width:18px;">8</span>Jayanata Samudera</li>
+          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--accent);font-size:11px;min-width:18px;">9</span>Poleko Padaidi Jaya</li>
+          <li class="hl-item"><span style="font-family:'Futura',sans-serif;color:var(--accent);font-size:11px;min-width:18px;">10</span>Bilba Alfatih Cargo</li>
         </ul>
       </div>
     </div>
@@ -805,57 +1080,7 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
 
 <div class="ukiran-row"></div>
 
-<!-- FASILITAS -->
-<section class="sec-pad bg-gray">
-  <div class="sec-wrap">
-    <div style="text-align:center;margin-bottom:3rem;">
-      <div class="section-eyebrow">Layanan &amp; Fasilitas</div>
-      <h2 class="section-title">Apa yang Kami <em>Tawarkan</em></h2>
-    </div>
-    <div class="fasil-grid">
-      <div class="fasil-card">
-        <div class="fasil-icon">&#9875;</div>
-        <div class="fasil-title">Bongkar Muat</div>
-        <div class="fasil-desc">Layanan stevedoring menggunakan Fixed Crane kapasitas tinggi untuk semua jenis petikemas domestik.</div>
-        <div class="fasil-tag">Fixed Crane 2 unit</div>
-      </div>
-      <div class="fasil-card">
-        <div class="fasil-icon">&#128203;</div>
-        <div class="fasil-title">Penumpukan CY</div>
-        <div class="fasil-desc">Container yard seluas 1,9 hektare dengan kapasitas 54.811 TEUs per tahun, terorganisir di Lini 1 dan Lini 2.</div>
-        <div class="fasil-tag">1,9 Ha &middot; 2 Lini</div>
-      </div>
-      <div class="fasil-card">
-        <div class="fasil-icon">&#128230;</div>
-        <div class="fasil-title">Stripping &amp; Stuffing</div>
-        <div class="fasil-desc">Layanan stripping dan stuffing petikemas dengan fasilitas gudang yang mendukung proses bongkar muat barang.</div>
-        <div class="fasil-tag">Layanan Aktif</div>
-      </div>
-      <div class="fasil-card">
-        <div class="fasil-icon">&#128717;</div>
-        <div class="fasil-title">Transportasi Internal</div>
-        <div class="fasil-desc">Armada head truck dan tronton untuk pergerakan petikemas di dalam area terminal secara efisien.</div>
-        <div class="fasil-tag">5 Head Truck &middot; 3 Tronton</div>
-      </div>
-      <div class="fasil-card">
-        <div class="fasil-icon">&#128187;</div>
-        <div class="fasil-title">Sistem Monitoring</div>
-        <div class="fasil-desc">Ruang kontrol dengan CCTV dan sistem monitoring operasional terminal berbasis digital terintegrasi.</div>
-        <div class="fasil-tag">24/7 Monitoring</div>
-      </div>
-      <div class="fasil-card">
-        <div class="fasil-icon">&#9875;</div>
-        <div class="fasil-title">Dermaga Multi-purpose</div>
-        <div class="fasil-desc">Dermaga 335 meter melayani kapal petikemas, kapal penumpang, dan kapal non-petikemas secara bersamaan.</div>
-        <div class="fasil-tag">335 m &middot; Draft &minus;5 mLWS</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="ukiran-row"></div>
-
-<!-- TARIFF -->
+<!-- ===== S9: TARIFF ===== -->
 <section id="tariff" class="sec-pad" style="background:var(--white);">
   <div class="sec-wrap">
     <div style="display:grid;grid-template-columns:240px 1fr;gap:4rem;align-items:start;">
@@ -888,9 +1113,9 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
           <table class="tariff-tbl">
             <thead><tr><th>Komponen</th><th>20"F</th><th>40"F</th><th>20"E</th><th>40"E</th></tr></thead>
             <tbody>
-              <tr><td>TKBM</td><td>924 rb</td><td>1,2 Jt</td><td>—</td><td>—</td></tr>
-              <tr><td>Jasa PBM</td><td>396 rb</td><td>464 rb</td><td>—</td><td>—</td></tr>
-              <tr class="sub"><td>Total</td><td>1,3 Jt</td><td>1,7 Jt</td><td>—</td><td>—</td></tr>
+              <tr><td>TKBM</td><td>924 rb</td><td>1,2 Jt</td><td>&mdash;</td><td>&mdash;</td></tr>
+              <tr><td>Jasa PBM</td><td>396 rb</td><td>464 rb</td><td>&mdash;</td><td>&mdash;</td></tr>
+              <tr class="sub"><td>Total</td><td>1,3 Jt</td><td>1,7 Jt</td><td>&mdash;</td><td>&mdash;</td></tr>
             </tbody>
           </table>
         </div>
@@ -902,12 +1127,18 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
               <tr><td>Lolo</td><td>125 rb</td><td>187 rb</td><td>60 rb</td><td>90 rb</td></tr>
               <tr><td>Haulage</td><td>90 rb</td><td>135 rb</td><td>40 rb</td><td>60 rb</td></tr>
               <tr><td>Dermaga</td><td>60 rb</td><td>90 rb</td><td>30 rb</td><td>46 rb</td></tr>
-              <tr><td>Kebersihan</td><td>6 rb</td><td>6 rb</td><td>—</td><td>—</td></tr>
+              <tr><td>Kebersihan</td><td>6 rb</td><td>6 rb</td><td>&mdash;</td><td>&mdash;</td></tr>
               <tr><td>Listrik</td><td>7 rb</td><td>7 rb</td><td>3 rb</td><td>3 rb</td></tr>
-              <tr><td>Relokasi</td><td>200 rb</td><td>350 rb</td><td>—</td><td>—</td></tr>
-              <tr><td>Penumpukan</td><td>15 rb</td><td>45 rb</td><td>—</td><td>—</td></tr>
-              <tr class="sub"><td>Sub Total</td><td>503 rb</td><td>821 rb</td><td>133 rb</td><td>199 rb</td></tr>
-              <tr class="grand"><td>TOTAL SEMUA</td><td>3,1 Jt</td><td>4,7 Jt</td><td>619 rb</td><td>983 rb</td></tr>
+              <tr><td>Relokasi</td><td>200 rb</td><td>350 rb</td><td>&mdash;</td><td>&mdash;</td></tr>
+              <tr><td>Penumpukan</td><td>15 rb</td><td>45 rb</td><td>&mdash;</td><td>&mdash;</td></tr>
+              <tr class="sub"><td>Total</td><td>503 rb</td><td>821 rb</td><td>133 rb</td><td>199 rb</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tariff-block">
+          <table class="tariff-tbl">
+            <tbody>
+              <tr class="grand"><td>Total All Komponen</td><td>3,1 Jt</td><td>4,7 Jt</td><td>619 rb</td><td>983 rb</td></tr>
             </tbody>
           </table>
         </div>
@@ -918,45 +1149,7 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
 
 <div class="ukiran-row"></div>
 
-<!-- TESTIMONIAL -->
-<section class="sec-pad bg-gray">
-  <div class="sec-wrap">
-    <div style="text-align:center;margin-bottom:3rem;">
-      <div class="section-eyebrow">Testimoni</div>
-      <h2 class="section-title">Dipercaya oleh <em>Pelaku Industri</em></h2>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-quote">&ldquo;</div>
-        <p class="testi-text">Layanan yang konsisten dan waktu sandar yang tepat menjadi andalan kami. Terminal ini memahami kebutuhan operator kapal dengan sangat baik.</p>
-        <div class="testi-author">
-          <div class="testi-av">AB</div>
-          <div><div class="testi-name">Ahmad Basri</div><div class="testi-role">Port Captain &mdash; PT Samudera Shipping</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote">&ldquo;</div>
-        <p class="testi-text">Proses gate in yang cepat dan integrasi sistem yang baik membuat trucking kami jauh lebih efisien. BCH yang konsisten sangat membantu jadwal distribusi.</p>
-        <div class="testi-author">
-          <div class="testi-av">SR</div>
-          <div><div class="testi-name">Susi Rahayu</div><div class="testi-role">Logistics Manager &mdash; PT Indo Freight</div></div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote">&ldquo;</div>
-        <p class="testi-text">Transparansi data dan respon customer service yang cepat memberikan kepercayaan penuh. Terminal ini standarnya sudah benar-benar kelas dunia.</p>
-        <div class="testi-author">
-          <div class="testi-av">DW</div>
-          <div><div class="testi-name">Dwi Wulandari</div><div class="testi-role">Supply Chain Director &mdash; PT Mega Ekspor</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="ukiran-row"></div>
-
-<!-- KONTAK -->
+<!-- ===== S10: KONTAK ===== -->
 <section id="kontak" class="sec-pad" style="background:var(--white);">
   <div class="sec-wrap">
     <div style="text-align:center;margin-bottom:3rem;">
@@ -972,7 +1165,7 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
         </div>
         <div class="kontak-info-item">
           <div class="kontak-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg></div>
-          <div><div class="kontak-info-title">Telepon</div><div class="kontak-info-val">0821-2203-6751 (Terminal Head)</div></div>
+          <div><div class="kontak-info-title">Telepon</div><div class="kontak-info-val">0821-2203-6751 (Muhammad Rasul Irmadani &mdash; Terminal Head)</div></div>
         </div>
         <div class="kontak-info-item">
           <div class="kontak-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
@@ -1013,7 +1206,7 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
   <h2>Mulai kerjasama dengan terminal kami</h2>
   <p>Hubungi tim kami untuk informasi tarif, jadwal, dan layanan yang disesuaikan dengan kebutuhan Anda.</p>
   <div class="cta-actions">
-    <a href="#kontak" class="btn-cta-gold">Hubungi Sekarang</a>
+    <a href="#kontak" class="btn-cta-accent">Hubungi Sekarang</a>
     <a href="#traffic" class="btn-cta-outline">Lihat Performa &rarr;</a>
   </div>
 </div>
@@ -1062,7 +1255,7 @@ footer{background:var(--navy);color:white;padding:4rem 2.5rem 2rem;}
 </footer>
 
 <script>
-// Chart Traffic
+// ===== CHART TRAFFIC =====
 const data = [
   {m:'2020',v:39251},{m:'2021',v:40292},{m:'2022',v:40464},
   {m:'2023',v:40671},{m:'2024',v:46429},{m:'2025',v:52715}
