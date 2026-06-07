@@ -1030,7 +1030,12 @@ footer {
      SECTION 1: HERO
      ============================================================ -->
 <section id="hero">
-  <div class="hero-ring"></div>
+  <!-- Foto background hero — hanya foto di halaman ini -->
+  <div class="hero-photo" style="position:absolute;inset:0;background-image:url('foto-s1-hero.jpg');background-size:cover;background-position:center 40%;filter:brightness(0.38) saturate(0.75);transform:scale(1.03);z-index:0;"></div>
+  <!-- Overlay gradien navy -->
+  <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,32,96,0.70) 0%,rgba(6,13,26,0.50) 50%,rgba(6,13,26,0.80) 100%);z-index:0;"></div>
+  <!-- Fade ke bawah -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(transparent,var(--bg-primary));z-index:1;"></div>
   <div class="hero-ring"></div>
   <div class="hero-ring"></div>
   <div class="hero-ring"></div>
@@ -1075,13 +1080,16 @@ footer {
      ============================================================ -->
 <section id="about" class="section section-alt">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-left">
+    <!-- Split layout: kiri teks, kanan foto besar dengan stats overlay -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+
+      <!-- KIRI: Teks + footprint -->
+      <div>
         <div class="reveal">
           <p class="section-label">Terminal Overview</p>
           <h2 class="section-title">TPK Merauke<br><span class="grad-text">at a Glance</span></h2>
-          <p>Terminal Petikemas Merauke (TPK Merauke) is the sole container terminal serving the easternmost city of Indonesia. Strategically positioned at the southern coast of Papua, it is the primary logistics gateway for Merauke and the broader South Papua province.</p>
-          <p style="margin-top:14px;">Under Pelindo Terminal Petikemas — a subsidiary of PT Pelabuhan Indonesia (Persero) / Danantara — TPK Merauke has achieved consistent double-digit throughput growth, reaching <strong style="color:var(--accent-lt)">52,715 TEUs</strong> in 2025 (+14% YoY), outperforming its RKAP target.</p>
+          <p style="color:var(--text-muted);margin-top:18px;font-size:1.02rem;line-height:1.8;">Terminal Petikemas Merauke (TPK Merauke) is the sole container terminal serving the easternmost city of Indonesia. Strategically positioned at the southern coast of Papua, it is the primary logistics gateway for Merauke and the broader South Papua province.</p>
+          <p style="color:var(--text-muted);margin-top:14px;font-size:1.02rem;line-height:1.8;">Under Pelindo Terminal Petikemas — a subsidiary of PT Pelabuhan Indonesia (Persero) / Danantara — TPK Merauke has achieved consistent double-digit throughput growth, reaching <strong style="color:var(--accent-lt)">52,715 TEUs</strong> in 2025 (+14% YoY), outperforming its RKAP target.</p>
         </div>
         <div class="footprint-box reveal reveal-delay-1">
           <div class="footprint-title">Pelindo Terminal Petikemas — National Footprint</div>
@@ -1105,37 +1113,38 @@ footer {
           </div>
         </div>
       </div>
-      <div class="reveal reveal-delay-2">
-        <div class="stat-grid">
-          <div class="stat-card">
-            <div class="stat-card-num">335 m</div>
-            <div class="stat-card-label">Berth Length</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card-num">−5 mLWS</div>
-            <div class="stat-card-label">Draught</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card-num">1.9 ha</div>
-            <div class="stat-card-label">Container Yard</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card-num">24/7</div>
-            <div class="stat-card-label">Operations (WIT)</div>
+
+      <!-- KANAN: Foto besar dengan stat cards floating overlay -->
+      <div class="reveal reveal-delay-2" style="position:relative;">
+        <!-- Foto utama -->
+        <div style="border-radius:20px;overflow:hidden;position:relative;height:480px;box-shadow:0 32px 80px rgba(0,0,0,0.5);">
+          <img src="foto-s2-traffic.jpg" alt="TPK Merauke Operations"
+               style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);transition:transform 0.7s ease;">
+          <!-- Gradient overlay bawah -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(transparent,rgba(6,13,26,0.92));"></div>
+          <!-- Stats overlay di bawah foto -->
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+            <div style="background:rgba(255,255,255,0.06);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 10px;text-align:center;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,var(--accent-lt),var(--teal-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">335 m</div>
+              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);margin-top:4px;letter-spacing:0.04em;">Berth Length</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.06);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 10px;text-align:center;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,var(--accent-lt),var(--teal-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">−5 mLWS</div>
+              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);margin-top:4px;letter-spacing:0.04em;">Draught</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.06);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 10px;text-align:center;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;background:linear-gradient(135deg,var(--accent-lt),var(--teal-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">1.9 ha</div>
+              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);margin-top:4px;letter-spacing:0.04em;">Container Yard</div>
+            </div>
           </div>
         </div>
-        <div style="margin-top:14px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:20px 22px;">
-          <div class="section-label" style="margin-bottom:10px;">Operating Status</div>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <div style="width:8px;height:8px;border-radius:50%;background:var(--success);animation:blink 2s infinite;flex-shrink:0;"></div>
-            <span style="font-size:0.88rem;color:var(--text-primary);">Active · Domestic Container Terminal</span>
-          </div>
-          <div style="font-size:0.8rem;color:var(--text-muted);line-height:1.7;">
-            8°29'35"S · 140°21'59"E &nbsp;·&nbsp; WIT (UTC+9)<br>
-            <span style="color:var(--danger);">⚠</span> Gate RCV/DLV not yet available
-          </div>
+        <!-- Status badge floating top-right -->
+        <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:8px;background:rgba(6,13,26,0.75);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:6px 14px;">
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--success);animation:blink 2s infinite;flex-shrink:0;"></div>
+          <span style="font-size:0.7rem;color:rgba(255,255,255,0.8);font-weight:600;letter-spacing:0.05em;">ACTIVE · 24/7 WIT</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1145,85 +1154,238 @@ footer {
 <!-- ============================================================
      SECTION 3: HINTERLAND & SHIPPING ROUTES
      ============================================================ -->
-<section id="hinterland" class="section">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-label">Hinterland & Connectivity</p>
-      <h2 class="section-title">Shipping Routes &amp; <span class="grad-text">Trade Flows</span></h2>
-      <p class="section-sub">TPK Merauke connects South Papua to the national supply chain via four dedicated shipping lines.</p>
+<section id="hinterland" style="background:#F0F4F8;padding:0;overflow:hidden;">
+  <!-- Header strip -->
+  <div style="padding:clamp(40px,6vw,72px) 0 0;background:#F0F4F8;">
+    <div class="container">
+      <div class="reveal" style="max-width:560px;">
+        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#002060;margin-bottom:10px;">Hinterland &amp; Connectivity</p>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#0A1428;letter-spacing:-0.02em;line-height:1.2;margin-bottom:14px;">Shipping Routes &amp; <span style="color:#002060;">Trade Flows</span></h2>
+        <p style="font-size:1rem;color:#475569;line-height:1.75;">TPK Merauke connects South Papua to the national supply chain via four dedicated shipping lines from Surabaya.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Adaline-style split: numbered list kiri, visual panel kanan -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:560px;margin-top:40px;">
+
+    <!-- KIRI: Numbered route list -->
+    <div style="padding:clamp(28px,4vw,52px) clamp(20px,4vw,48px) clamp(28px,4vw,52px) max(24px,calc((100vw - 1200px)/2 + 48px));background:#F0F4F8;border-right:1px solid #D1D9E6;">
+
+      <!-- Route items — Adaline numbered style -->
+      <div id="routeList">
+
+        <div class="route-item active" data-route="0"
+             style="border-top:1px solid #D1D9E6;padding:20px 0;cursor:pointer;transition:all 0.25s;">
+          <div style="display:flex;gap:20px;align-items:flex-start;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:800;color:#002060;min-width:24px;padding-top:2px;transition:color 0.25s;">1</span>
+            <div style="flex:1;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;color:#0A1428;margin-bottom:0;transition:color 0.25s;">SPIL — Multi-stop Eastern Route</div>
+              <div class="route-desc" style="font-size:0.88rem;color:#475569;line-height:1.7;margin-top:10px;max-height:0;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;">
+                Surabaya → Makassar → Timika → <strong style="color:#002060;">Merauke</strong><br>
+                Primary inter-island container route linking South Papua to Sulawesi and East Java.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-item" data-route="1"
+             style="border-top:1px solid #D1D9E6;padding:20px 0;cursor:pointer;transition:all 0.25s;">
+          <div style="display:flex;gap:20px;align-items:flex-start;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:800;color:#94A3B8;min-width:24px;padding-top:2px;transition:color 0.25s;">2</span>
+            <div style="flex:1;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;color:#64748B;margin-bottom:0;transition:color 0.25s;">Tanto — Via Tual Loop</div>
+              <div class="route-desc" style="font-size:0.88rem;color:#475569;line-height:1.7;margin-top:0;max-height:0;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;">
+                Surabaya → Makassar → Tual → Timika → <strong style="color:#002060;">Merauke</strong><br>
+                Extended eastern loop connecting Maluku archipelago ports.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-item" data-route="2"
+             style="border-top:1px solid #D1D9E6;padding:20px 0;cursor:pointer;transition:all 0.25s;">
+          <div style="display:flex;gap:20px;align-items:flex-start;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:800;color:#94A3B8;min-width:24px;padding-top:2px;transition:color 0.25s;">3</span>
+            <div style="flex:1;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;color:#64748B;margin-bottom:0;transition:color 0.25s;">Temas Direct — Express Service</div>
+              <div class="route-desc" style="font-size:0.88rem;color:#475569;line-height:1.7;margin-top:0;max-height:0;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;">
+                Surabaya → <strong style="color:#002060;">Merauke</strong> (Direct)<br>
+                Fastest supply line for time-sensitive cargo direct from East Java.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="route-item" data-route="3"
+             style="border-top:1px solid #D1D9E6;border-bottom:1px solid #D1D9E6;padding:20px 0;cursor:pointer;transition:all 0.25s;">
+          <div style="display:flex;gap:20px;align-items:flex-start;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:800;color:#94A3B8;min-width:24px;padding-top:2px;transition:color 0.25s;">4</span>
+            <div style="flex:1;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:700;color:#64748B;margin-bottom:0;transition:color 0.25s;">Temas — Via Agats</div>
+              <div class="route-desc" style="font-size:0.88rem;color:#475569;line-height:1.7;margin-top:0;max-height:0;overflow:hidden;transition:max-height 0.4s ease, margin 0.3s ease;">
+                Surabaya → Agats → Timika → <strong style="color:#002060;">Merauke</strong><br>
+                Serves the Asmat regency before terminating at Merauke.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Komoditas grid bawah kiri -->
+      <div style="margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div>
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#002060;margin-bottom:12px;">Inbound</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="font-size:0.82rem;color:#334155;padding:6px 0;border-bottom:1px solid #D1D9E6;">📦 General Cargo</div>
+            <div style="font-size:0.82rem;color:#334155;padding:6px 0;border-bottom:1px solid #D1D9E6;">🌾 Fertilizer</div>
+            <div style="font-size:0.82rem;color:#334155;padding:6px 0;border-bottom:1px solid #D1D9E6;">🥫 Food &amp; Beverages</div>
+            <div style="font-size:0.82rem;color:#334155;padding:6px 0;border-bottom:1px solid #D1D9E6;">🧱 Cement &amp; Steel</div>
+            <div style="font-size:0.82rem;color:#334155;padding:6px 0;">🚜 Heavy Equipment</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#002060;margin-bottom:12px;">Outbound</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="font-size:0.82rem;color:#334155;padding:6px 0;border-bottom:1px solid #D1D9E6;">🔩 Scrap Iron</div>
+            <div style="font-size:0.82rem;color:#334155;padding:6px 0;border-bottom:1px solid #D1D9E6;">🐟 Frozen Fish</div>
+            <div style="font-size:0.82rem;color:#334155;padding:6px 0;border-bottom:1px solid #D1D9E6;">🫙 CPO · Copra · Kernel</div>
+            <div style="font-size:0.82rem;color:#334155;padding:6px 0;border-bottom:1px solid #D1D9E6;">🔵 LPG</div>
+            <div style="font-size:0.82rem;color:#334155;padding:6px 0;">🌾 Rice</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Active shipping routes -->
-    <div style="margin-top:36px;" class="reveal reveal-delay-1">
-      <p class="section-label" style="margin-bottom:16px;">Active Shipping Routes</p>
-      <div class="route-nodes">
-        <div class="route-node"><div class="route-node-label">Surabaya</div></div>
-        <div class="route-connector"></div>
-        <div class="route-node"><div class="route-node-label">Makassar</div></div>
-        <div class="route-connector"></div>
-        <div class="route-node"><div class="route-node-label">Timika</div></div>
-        <div class="route-connector"></div>
-        <div class="route-node"><div class="route-node-label" style="color:var(--accent-lt);border-color:var(--accent-border);">Merauke</div></div>
-        <div style="margin-left:16px;font-size:0.72rem;color:var(--text-muted);padding:4px 10px;background:rgba(8,145,178,0.08);border-radius:6px;border:1px solid rgba(8,145,178,0.2);">SPIL &amp; Tanto</div>
+    <!-- KANAN: Visual panel — Adaline-style dashed route diagram + customer list -->
+    <div id="routeVisualPanel" style="background:#F8FAFB;border-top:1px solid #D1D9E6;position:relative;overflow:hidden;padding:32px 40px;">
+
+      <!-- Top label tabs — seperti Adaline "Environment" cards -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:28px;" id="routeTabCards">
+        <div class="r-tab active" data-tab="0"
+             style="background:white;border:1px solid #CBD5E1;border-radius:10px;padding:12px 10px;cursor:pointer;transition:all 0.25s;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+          <div style="font-size:0.6rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Line</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;color:#0A1428;">SPIL</div>
+        </div>
+        <div class="r-tab" data-tab="1"
+             style="background:white;border:1px solid #CBD5E1;border-radius:10px;padding:12px 10px;cursor:pointer;transition:all 0.25s;opacity:0.55;">
+          <div style="font-size:0.6rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Line</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;color:#0A1428;">Tanto</div>
+        </div>
+        <div class="r-tab" data-tab="2"
+             style="background:white;border:1px solid #CBD5E1;border-radius:10px;padding:12px 10px;cursor:pointer;transition:all 0.25s;opacity:0.55;">
+          <div style="font-size:0.6rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Line</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;color:#0A1428;">Temas D.</div>
+        </div>
+        <div class="r-tab" data-tab="3"
+             style="background:white;border:1px solid #CBD5E1;border-radius:10px;padding:12px 10px;cursor:pointer;transition:all 0.25s;opacity:0.55;">
+          <div style="font-size:0.6rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Line</div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;color:#0A1428;">Temas</div>
+        </div>
       </div>
-      <div class="route-nodes" style="margin-top:8px;">
-        <div class="route-node"><div class="route-node-label">Surabaya</div></div>
-        <div class="route-connector" style="width:60px;"></div>
-        <div class="route-node"><div class="route-node-label" style="color:var(--accent-lt);border-color:var(--accent-border);">Merauke</div></div>
-        <div style="margin-left:16px;font-size:0.72rem;color:var(--text-muted);padding:4px 10px;background:rgba(8,145,178,0.08);border-radius:6px;border:1px solid rgba(8,145,178,0.2);">Temas Direct</div>
+
+      <!-- Route visual diagrams — switch per tab -->
+      <!-- Route 0: SPIL -->
+      <div class="r-diagram active" data-diagram="0">
+        <svg width="100%" height="140" viewBox="0 0 440 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Dashed path Adaline style -->
+          <path d="M 40 70 Q 120 20 200 70 Q 280 120 360 70 L 400 70" stroke="#002060" stroke-width="1.5" stroke-dasharray="6,4" fill="none" opacity="0.4"/>
+          <!-- Nodes -->
+          <circle cx="40" cy="70" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="160" cy="55" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="280" cy="85" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="400" cy="70" r="8" fill="#002060"/>
+          <circle cx="400" cy="70" r="14" fill="#002060" opacity="0.12"/>
+          <!-- Labels -->
+          <text x="40" y="92" font-family="Plus Jakarta Sans" font-size="11" fill="#475569" text-anchor="middle">Surabaya</text>
+          <text x="160" y="42" font-family="Plus Jakarta Sans" font-size="11" fill="#475569" text-anchor="middle">Makassar</text>
+          <text x="280" y="106" font-family="Plus Jakarta Sans" font-size="11" fill="#475569" text-anchor="middle">Timika</text>
+          <text x="400" y="56" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#002060" text-anchor="middle">Merauke</text>
+        </svg>
+        <div style="background:white;border:1px solid #CBD5E1;border-radius:8px;padding:10px 16px;font-size:0.8rem;color:#475569;display:inline-block;">
+          <span style="color:#94A3B8;font-size:0.68rem;display:block;margin-bottom:2px;">Operator</span>
+          <strong style="color:#0A1428;">SPIL</strong> — Surabaya → Makassar → Timika → Merauke
+        </div>
       </div>
-      <div class="route-nodes" style="margin-top:8px;">
-        <div class="route-node"><div class="route-node-label">Surabaya</div></div>
-        <div class="route-connector"></div>
-        <div class="route-node"><div class="route-node-label">Agats</div></div>
-        <div class="route-connector"></div>
-        <div class="route-node"><div class="route-node-label">Timika</div></div>
-        <div class="route-connector"></div>
-        <div class="route-node"><div class="route-node-label" style="color:var(--accent-lt);border-color:var(--accent-border);">Merauke</div></div>
-        <div style="margin-left:16px;font-size:0.72rem;color:var(--text-muted);padding:4px 10px;background:rgba(8,145,178,0.08);border-radius:6px;border:1px solid rgba(8,145,178,0.2);">Temas</div>
+      <!-- Route 1: Tanto -->
+      <div class="r-diagram" data-diagram="1" style="display:none;">
+        <svg width="100%" height="140" viewBox="0 0 440 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 20 80 Q 90 30 160 65 Q 230 95 300 55 Q 350 30 400 70" stroke="#002060" stroke-width="1.5" stroke-dasharray="6,4" fill="none" opacity="0.4"/>
+          <circle cx="20" cy="80" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="130" cy="60" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="230" cy="80" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="320" cy="55" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="400" cy="70" r="8" fill="#002060"/>
+          <circle cx="400" cy="70" r="14" fill="#002060" opacity="0.12"/>
+          <text x="20" y="100" font-family="Plus Jakarta Sans" font-size="10" fill="#475569" text-anchor="middle">Surabaya</text>
+          <text x="130" y="48" font-family="Plus Jakarta Sans" font-size="10" fill="#475569" text-anchor="middle">Makassar</text>
+          <text x="230" y="98" font-family="Plus Jakarta Sans" font-size="10" fill="#475569" text-anchor="middle">Tual</text>
+          <text x="320" y="44" font-family="Plus Jakarta Sans" font-size="10" fill="#475569" text-anchor="middle">Timika</text>
+          <text x="400" y="56" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#002060" text-anchor="middle">Merauke</text>
+        </svg>
+        <div style="background:white;border:1px solid #CBD5E1;border-radius:8px;padding:10px 16px;font-size:0.8rem;color:#475569;display:inline-block;">
+          <span style="color:#94A3B8;font-size:0.68rem;display:block;margin-bottom:2px;">Operator</span>
+          <strong style="color:#0A1428;">Tanto</strong> — Surabaya → Makassar → Tual → Timika → Merauke
+        </div>
+      </div>
+      <!-- Route 2: Temas Direct -->
+      <div class="r-diagram" data-diagram="2" style="display:none;">
+        <svg width="100%" height="140" viewBox="0 0 440 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 40 70 C 160 20 280 120 400 70" stroke="#002060" stroke-width="1.5" stroke-dasharray="6,4" fill="none" opacity="0.4"/>
+          <circle cx="40" cy="70" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="400" cy="70" r="8" fill="#002060"/>
+          <circle cx="400" cy="70" r="14" fill="#002060" opacity="0.12"/>
+          <text x="40" y="90" font-family="Plus Jakarta Sans" font-size="12" fill="#475569" text-anchor="middle">Surabaya</text>
+          <text x="220" y="58" font-family="Plus Jakarta Sans" font-size="11" fill="#002060" font-style="italic" text-anchor="middle">Direct Service</text>
+          <text x="400" y="56" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#002060" text-anchor="middle">Merauke</text>
+        </svg>
+        <div style="background:white;border:1px solid #CBD5E1;border-radius:8px;padding:10px 16px;font-size:0.8rem;color:#475569;display:inline-block;">
+          <span style="color:#94A3B8;font-size:0.68rem;display:block;margin-bottom:2px;">Operator</span>
+          <strong style="color:#0A1428;">Temas Direct</strong> — Surabaya → Merauke (Express)
+        </div>
+      </div>
+      <!-- Route 3: Temas via Agats -->
+      <div class="r-diagram" data-diagram="3" style="display:none;">
+        <svg width="100%" height="140" viewBox="0 0 440 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 20 75 Q 100 25 190 65 Q 270 100 340 55 L 400 70" stroke="#002060" stroke-width="1.5" stroke-dasharray="6,4" fill="none" opacity="0.4"/>
+          <circle cx="20" cy="75" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="160" cy="55" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="300" cy="70" r="6" fill="#002060" opacity="0.7"/>
+          <circle cx="400" cy="70" r="8" fill="#002060"/>
+          <circle cx="400" cy="70" r="14" fill="#002060" opacity="0.12"/>
+          <text x="20" y="95" font-family="Plus Jakarta Sans" font-size="10" fill="#475569" text-anchor="middle">Surabaya</text>
+          <text x="160" y="42" font-family="Plus Jakarta Sans" font-size="10" fill="#475569" text-anchor="middle">Agats</text>
+          <text x="300" y="90" font-family="Plus Jakarta Sans" font-size="10" fill="#475569" text-anchor="middle">Timika</text>
+          <text x="400" y="56" font-family="Plus Jakarta Sans" font-size="12" font-weight="700" fill="#002060" text-anchor="middle">Merauke</text>
+        </svg>
+        <div style="background:white;border:1px solid #CBD5E1;border-radius:8px;padding:10px 16px;font-size:0.8rem;color:#475569;display:inline-block;">
+          <span style="color:#94A3B8;font-size:0.68rem;display:block;margin-bottom:2px;">Operator</span>
+          <strong style="color:#0A1428;">Temas</strong> — Surabaya → Agats → Timika → Merauke
+        </div>
+      </div>
+
+      <!-- Horizontal divider -->
+      <div style="border-top:1px dashed #CBD5E1;margin:24px 0;"></div>
+
+      <!-- Top 10 Customers -->
+      <div>
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#94A3B8;margin-bottom:14px;">Top 10 Customers (JPT)</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <div style="background:white;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;font-size:0.78rem;color:#334155;font-weight:500;transition:all 0.2s;cursor:default;" onmouseover="this.style.borderColor='#002060';this.style.color='#002060';" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#334155';">Berkah Mutiara Laut</div>
+          <div style="background:white;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;font-size:0.78rem;color:#334155;font-weight:500;transition:all 0.2s;cursor:default;" onmouseover="this.style.borderColor='#002060';this.style.color='#002060';" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#334155';">Jamarindo Sapta</div>
+          <div style="background:white;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;font-size:0.78rem;color:#334155;font-weight:500;transition:all 0.2s;cursor:default;" onmouseover="this.style.borderColor='#002060';this.style.color='#002060';" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#334155';">Lascar Utama Indah</div>
+          <div style="background:white;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;font-size:0.78rem;color:#334155;font-weight:500;transition:all 0.2s;cursor:default;" onmouseover="this.style.borderColor='#002060';this.style.color='#002060';" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#334155';">Karya Baruna Raya</div>
+          <div style="background:white;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;font-size:0.78rem;color:#334155;font-weight:500;transition:all 0.2s;cursor:default;" onmouseover="this.style.borderColor='#002060';this.style.color='#002060';" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#334155';">Lintas Papua Jaya</div>
+          <div style="background:white;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;font-size:0.78rem;color:#334155;font-weight:500;transition:all 0.2s;cursor:default;" onmouseover="this.style.borderColor='#002060';this.style.color='#002060';" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#334155';">Irian Jaya Purnama</div>
+          <div style="background:white;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;font-size:0.78rem;color:#334155;font-weight:500;transition:all 0.2s;cursor:default;" onmouseover="this.style.borderColor='#002060';this.style.color='#002060';" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#334155';">Hamlie Bersatu Sukses</div>
+          <div style="background:white;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;font-size:0.78rem;color:#334155;font-weight:500;transition:all 0.2s;cursor:default;" onmouseover="this.style.borderColor='#002060';this.style.color='#002060';" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#334155';">Jayanata Samudera</div>
+          <div style="background:white;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;font-size:0.78rem;color:#334155;font-weight:500;transition:all 0.2s;cursor:default;" onmouseover="this.style.borderColor='#002060';this.style.color='#002060';" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#334155';">Poleko Padaidi Jaya</div>
+          <div style="background:white;border:1px solid #E2E8F0;border-radius:8px;padding:8px 12px;font-size:0.78rem;color:#334155;font-weight:500;transition:all 0.2s;cursor:default;" onmouseover="this.style.borderColor='#002060';this.style.color='#002060';" onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#334155';">Bilba Alfatih Cargo</div>
+        </div>
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:40px;">
-      <!-- Inbound -->
-      <div class="reveal reveal-delay-1">
-        <p class="section-label" style="margin-bottom:14px;">Inbound Commodities</p>
-        <div class="pills" style="flex-direction:column;gap:8px;">
-          <div class="pill">📦 General Cargo</div>
-          <div class="pill">🌾 Fertilizer</div>
-          <div class="pill">🥫 Food &amp; Beverages</div>
-          <div class="pill">🧱 Cement · Steel · Materials</div>
-          <div class="pill teal">🚜 Heavy Equipment &amp; Electronics</div>
-        </div>
-      </div>
-      <!-- Outbound -->
-      <div class="reveal reveal-delay-2">
-        <p class="section-label" style="margin-bottom:14px;">Outbound Commodities</p>
-        <div class="pills" style="flex-direction:column;gap:8px;">
-          <div class="pill gold">🔩 Scrap Iron</div>
-          <div class="pill gold">🐟 Frozen Fish</div>
-          <div class="pill gold">🫙 CPO, Copra, Kernel Oil</div>
-          <div class="pill gold">🔵 LPG</div>
-          <div class="pill gold">🌾 Rice</div>
-        </div>
-      </div>
-      <!-- Top Customers -->
-      <div class="reveal reveal-delay-3">
-        <p class="section-label" style="margin-bottom:14px;">Top 10 Customers (JPT)</p>
-        <div class="tag-cloud" style="flex-direction:column;gap:6px;">
-          <div style="display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--card-border);"><span style="font-family:Futura,sans-serif;color:var(--accent-lt);font-size:0.72rem;min-width:16px;">01</span>Berkah Mutiara Laut</div>
-          <div style="display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--card-border);"><span style="font-family:Futura,sans-serif;color:var(--accent-lt);font-size:0.72rem;min-width:16px;">02</span>Jamarindo Sapta</div>
-          <div style="display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--card-border);"><span style="font-family:Futura,sans-serif;color:var(--accent-lt);font-size:0.72rem;min-width:16px;">03</span>Lascar Utama Indah</div>
-          <div style="display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--card-border);"><span style="font-family:Futura,sans-serif;color:var(--accent-lt);font-size:0.72rem;min-width:16px;">04</span>Karya Baruna Raya</div>
-          <div style="display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--card-border);"><span style="font-family:Futura,sans-serif;color:var(--accent-lt);font-size:0.72rem;min-width:16px;">05</span>Lintas Papua Jaya</div>
-          <div style="display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--card-border);"><span style="font-family:Futura,sans-serif;color:var(--accent-lt);font-size:0.72rem;min-width:16px;">06</span>Irian Jaya Purnama</div>
-          <div style="display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--card-border);"><span style="font-family:Futura,sans-serif;color:var(--accent-lt);font-size:0.72rem;min-width:16px;">07</span>Hamlie Bersatu Sukses</div>
-          <div style="display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--card-border);"><span style="font-family:Futura,sans-serif;color:var(--accent-lt);font-size:0.72rem;min-width:16px;">08</span>Jayanata Samudera</div>
-          <div style="display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);padding:6px 0;border-bottom:1px solid var(--card-border);"><span style="font-family:Futura,sans-serif;color:var(--accent-lt);font-size:0.72rem;min-width:16px;">09</span>Poleko Padaidi Jaya</div>
-          <div style="display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);padding:6px 0;"><span style="font-family:Futura,sans-serif;color:var(--accent-lt);font-size:0.72rem;min-width:16px;">10</span>Bilba Alfatih Cargo</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1942,6 +2104,52 @@ document.querySelectorAll('.cap-row').forEach(el => {
   }, { threshold: 0.3 });
   barObserver.observe(el);
 });
+
+// ── Hinterland route interactivity (Adaline style) ────────────
+(function() {
+  function activateRoute(idx) {
+    // Update numbered list items
+    document.querySelectorAll('.route-item').forEach((el, i) => {
+      const numEl = el.querySelector('span');
+      const titleEl = el.querySelector('[style*="font-weight:700"]');
+      const descEl = el.querySelector('.route-desc');
+      if (i === idx) {
+        if(numEl) numEl.style.color = '#002060';
+        if(titleEl) titleEl.style.color = '#0A1428';
+        if(descEl) { descEl.style.maxHeight = '120px'; descEl.style.marginTop = '10px'; }
+      } else {
+        if(numEl) numEl.style.color = '#94A3B8';
+        if(titleEl) titleEl.style.color = '#64748B';
+        if(descEl) { descEl.style.maxHeight = '0'; descEl.style.marginTop = '0'; }
+      }
+    });
+    // Update tab cards
+    document.querySelectorAll('.r-tab').forEach((el, i) => {
+      el.style.opacity = i === idx ? '1' : '0.55';
+      el.style.borderColor = i === idx ? '#002060' : '#CBD5E1';
+      el.style.boxShadow = i === idx ? '0 0 0 2px rgba(0,32,96,0.12)' : 'none';
+    });
+    // Update diagrams
+    document.querySelectorAll('.r-diagram').forEach((el, i) => {
+      el.style.display = i === idx ? 'block' : 'none';
+    });
+  }
+  // Attach listeners when DOM ready
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.route-item').forEach((el, i) => {
+      el.addEventListener('click', () => activateRoute(i));
+    });
+    document.querySelectorAll('.r-tab').forEach((el, i) => {
+      el.addEventListener('click', () => activateRoute(i));
+    });
+    // Auto-cycle every 4s
+    let current = 0;
+    setInterval(() => {
+      current = (current + 1) % 4;
+      activateRoute(current);
+    }, 4000);
+  });
+})();
 
 // ── Bar chart ──────────────────────────────────────────────────
 const chartData = [
