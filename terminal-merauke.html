@@ -273,8 +273,8 @@ h1, h2, h3, h4 {
 }
 
 .hero-stats {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 16px; max-width: 620px; margin: 0 auto 48px;
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 16px; max-width: 920px; margin: 0 auto 48px;
 }
 .hero-stat {
   background: var(--card-bg);
@@ -289,12 +289,12 @@ h1, h2, h3, h4 {
 }
 .hero-stat-num {
   font-family: 'Futura', 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 800;
+  font-size: clamp(1.6rem, 3.2vw, 2.1rem); font-weight: 800;
   background: linear-gradient(135deg, var(--accent-lt), var(--teal-lt));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text; line-height: 1; margin-bottom: 6px;
 }
-.hero-stat-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.04em; }
+.hero-stat-label { font-size: 0.85rem; color: var(--text-muted); letter-spacing: 0.04em; }
 
 .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .btn-primary {
@@ -1074,6 +1074,14 @@ footer {
       <div class="hero-stat">
         <div class="hero-stat-num">66</div>
         <div class="hero-stat-label">Workforce</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">[TBD]</div>
+        <div class="hero-stat-label">BCH (Box/Crane/Hour)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">[TBD]</div>
+        <div class="hero-stat-label">BSH (Box/Ship/Hour)</div>
       </div>
     </div>
     <div class="hero-cta">
