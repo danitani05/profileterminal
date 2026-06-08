@@ -1030,6 +1030,12 @@ footer {
      SECTION 1: HERO
      ============================================================ -->
 <section id="hero">
+  <!-- foto-s1-hero.jpg — background hero -->
+  <div style="position:absolute;inset:0;background-image:url('foto-s1-hero.jpg');background-size:cover;background-position:center 40%;filter:brightness(0.38) saturate(0.75);transform:scale(1.03);z-index:0;"></div>
+  <!-- Overlay gradien navy -->
+  <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,32,96,0.72) 0%,rgba(6,13,26,0.48) 50%,rgba(6,13,26,0.82) 100%);z-index:0;"></div>
+  <!-- Fade bawah ke section berikutnya -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(transparent,var(--bg-primary));z-index:1;pointer-events:none;"></div>
   <div class="hero-ring"></div>
   <div class="hero-ring"></div>
   <div class="hero-ring"></div>
@@ -1127,35 +1133,37 @@ footer {
           </div>
         </div>
       </div>
-      <div class="reveal reveal-delay-2">
-        <div class="stat-grid">
-          <div class="stat-card">
-            <div class="stat-card-num">335 m</div>
-            <div class="stat-card-label">Berth Length</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card-num">−5 mLWS</div>
-            <div class="stat-card-label">Draught</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card-num">1.9 ha</div>
-            <div class="stat-card-label">Container Yard</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card-num">24/7</div>
-            <div class="stat-card-label">Operations (WIT)</div>
+
+      <!-- Kolom kanan: foto-s2-traffic.jpg dengan stat overlay -->
+      <div class="reveal reveal-delay-2" style="position:relative;">
+        <div style="border-radius:20px;overflow:hidden;position:relative;height:480px;box-shadow:0 32px 80px rgba(0,0,0,0.55);">
+          <!-- foto-s2-traffic.jpg -->
+          <img src="foto-s2-traffic.jpg" alt="TPK Merauke Operations"
+               style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);transition:transform 0.7s ease;"
+               onmouseover="this.style.transform='scale(1.04)'"
+               onmouseout="this.style.transform='scale(1)'">
+          <!-- Gradient overlay bawah -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(transparent,rgba(6,13,26,0.94));pointer-events:none;"></div>
+          <!-- 3 stat cards floating di bawah foto -->
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:22px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+            <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 10px;text-align:center;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,var(--accent-lt),var(--teal-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">335 m</div>
+              <div style="font-size:0.65rem;color:rgba(255,255,255,0.55);margin-top:5px;letter-spacing:0.05em;text-transform:uppercase;">Berth Length</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 10px;text-align:center;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,var(--accent-lt),var(--teal-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">−5 mLWS</div>
+              <div style="font-size:0.65rem;color:rgba(255,255,255,0.55);margin-top:5px;letter-spacing:0.05em;text-transform:uppercase;">Draught</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.07);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 10px;text-align:center;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,var(--accent-lt),var(--teal-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">1.9 ha</div>
+              <div style="font-size:0.65rem;color:rgba(255,255,255,0.55);margin-top:5px;letter-spacing:0.05em;text-transform:uppercase;">Container Yard</div>
+            </div>
           </div>
         </div>
-        <div style="margin-top:14px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;padding:20px 22px;">
-          <div class="section-label" style="margin-bottom:10px;">Operating Status</div>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <div style="width:8px;height:8px;border-radius:50%;background:var(--success);animation:blink 2s infinite;flex-shrink:0;"></div>
-            <span style="font-size:0.88rem;color:var(--text-primary);">Active · Domestic Container Terminal</span>
-          </div>
-          <div style="font-size:0.8rem;color:var(--text-muted);line-height:1.7;">
-            8°29'35"S · 140°21'59"E &nbsp;·&nbsp; WIT (UTC+9)<br>
-            <span style="color:var(--danger);">⚠</span> Gate RCV/DLV not yet available
-          </div>
+        <!-- Status badge floating top-right -->
+        <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:8px;background:rgba(6,13,26,0.78);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.13);border-radius:100px;padding:6px 15px;z-index:2;">
+          <div style="width:7px;height:7px;border-radius:50%;background:var(--success);animation:blink 2s infinite;flex-shrink:0;"></div>
+          <span style="font-size:0.7rem;color:rgba(255,255,255,0.82);font-weight:600;letter-spacing:0.06em;">ACTIVE · 24/7 WIT</span>
         </div>
       </div>
     </div>
