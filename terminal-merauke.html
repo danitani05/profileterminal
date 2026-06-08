@@ -273,8 +273,8 @@ h1, h2, h3, h4 {
 }
 
 .hero-stats {
-  display: grid; grid-template-columns: repeat(5, 1fr);
-  gap: 16px; max-width: 920px; margin: 0 auto 48px;
+  display: grid; grid-template-columns: repeat(5, minmax(135px, 170px));
+  gap: 14px; max-width: 920px; margin: 0 auto 48px; justify-content: center;
 }
 .hero-stat {
   background: var(--card-bg);
@@ -294,7 +294,7 @@ h1, h2, h3, h4 {
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text; line-height: 1; margin-bottom: 6px;
 }
-.hero-stat-label { font-size: 0.85rem; color: var(--text-muted); letter-spacing: 0.04em; }
+.hero-stat-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.02em; white-space: nowrap; }
 
 .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .btn-primary {
@@ -1077,11 +1077,11 @@ footer {
       </div>
       <div class="hero-stat">
         <div class="hero-stat-num">[TBD]</div>
-        <div class="hero-stat-label">BCH (Box/Crane/Hour)</div>
+        <div class="hero-stat-label">Box Crane Hour</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-num">[TBD]</div>
-        <div class="hero-stat-label">BSH (Box/Ship/Hour)</div>
+        <div class="hero-stat-label">Box Ship Hour</div>
       </div>
     </div>
     <div class="hero-cta">
@@ -2109,9 +2109,4 @@ if (chartEl) {
         if (en.isIntersecting) { setTimeout(() => { bar.style.height = barH + 'px'; }, i * 80); cObs.unobserve(en.target); }
       });
     }, { threshold: 0.3 });
-    cObs.observe(chartEl);
-  });
-}
-</script>
-</body>
-</html>
+    cObs.ob
