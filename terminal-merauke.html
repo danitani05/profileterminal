@@ -994,6 +994,20 @@ footer {
 .hl-comm-item:last-child { border-bottom:none; }
 .hl-cust-card { background:white; border:1px solid #E2E8F0; border-radius:8px; padding:8px 12px; font-size:0.78rem; color:#334155; font-weight:500; transition:all 0.2s; cursor:default; }
 .hl-cust-card:hover { border-color:#002060; color:#002060; }
+
+/* === ABOUT SLIDESHOW === */
+.about-slide {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity 0.8s ease;
+}
+.about-slide-active { opacity: 1; }
+.about-dot {
+  width: 20px; height: 3px; border-radius: 2px;
+  background: rgba(255,255,255,0.15); cursor: pointer; transition: background 0.3s;
+}
+.about-dot-active { background: #5bc0ff; }
+.about-thumb { border: 2px solid transparent; transition: border-color 0.3s; }
+.about-thumb-active { border-color: #5bc0ff !important; }
 </style>
 </head>
 <body>
@@ -1163,51 +1177,86 @@ footer {
           </div>
         </div>
       </div>
-      <div class="reveal reveal-delay-2" style="display:flex;flex-direction:column;gap:8px;">
-        <div style="display:grid;grid-template-columns:3fr 2fr;gap:8px;">
-          <div style="border-radius:12px;overflow:hidden;position:relative;height:210px;">
-            <img src="about-terminal.jpg" alt="TPK Merauke Terminal"
-                 style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);transition:transform 0.7s ease;"
-                 onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-            <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:linear-gradient(transparent,rgba(6,13,26,0.85));">
-              <div style="font-size:0.65rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.07em;font-weight:600;">TPK Merauke</div>
+      <div class="reveal reveal-delay-2" style="display:flex;flex-direction:column;gap:7px;">
+
+        <!-- SLIDESHOW UTAMA -->
+        <div style="position:relative;border-radius:12px;overflow:hidden;height:230px;background:#0a1628;" id="aboutSlideshow">
+          <!-- Slide 1 -->
+          <div class="about-slide about-slide-active" data-index="0">
+            <img src="about-terminal.jpg" alt="TPK Merauke Terminal" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);">
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 14px;background:linear-gradient(transparent,rgba(6,13,26,0.9));">
+              <div style="font-size:0.62rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">TPK Merauke — Terminal Eksisting</div>
             </div>
+            <div style="position:absolute;top:10px;right:12px;font-size:0.6rem;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:0.05em;">1 / 5</div>
           </div>
-          <div style="border-radius:12px;overflow:hidden;position:relative;height:210px;">
-            <img src="about-operasional.jpg" alt="Aktivitas Bongkar Muat"
-                 style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);transition:transform 0.7s ease;"
-                 onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-            <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:linear-gradient(transparent,rgba(6,13,26,0.85));">
-              <div style="font-size:0.65rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.07em;font-weight:600;">Aktivitas Bongkar Muat</div>
+          <!-- Slide 2 -->
+          <div class="about-slide" data-index="1">
+            <img src="about-operasional.jpg" alt="Aktivitas Bongkar Muat" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);">
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 14px;background:linear-gradient(transparent,rgba(6,13,26,0.9));">
+              <div style="font-size:0.62rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">Aktivitas Bongkar Muat</div>
             </div>
+            <div style="position:absolute;top:10px;right:12px;font-size:0.6rem;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:0.05em;">2 / 5</div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="about-slide" data-index="2">
+            <img src="about-suku-papua.jpg" alt="Suku Papua Selatan" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);">
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 14px;background:linear-gradient(transparent,rgba(6,13,26,0.9));">
+              <div style="font-size:0.62rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">Suku Papua Selatan</div>
+            </div>
+            <div style="position:absolute;top:10px;right:12px;font-size:0.6rem;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:0.05em;">3 / 5</div>
+          </div>
+          <!-- Slide 4 -->
+          <div class="about-slide" data-index="3">
+            <img src="about-drone-kota.jpg" alt="Kota Merauke dari Udara" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);">
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 14px;background:linear-gradient(transparent,rgba(6,13,26,0.9));">
+              <div style="font-size:0.62rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">Kota Merauke dari Udara</div>
+            </div>
+            <div style="position:absolute;top:10px;right:12px;font-size:0.6rem;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:0.05em;">4 / 5</div>
+          </div>
+          <!-- Slide 5 -->
+          <div class="about-slide" data-index="4">
+            <img src="about-alam-papua.jpg" alt="Alam Papua Selatan" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);">
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 14px;background:linear-gradient(transparent,rgba(6,13,26,0.9));">
+              <div style="font-size:0.62rem;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">Alam Papua Selatan</div>
+            </div>
+            <div style="position:absolute;top:10px;right:12px;font-size:0.6rem;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:0.05em;">5 / 5</div>
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
-          <div style="border-radius:12px;overflow:hidden;position:relative;height:120px;">
-            <img src="about-suku-papua.jpg" alt="Suku Papua Selatan"
-                 style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);transition:transform 0.7s ease;"
-                 onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-            <div style="position:absolute;bottom:0;left:0;right:0;padding:6px 10px;background:linear-gradient(transparent,rgba(6,13,26,0.85));">
-              <div style="font-size:0.62rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.07em;font-weight:600;">Suku Papua Selatan</div>
-            </div>
+
+        <!-- PROGRESS BAR -->
+        <div style="height:2px;background:rgba(255,255,255,0.08);border-radius:1px;overflow:hidden;">
+          <div id="aboutProgressBar" style="height:100%;width:0%;background:linear-gradient(90deg,#5bc0ff,#34d399);border-radius:1px;"></div>
+        </div>
+
+        <!-- DOTS -->
+        <div style="display:flex;gap:5px;justify-content:center;" id="aboutDots">
+          <div class="about-dot about-dot-active" onclick="aboutGoTo(0)"></div>
+          <div class="about-dot" onclick="aboutGoTo(1)"></div>
+          <div class="about-dot" onclick="aboutGoTo(2)"></div>
+          <div class="about-dot" onclick="aboutGoTo(3)"></div>
+          <div class="about-dot" onclick="aboutGoTo(4)"></div>
+        </div>
+
+        <!-- 4 THUMBNAIL 2x2 -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;">
+          <div class="about-thumb about-thumb-active" data-thumb="0" onclick="aboutGoTo(0)" style="border-radius:10px;overflow:hidden;position:relative;height:105px;cursor:pointer;">
+            <img src="about-terminal.jpg" alt="TPK Merauke" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.75);transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 8px;background:linear-gradient(transparent,rgba(0,0,0,0.82));font-size:0.58rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">TPK Merauke</div>
           </div>
-          <div style="border-radius:12px;overflow:hidden;position:relative;height:120px;">
-            <img src="about-drone-kota.jpg" alt="Kota Merauke dari Udara"
-                 style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);transition:transform 0.7s ease;"
-                 onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-            <div style="position:absolute;bottom:0;left:0;right:0;padding:6px 10px;background:linear-gradient(transparent,rgba(6,13,26,0.85));">
-              <div style="font-size:0.62rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.07em;font-weight:600;">Kota Merauke dari Udara</div>
-            </div>
+          <div class="about-thumb" data-thumb="1" onclick="aboutGoTo(1)" style="border-radius:10px;overflow:hidden;position:relative;height:105px;cursor:pointer;">
+            <img src="about-operasional.jpg" alt="Bongkar Muat" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.75);transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 8px;background:linear-gradient(transparent,rgba(0,0,0,0.82));font-size:0.58rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Bongkar Muat</div>
           </div>
-          <div style="border-radius:12px;overflow:hidden;position:relative;height:120px;">
-            <img src="about-alam-papua.jpg" alt="Alam Papua Selatan"
-                 style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);transition:transform 0.7s ease;"
-                 onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
-            <div style="position:absolute;bottom:0;left:0;right:0;padding:6px 10px;background:linear-gradient(transparent,rgba(6,13,26,0.85));">
-              <div style="font-size:0.62rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.07em;font-weight:600;">Alam Papua Selatan</div>
-            </div>
+          <div class="about-thumb" data-thumb="2" onclick="aboutGoTo(2)" style="border-radius:10px;overflow:hidden;position:relative;height:105px;cursor:pointer;">
+            <img src="about-suku-papua.jpg" alt="Suku Papua" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.75);transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 8px;background:linear-gradient(transparent,rgba(0,0,0,0.82));font-size:0.58rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Suku Papua Selatan</div>
+          </div>
+          <div class="about-thumb" data-thumb="3" onclick="aboutGoTo(3)" style="border-radius:10px;overflow:hidden;position:relative;height:105px;cursor:pointer;">
+            <img src="about-drone-kota.jpg" alt="Drone Kota" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.75);transition:transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:5px 8px;background:linear-gradient(transparent,rgba(0,0,0,0.82));font-size:0.58rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Kota dari Udara</div>
           </div>
         </div>
+
       </div></div>
     </div>
   </div>
@@ -2163,6 +2212,44 @@ if (chartEl) {
     cObs.observe(chartEl);
   });
 }
+</script>
+
+<script>
+(function() {
+  const DURATION = 10000;
+  const slides  = document.querySelectorAll('.about-slide');
+  const dots    = document.querySelectorAll('.about-dot');
+  const thumbs  = document.querySelectorAll('.about-thumb');
+  const bar     = document.getElementById('aboutProgressBar');
+  let current = 0, startTime = null, animFrame = null;
+
+  window.aboutGoTo = function(idx) {
+    slides[current].classList.remove('about-slide-active');
+    dots[current].classList.remove('about-dot-active');
+    if (thumbs[current]) thumbs[current].classList.remove('about-thumb-active');
+    current = idx;
+    slides[current].classList.add('about-slide-active');
+    dots[current].classList.add('about-dot-active');
+    if (thumbs[current]) thumbs[current].classList.add('about-thumb-active');
+    cancelAnimationFrame(animFrame);
+    startTime = null;
+    bar.style.width = '0%';
+    animFrame = requestAnimationFrame(tick);
+  };
+
+  function tick(ts) {
+    if (!startTime) startTime = ts;
+    const pct = Math.min(((ts - startTime) / DURATION) * 100, 100);
+    bar.style.width = pct + '%';
+    if (pct < 100) {
+      animFrame = requestAnimationFrame(tick);
+    } else {
+      aboutGoTo((current + 1) % slides.length);
+    }
+  }
+
+  animFrame = requestAnimationFrame(tick);
+})();
 </script>
 </body>
 </html>
