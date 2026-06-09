@@ -273,8 +273,8 @@ h1, h2, h3, h4 {
 }
 
 .hero-stats {
-  display: grid; grid-template-columns: repeat(5, minmax(135px, 170px));
-  gap: 14px; max-width: 920px; margin: 0 auto 48px; justify-content: center;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 16px; max-width: 820px; margin: 0 auto 48px;
 }
 .hero-stat {
   background: var(--card-bg);
@@ -282,6 +282,7 @@ h1, h2, h3, h4 {
   border-radius: 16px; padding: 20px 14px;
   backdrop-filter: blur(12px);
   transition: border-color 0.25s, transform 0.25s;
+  text-align: center;
 }
 .hero-stat:hover {
   border-color: var(--accent-border);
@@ -289,12 +290,12 @@ h1, h2, h3, h4 {
 }
 .hero-stat-num {
   font-family: 'Futura', 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1.6rem, 3.2vw, 2.1rem); font-weight: 800;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 800;
   background: linear-gradient(135deg, var(--accent-lt), var(--teal-lt));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text; line-height: 1; margin-bottom: 6px;
 }
-.hero-stat-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.02em; white-space: nowrap; }
+.hero-stat-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.04em; }
 
 .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .btn-primary {
@@ -963,7 +964,7 @@ footer {
   .ratio-grid { grid-template-columns: 1fr 1fr; }
   .dev-grid { grid-template-columns: 1fr; }
   .sdm-breakdown { grid-template-columns: repeat(3, 1fr); }
-  .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .hero-stats { grid-template-columns: repeat(4, 1fr); gap: 10px; }
   .tariff-summary-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 480px) {
@@ -1064,24 +1065,44 @@ footer {
     <p class="hero-subtitle">Gateway to Eastern Indonesia — The Easternmost Container Terminal of the Archipelago</p>
     <div class="hero-stats">
       <div class="hero-stat">
+        <div class="hero-stat-icon" style="width:40px;height:40px;border-radius:8px;background:rgba(91,192,255,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;">
+          <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="3" width="24" height="14" rx="1.5" stroke="#5bc0ff" stroke-width="1.6" fill="none"/>
+            <line x1="6" y1="3" x2="6" y2="17" stroke="#5bc0ff" stroke-width="1.2"/>
+            <line x1="11" y1="3" x2="11" y2="17" stroke="#5bc0ff" stroke-width="1.2"/>
+            <line x1="16" y1="3" x2="16" y2="17" stroke="#5bc0ff" stroke-width="1.2"/>
+            <line x1="21" y1="3" x2="21" y2="17" stroke="#5bc0ff" stroke-width="1.2"/>
+            <line x1="1" y1="5.5" x2="25" y2="5.5" stroke="#5bc0ff" stroke-width="1"/>
+            <line x1="1" y1="14.5" x2="25" y2="14.5" stroke="#5bc0ff" stroke-width="1"/>
+            <rect x="1" y="1" width="3" height="3" rx="0.5" fill="#5bc0ff"/>
+            <rect x="1" y="16" width="3" height="3" rx="0.5" fill="#5bc0ff"/>
+            <rect x="22" y="1" width="3" height="3" rx="0.5" fill="#5bc0ff"/>
+            <rect x="22" y="16" width="3" height="3" rx="0.5" fill="#5bc0ff"/>
+          </svg>
+        </div>
         <div class="hero-stat-num" data-count="52715" data-format="comma">0</div>
         <div class="hero-stat-label">TEUs Volume 2025</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num">+14%</div>
+        <div class="hero-stat-icon" style="width:40px;height:40px;border-radius:8px;background:rgba(52,211,153,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:22px;color:#34d399;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div class="hero-stat-num" style="color:#34d399;">+14%</div>
         <div class="hero-stat-label">YoY Growth</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num">66</div>
-        <div class="hero-stat-label">Workforce</div>
+        <div class="hero-stat-icon" style="width:40px;height:40px;border-radius:8px;background:rgba(251,191,36,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:22px;color:#fbbf24;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V10l7-7 7 7v10"/><path d="M12 20v-5"/><rect x="9" y="9" width="6" height="5"/></svg>
+        </div>
+        <div class="hero-stat-num">—</div>
+        <div class="hero-stat-label">Box Ship Hours</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num">[TBD]</div>
-        <div class="hero-stat-label">Box Crane Hour</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">[TBD]</div>
-        <div class="hero-stat-label">Box Ship Hour</div>
+        <div class="hero-stat-icon" style="width:40px;height:40px;border-radius:8px;background:rgba(167,139,250,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:22px;color:#a78bfa;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="hero-stat-num">115,389</div>
+        <div class="hero-stat-label">Terminal Capacity (TEUs)</div>
       </div>
     </div>
     <div class="hero-cta">
@@ -2109,4 +2130,9 @@ if (chartEl) {
         if (en.isIntersecting) { setTimeout(() => { bar.style.height = barH + 'px'; }, i * 80); cObs.unobserve(en.target); }
       });
     }, { threshold: 0.3 });
-    cObs.ob
+    cObs.observe(chartEl);
+  });
+}
+</script>
+</body>
+</html>
