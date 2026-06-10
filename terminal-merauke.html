@@ -1237,7 +1237,7 @@ footer {
     <div class="container">
       <div class="reveal" style="max-width:560px;">
         <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#002060;margin-bottom:10px;">Hinterland &amp; Connectivity</p>
-        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#0A1428;letter-spacing:-0.02em;line-height:1.2;margin-bottom:14px;">Shipping Routes &amp; <span style="color:#002060;">Trade Flows</span></h2>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.2rem,2.2vw,1.9rem);font-weight:800;color:#0A1428;letter-spacing:-0.02em;line-height:1.2;margin-bottom:14px;white-space:nowrap;">Shipping Routes &amp; <span style="color:#002060;">Trade Flows</span></h2>
         <p style="font-size:1rem;color:#475569;line-height:1.75;">TPK Merauke connects South Papua to the national supply chain via four dedicated shipping lines from Surabaya.</p>
       </div>
     </div>
@@ -1274,7 +1274,7 @@ footer {
           <div style="display:flex;gap:20px;align-items:flex-start;">
             <span class="ri-num">4</span>
             <div><div class="ri-title">Temas — Via Agats</div>
-            <div class="ri-desc">Surabaya → Agats → Timika → <strong style="color:#002060;">Merauke</strong><br>Serves the Asmat regency before terminating at Merauke.</div></div>
+            <div class="ri-desc">Surabaya → Timika → Agats → <strong style="color:#002060;">Merauke</strong><br>Serves the Asmat regency before terminating at Merauke.</div></div>
           </div>
         </div>
       </div>
@@ -1295,7 +1295,7 @@ footer {
           <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#002060;margin-bottom:12px;">Outbound</div>
           <div class="hl-comm-item">🔩 Scrap Iron</div>
           <div class="hl-comm-item">🐟 Frozen Fish</div>
-          <div class="hl-comm-item">🫙 CPO · Copra · Kernel</div>
+          <div class="hl-comm-item" style="white-space:nowrap;">🫙 CPO · Copra · Kernel</div>
           <div class="hl-comm-item">🔵 LPG</div>
           <div class="hl-comm-item">🌾 Rice</div>
         </div>
@@ -2340,8 +2340,8 @@ document.querySelectorAll('.cap-row').forEach(el => {
       curves:[[540,255,610,255],[760,258,900,258],[1025,270,1065,268],[1110,295,1150,345]] },
     { ports:['sby','mrk'], label:'Temas Direct', route:'Surabaya → Merauke (Express)',
       curves:[[660,218,1020,218]] },
-    { ports:['sby','agats','tmk','mrk'], label:'Temas', route:'Surabaya → Agats → Timika → Merauke',
-      curves:[[640,230,1030,262],[1120,298,1112,292],[1135,325,1158,365]] }
+    { ports:['sby','tmk','agats','mrk'], label:'Temas', route:'Surabaya → Timika → Agats → Merauke',
+      curves:[[800,235,1000,235],[1100,280,1115,295],[1135,325,1158,365]] }
   ];
   var svgNS = 'http://www.w3.org/2000/svg';
   var autoTimer = null, currentIdx = 0;
