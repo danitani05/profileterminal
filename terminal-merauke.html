@@ -1279,9 +1279,12 @@ footer {
         </div>
       </div>
       <!-- Komoditas -->
-      <div style="margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="margin-top:36px;">
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#94A3B8;margin-bottom:12px;">Commodity</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
         <div>
-          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#94A3B8;margin-bottom:8px;">Commodity</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:0 16px;margin-bottom:8px;"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#002060;margin-bottom:8px;">Inbound</div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#002060;margin-bottom:8px;">Outbound</div></div>
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#002060;margin-bottom:12px;">Inbound</div>
           <div class="hl-comm-item">📦 General Cargo</div>
           <div class="hl-comm-item">🌾 Fertilizer</div>
           <div class="hl-comm-item">🥫 Food &amp; Beverages</div>
@@ -1301,20 +1304,9 @@ footer {
 
     <!-- KANAN: Visual panel putih -->
     <div style="background:#F8FAFB;border-top:1px solid #D1D9E6;position:relative;overflow:hidden;padding:32px 40px;">
-      <!-- Tab cards -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:28px;" id="routeTabsHL">
-        <div class="r-tab-card active" data-rt="0"><div style="font-size:0.6rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Line</div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;color:#0A1428;">SPIL</div></div>
-        <div class="r-tab-card"        data-rt="1"><div style="font-size:0.6rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Line</div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;color:#0A1428;">Tanto</div></div>
-        <div class="r-tab-card"        data-rt="2"><div style="font-size:0.6rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Line</div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;color:#0A1428;">Temas D.</div></div>
-        <div class="r-tab-card"        data-rt="3"><div style="font-size:0.6rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Line</div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;color:#0A1428;">Temas</div></div>
-      </div>
-      <!-- Route diagrams dengan dashed path -->
-      <!-- Layout: Map (kiri 60%) + Sea Freight (kanan 40%) -->
-      <div style="display:grid;grid-template-columns:3fr 2fr;gap:20px;align-items:start;">
-        <!-- Kolom kiri: Map -->
-        <div>
-          <div id="routeMapHL" style="position:relative;width:100%;">
-            <svg id="indonesiaMapSVG" viewBox="415 195 800 240" width="100%" style="display:block;border-radius:12px;" xmlns="http://www.w3.org/2000/svg">
+      <!-- Route map panel (full width dalam kolom kanan) -->
+      <div id="routeMapHL" style="position:relative;width:100%;">
+        <svg id="indonesiaMapSVG" viewBox="415 195 800 240" width="100%" style="display:block;border-radius:12px;" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="glow-port" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
             <marker id="arrow-route" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="#0891B2" opacity="0.85"/></marker>
@@ -1587,27 +1579,21 @@ footer {
           <g id="port-agats" class="port-node" style="display:none;"><circle cx="1127" cy="313" r="12" fill="#0891B2" opacity="0.12"/><circle cx="1127" cy="313" r="6.5" fill="#0891B2"/><circle cx="1127" cy="313" r="3.5" fill="white"/><text x="1127" y="331" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#002060" text-anchor="middle">Agats</text></g>
           <g id="port-mrk" class="port-node" style="display:none;"><circle cx="1183" cy="392" r="18" fill="#002060" opacity="0.10"/><circle cx="1183" cy="392" r="11" fill="#002060" opacity="0.18"/><circle cx="1183" cy="392" r="7" fill="#002060"/><circle cx="1183" cy="392" r="3.5" fill="white"/><text x="1183" y="410" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#002060" text-anchor="middle">Merauke</text></g>
         </svg>
-            <div id="routeMapLabel" style="background:white;border:1px solid #CBD5E1;border-radius:8px;padding:8px 14px;font-size:0.78rem;color:#475569;margin-top:8px;">
-              <span style="color:#94A3B8;font-size:0.6rem;display:block;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.08em;">Operator</span>
-              <strong id="routeLabelText" style="color:#0A1428;">SPIL</strong> — <span id="routeLabelRoute">Surabaya → Makassar → Timika → Merauke</span>
-            </div>
-          </div>
+        <div id="routeMapLabel" style="background:white;border:1px solid #CBD5E1;border-radius:8px;padding:10px 16px;font-size:0.8rem;color:#475569;margin-top:10px;">
+          <span style="color:#94A3B8;font-size:0.65rem;display:block;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.08em;">Operator</span>
+          <strong id="routeLabelText" style="color:#0A1428;">SPIL</strong> — <span id="routeLabelRoute">Surabaya → Makassar → Timika → Merauke</span>
         </div>
-        <!-- Kolom kanan: Sea Freight -->
-        <div>
-          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#94A3B8;margin-bottom:10px;">Top 10 — Sea Freight Forwarding</div>
-          <div style="display:flex;flex-direction:column;gap:6px;">
-            <div class="hl-cust-card">Berkah Mutiara Laut</div>
-            <div class="hl-cust-card">Jamarindo Sapta</div>
-            <div class="hl-cust-card">Lascar Utama Indah</div>
-            <div class="hl-cust-card">Karya Baruna Raya</div>
-            <div class="hl-cust-card">Lintas Papua Jaya</div>
-            <div class="hl-cust-card">Irian Jaya Purnama</div>
-            <div class="hl-cust-card">Hamlie Bersatu Sukses</div>
-            <div class="hl-cust-card">Jayanata Samudera</div>
-            <div class="hl-cust-card">Poleko Padaidi Jaya</div>
-            <div class="hl-cust-card">Bilba Alfatih Cargo</div>
-          </div>
+      </div>
+      <div style="border-top:1px dashed #CBD5E1;margin:18px 0 14px;"></div>
+      <!-- Top 10 -->
+      <div>
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#94A3B8;margin-bottom:12px;">Top 10 — Sea Freight Forwarding</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <div class="hl-cust-card">Berkah Mutiara Laut</div><div class="hl-cust-card">Jamarindo Sapta</div>
+          <div class="hl-cust-card">Lascar Utama Indah</div><div class="hl-cust-card">Karya Baruna Raya</div>
+          <div class="hl-cust-card">Lintas Papua Jaya</div><div class="hl-cust-card">Irian Jaya Purnama</div>
+          <div class="hl-cust-card">Hamlie Bersatu Sukses</div><div class="hl-cust-card">Jayanata Samudera</div>
+          <div class="hl-cust-card">Poleko Padaidi Jaya</div><div class="hl-cust-card">Bilba Alfatih Cargo</div>
         </div>
       </div>
     </div>
@@ -2358,56 +2344,34 @@ document.querySelectorAll('.cap-row').forEach(el => {
       curves:[[640,230,1030,262],[1120,298,1112,292],[1135,325,1158,365]] }
   ];
   var svgNS = 'http://www.w3.org/2000/svg';
-  var autoTimer = null;
-  var currentIdx = 0;
-
-  function makeBezierPath(p1, p2, cp) {
-    return 'M '+p1.x+','+p1.y+' C '+cp[0]+','+cp[1]+' '+cp[2]+','+cp[3]+' '+p2.x+','+p2.y;
-  }
-  function animatePath(el, dur) {
-    var len = el.getTotalLength ? el.getTotalLength() : 300;
-    el.style.strokeDasharray = len; el.style.strokeDashoffset = len;
-    el.style.transition = 'none'; el.getBoundingClientRect();
-    el.style.transition = 'stroke-dashoffset '+dur+'ms cubic-bezier(0.4,0,0.2,1)';
-    el.style.strokeDashoffset = '0';
-  }
-  function activateRoute(idx) {
-    currentIdx = idx;
-    var r = ROUTES[idx];
-    document.querySelectorAll('.route-item-adaline').forEach(function(el,i){ el.classList.toggle('active',i===idx); });
-    var lt = document.getElementById('routeLabelText');
-    var lr = document.getElementById('routeLabelRoute');
-    if (lt) lt.textContent = r.label;
-    if (lr) lr.textContent = r.route;
-    document.querySelectorAll('.port-node').forEach(function(el){ el.style.display='none'; });
-    var layer = document.getElementById('routePathsLayer');
-    if (!layer) return;
-    while (layer.firstChild) layer.removeChild(layer.firstChild);
-    r.ports.forEach(function(pid){ var el=document.getElementById('port-'+pid); if(el) el.style.display=''; });
-    r.ports.forEach(function(pid, i) {
-      if (i===0) return;
-      var p1=PORTS[r.ports[i-1]], p2=PORTS[pid], cp=r.curves[i-1];
-      setTimeout(function() {
-        var halo=document.createElementNS(svgNS,'path');
-        halo.setAttribute('d',makeBezierPath(p1,p2,cp));
-        halo.setAttribute('stroke','#0891B2'); halo.setAttribute('stroke-width','3');
-        halo.setAttribute('stroke-opacity','0.08'); halo.setAttribute('fill','none');
-        layer.appendChild(halo);
-        var path=document.createElementNS(svgNS,'path');
-        path.setAttribute('d',makeBezierPath(p1,p2,cp));
-        path.setAttribute('stroke','#0891B2'); path.setAttribute('stroke-width','1.2');
-        path.setAttribute('stroke-dasharray','6,3'); path.setAttribute('fill','none');
-        path.setAttribute('marker-end','url(#arrow-route)');
-        layer.appendChild(path); animatePath(path,600);
-      }, (i-1)*700);
+  var autoTimer = null, currentIdx = 0;
+  function makeBezierPath(p1,p2,cp){return 'M '+p1.x+','+p1.y+' C '+cp[0]+','+cp[1]+' '+cp[2]+','+cp[3]+' '+p2.x+','+p2.y;}
+  function animatePath(el,dur){var len=el.getTotalLength?el.getTotalLength():300;el.style.strokeDasharray=len;el.style.strokeDashoffset=len;el.style.transition='none';el.getBoundingClientRect();el.style.transition='stroke-dashoffset '+dur+'ms cubic-bezier(0.4,0,0.2,1)';el.style.strokeDashoffset='0';}
+  function activateRoute(idx){
+    currentIdx=idx; var r=ROUTES[idx];
+    document.querySelectorAll('.route-item-adaline').forEach(function(el,i){el.classList.toggle('active',i===idx);});
+    var lt=document.getElementById('routeLabelText'),lr=document.getElementById('routeLabelRoute');
+    if(lt)lt.textContent=r.label; if(lr)lr.textContent=r.route;
+    document.querySelectorAll('.port-node').forEach(function(el){el.style.display='none';});
+    var layer=document.getElementById('routePathsLayer');
+    if(!layer)return;
+    while(layer.firstChild)layer.removeChild(layer.firstChild);
+    r.ports.forEach(function(pid){var el=document.getElementById('port-'+pid);if(el)el.style.display='';});
+    r.ports.forEach(function(pid,i){
+      if(i===0)return;
+      var p1=PORTS[r.ports[i-1]],p2=PORTS[pid],cp=r.curves[i-1];
+      setTimeout(function(){
+        var h=document.createElementNS(svgNS,'path');
+        h.setAttribute('d',makeBezierPath(p1,p2,cp));h.setAttribute('stroke','#0891B2');h.setAttribute('stroke-width','3');h.setAttribute('stroke-opacity','0.08');h.setAttribute('fill','none');layer.appendChild(h);
+        var p=document.createElementNS(svgNS,'path');
+        p.setAttribute('d',makeBezierPath(p1,p2,cp));p.setAttribute('stroke','#0891B2');p.setAttribute('stroke-width','1.2');p.setAttribute('stroke-dasharray','6,3');p.setAttribute('fill','none');p.setAttribute('marker-end','url(#arrow-route)');layer.appendChild(p);animatePath(p,600);
+      },(i-1)*700);
     });
   }
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.route-item-adaline').forEach(function(el,i){
-      el.addEventListener('click', function(){ clearInterval(autoTimer); activateRoute(i); });
-    });
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.route-item-adaline').forEach(function(el,i){el.addEventListener('click',function(){clearInterval(autoTimer);activateRoute(i);});});
     activateRoute(0);
-    autoTimer = setInterval(function(){ activateRoute((currentIdx+1)%ROUTES.length); }, 4000);
+    autoTimer=setInterval(function(){activateRoute((currentIdx+1)%ROUTES.length);},4000);
   });
 })();
 
