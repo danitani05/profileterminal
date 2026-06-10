@@ -537,7 +537,8 @@ h1, h2, h3, h4 {
   box-shadow: 0 8px 28px rgba(37,99,235,0.14);
   border-color: var(--accent-border);
 }
-.equip-icon { font-size: 1.7rem; margin-bottom: 10px; }
+.equip-icon { font-size: 1.7rem; margin-bottom: 10px; display:flex; justify-content:center; align-items:center; }
+.equip-icon svg { width:40px; height:40px; }
 .equip-num {
   font-family: 'Futura', 'Plus Jakarta Sans', sans-serif;
   font-size: 1.6rem; font-weight: 800; color: var(--accent-lt);
@@ -1237,7 +1238,7 @@ footer {
     <div class="container">
       <div class="reveal" style="max-width:560px;">
         <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#002060;margin-bottom:10px;">Hinterland &amp; Connectivity</p>
-        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.2rem,2.2vw,1.9rem);font-weight:800;color:#0A1428;letter-spacing:-0.02em;line-height:1.2;margin-bottom:14px;white-space:nowrap;">Shipping Routes &amp; <span style="color:#002060;">Trade Flows</span></h2>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.4rem,2.4vw,2.1rem);font-weight:800;color:#0A1428;letter-spacing:-0.02em;line-height:1.2;margin-bottom:14px;white-space:nowrap;">Shipping Routes &amp; <span style="color:#002060;">Trade Flows</span></h2>
         <p style="font-size:1rem;color:#475569;line-height:1.75;">TPK Merauke connects South Papua to the national supply chain via four dedicated shipping lines from Surabaya.</p>
       </div>
     </div>
@@ -1247,7 +1248,7 @@ footer {
   <div style="display:grid;grid-template-columns:2fr 3fr;min-height:560px;margin-top:40px;align-items:start;">
 
     <!-- KIRI: Numbered list -->
-    <div style="padding:clamp(28px,4vw,52px) clamp(20px,4vw,48px) clamp(28px,4vw,52px) max(24px,calc((100vw - 1200px)/2 + 48px));background:#F0F4F8;border-right:1px solid #D1D9E6;">
+    <div style="padding:0px clamp(20px,4vw,48px) clamp(28px,4vw,52px) max(24px,calc((100vw - 1200px)/2 + 48px));background:#F0F4F8;border-right:1px solid #D1D9E6;">
       <div id="routeListHL">
         <div class="route-item-adaline active" data-ri="0">
           <div style="display:flex;gap:20px;align-items:flex-start;">
@@ -1572,12 +1573,12 @@ footer {
           <path d="M913.219,171.692l-0.899-0.302l-0.398-0.3l0.698-0.2 l0.2,0.102l0.399,0.2l0.3,0.1h0.601h0.102l0.8-0.2h0.5l0.301,0.102l0.399,0.198h0.398l0.302-0.1l0.3-0.3l0.2-0.3h-0.4l-0.5-0.102 l-0.199-0.2l0.399-0.1l0.2-0.3l0.1-0.4l-0.199-0.398l-0.301,0.5l-0.3,0.3l-0.3-0.102v-0.5h-0.2l-0.102,0.2l-0.101,0.102h-0.199 l-0.301-0.2l0.101,0.398l0.2,0.4v0.3l-0.101,0.2h-0.3l-0.4-0.2l-0.399-0.2l-0.101-0.198l-0.1-0.4l-0.4-0.5v-0.4l0.101-0.3l0.2-0.1 h0.399l0.3,0.2l0.2-0.102l0.101-0.2l0.102-0.198l0.1-0.2l0.2,0.3v0.4l0.101,0.398l0.199,0.102l0.301-0.102v-0.398l-0.101-0.4 l-0.2-0.3l0.601-0.2l0.399,0.3l0.301,0.3l0.5,0.302l-0.101-0.5l-0.102-0.2h0.2l0.102,0.2l0.1,0.1l1.101-0.4l0.5-0.3l0.302-0.5 l0.3,0.102l0.2,0.198l0.398,0.4v-0.1l0.102-0.302l0.1,0.2l0.101,0.102v0.1l0.102-0.2l0.3-0.5l0.101,0.102l0.302,0.198l0.198-0.198 l0.7,0.1l0.5-0.2h0.5l0.699-0.2l0.7-0.1l0.101,0.5l0.399-0.1h0.7l0.5-0.102l-0.2-0.2l-0.2-0.1l-0.199-0.1h-0.301l0.301-0.302 l0.5-0.198l0.5-0.102h0.602l3.6,1l0.101,0.102l0.102,0.1v0.1h0.2l0.198-0.198l0.102-0.102l0.7-0.2h0.198h0.5l0.302,0.102v0.2 l-0.4,0.398l0.4,0.102l0.698,0.1h0.7l0.399,0.1l0.601,0.2l0.3,0.2l0.2,0.3l0.199,0.2l0.301,0.1l0.102,0.102l0.198,0.3l0.2,0.2 l0.5-0.102l0.102,0.102h0.1h0.4l0.3,0.1l0.101,0.102l0.102,0.1l0.6,0.2l0.2,0.3l0.3,0.8l-0.3,0.4l-0.102,0.2l-0.101,0.3 l0.301,0.398l0.8,0.602l0.102,0.3l-0.102,0.2l-0.601,0.1l-0.1,0.2l-0.102,0.4l-0.301,0.1l-0.199,0.3l-0.101,0.4l-0.102-0.102h-0.3 l-0.101-0.1l-0.102,0.6l-0.198,0.4l-0.4,0.1l-0.5-0.3l-1-0.8l-0.5-0.3h-0.3l-0.102-0.102h-0.8l-0.2-0.1l-0.101-0.1h-0.1l-0.302,0.1 l-0.398,0.2l-1.2,0.8v-0.3l-0.199-0.102l-0.5,0.102l-0.101,0.1h-0.2h-0.1h-0.2l-0.3-0.2l-0.2-0.1l-0.5-0.8l-0.7-0.4l-0.1-0.2 l0.198-0.198l-0.398-0.5l-0.399-0.302h-0.398l-0.7-0.1l-0.5-0.1h-0.2l-0.3-0.102v-0.3l0.101-0.5l-0.2-0.5l-0.198-0.3l-1.4-1.2 l-0.199-0.4l-0.101-0.6l-0.3,0.1h-0.102l-0.301-0.1l0.101-0.1l0.102-0.2l-0.5-0.102l-0.7,0.102l-0.6,0.1l-0.4,0.2l0.7,0.2l0.2,0.1 l0.198,0.3h-0.5l-0.198,0.302l0.1,0.3l0.9,0.398l0.398,0.4l0.899,1.2l0.601,1l0.102,0.5l0.198,0.3l1,0.5l0.5,0.3l0.102-0.398 l0.101-0.2l0.199-0.102h1.2l0.3,0.102l0.2,0.2l0.101,0.198l0.199,0.2l0.2,0.102l0.2,0.1l0.198,0.2l0.302,0.5l0.198,0.3l-0.198,0.1 l-0.2,0.2l-0.2,0.3l-0.1,0.2l-0.102,0.2l-0.301,0.2l-1,0.398l-2.199,0.4h-0.601l-0.602-0.1l-0.398-0.302l-0.3-0.5l-0.602-1.8 l0.3-0.2l0.102-0.3l-0.102-0.398l-0.101-0.302l-2.1,0.602l-0.7,0.5l-0.399,1h0.199l0.301-0.2l-0.101,0.5l-0.5,1.1l-0.2,0.102 l-0.1,0.1l-0.102-0.1v-0.3l0.3-0.9l-0.398-0.1v-0.302l0.101-0.6v-0.5l-0.2-0.3l-0.398-0.3l-0.102-0.302v-0.198l0.102-0.2l0.101-0.2 v-0.3l-0.5-0.2l-0.5,0.2l-0.801,0.398l-0.1,0.102l-0.2,0.2h-0.2l-0.1-0.302h-0.102l-0.5-0.1h-0.2l-0.198-0.1l-0.2,0.3h-0.2 l-0.1-0.2l-0.2-0.1h-0.7l-0.5-0.102l-0.199-0.1l-0.101-0.102v-0.198l-0.102-0.302l-0.198-0.1L913.219,171.692z" fill="#002060" fill-opacity="0.78" stroke="none"/>
           <path d="M974.319,254.092h-0.398l-0.2-0.1l-0.399-0.602 l0.199-0.199l0.4-0.199l0.198-0.102l0.399,0.102l0.301,0.398l0.602,0.699l0.198,0.4l0.102,0.5v0.398l-0.3,0.399l-0.302-0.2 l-0.3-0.398l-0.2-0.399l-0.101-0.7L974.319,254.092L974.319,254.092z" fill="#002060" fill-opacity="0.78" stroke="none"/>
           <g id="routePathsLayer"></g>
-          <g id="port-sby" class="port-node" style="display:none;"><circle cx="479" cy="359" r="12" fill="#0891B2" opacity="0.12"/><circle cx="479" cy="359" r="6.5" fill="#0891B2"/><circle cx="479" cy="359" r="3.5" fill="white"/><text x="479" y="345" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#002060" text-anchor="middle">Surabaya</text></g>
-          <g id="port-mks" class="port-node" style="display:none;"><circle cx="649" cy="301" r="12" fill="#0891B2" opacity="0.12"/><circle cx="649" cy="301" r="6.5" fill="#0891B2"/><circle cx="649" cy="301" r="3.5" fill="white"/><text x="649" y="287" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#002060" text-anchor="middle">Makassar</text></g>
-          <g id="port-tual" class="port-node" style="display:none;"><circle cx="989" cy="315" r="12" fill="#0891B2" opacity="0.12"/><circle cx="989" cy="315" r="6.5" fill="#0891B2"/><circle cx="989" cy="315" r="3.5" fill="white"/><text x="989" y="301" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#002060" text-anchor="middle">Tual</text></g>
-          <g id="port-tmk" class="port-node" style="display:none;"><circle cx="1095" cy="286" r="12" fill="#0891B2" opacity="0.12"/><circle cx="1095" cy="286" r="6.5" fill="#0891B2"/><circle cx="1095" cy="286" r="3.5" fill="white"/><text x="1095" y="272" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#002060" text-anchor="middle">Timika</text></g>
-          <g id="port-agats" class="port-node" style="display:none;"><circle cx="1127" cy="313" r="12" fill="#0891B2" opacity="0.12"/><circle cx="1127" cy="313" r="6.5" fill="#0891B2"/><circle cx="1127" cy="313" r="3.5" fill="white"/><text x="1127" y="331" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#002060" text-anchor="middle">Agats</text></g>
-          <g id="port-mrk" class="port-node" style="display:none;"><circle cx="1183" cy="392" r="18" fill="#002060" opacity="0.10"/><circle cx="1183" cy="392" r="11" fill="#002060" opacity="0.18"/><circle cx="1183" cy="392" r="7" fill="#002060"/><circle cx="1183" cy="392" r="3.5" fill="white"/><text x="1183" y="410" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#002060" text-anchor="middle">Merauke</text></g>
+          <g id="port-sby" class="port-node" style="display:none;"><circle cx="479" cy="359" r="12" fill="#0891B2" opacity="0.12"/><circle cx="479" cy="359" r="6.5" fill="#0891B2"/><circle cx="479" cy="359" r="3.5" fill="white"/><text x="479" y="345" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="800" fill="white" stroke="#002060" stroke-width="2.5" paint-order="stroke fill" text-anchor="middle">Surabaya</text></g>
+          <g id="port-mks" class="port-node" style="display:none;"><circle cx="649" cy="301" r="12" fill="#0891B2" opacity="0.12"/><circle cx="649" cy="301" r="6.5" fill="#0891B2"/><circle cx="649" cy="301" r="3.5" fill="white"/><text x="649" y="287" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="800" fill="white" stroke="#002060" stroke-width="2.5" paint-order="stroke fill" text-anchor="middle">Makassar</text></g>
+          <g id="port-tual" class="port-node" style="display:none;"><circle cx="989" cy="315" r="12" fill="#0891B2" opacity="0.12"/><circle cx="989" cy="315" r="6.5" fill="#0891B2"/><circle cx="989" cy="315" r="3.5" fill="white"/><text x="989" y="301" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="800" fill="white" stroke="#002060" stroke-width="2.5" paint-order="stroke fill" text-anchor="middle">Tual</text></g>
+          <g id="port-tmk" class="port-node" style="display:none;"><circle cx="1095" cy="286" r="12" fill="#0891B2" opacity="0.12"/><circle cx="1095" cy="286" r="6.5" fill="#0891B2"/><circle cx="1095" cy="286" r="3.5" fill="white"/><text x="1095" y="272" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="800" fill="white" stroke="#002060" stroke-width="2.5" paint-order="stroke fill" text-anchor="middle">Timika</text></g>
+          <g id="port-agats" class="port-node" style="display:none;"><circle cx="1127" cy="313" r="12" fill="#0891B2" opacity="0.12"/><circle cx="1127" cy="313" r="6.5" fill="#0891B2"/><circle cx="1127" cy="313" r="3.5" fill="white"/><text x="1127" y="331" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="800" fill="white" stroke="#002060" stroke-width="2.5" paint-order="stroke fill" text-anchor="middle">Agats</text></g>
+          <g id="port-mrk" class="port-node" style="display:none;"><circle cx="1183" cy="392" r="18" fill="#002060" opacity="0.10"/><circle cx="1183" cy="392" r="11" fill="#002060" opacity="0.18"/><circle cx="1183" cy="392" r="7" fill="#002060"/><circle cx="1183" cy="392" r="3.5" fill="white"/><text x="1183" y="410" font-family="Plus Jakarta Sans,sans-serif" font-size="14" font-weight="800" fill="white" stroke="#002060" stroke-width="3" paint-order="stroke fill" text-anchor="middle">Merauke</text></g>
         </svg>
         <div id="routeMapLabel" style="background:white;border:1px solid #CBD5E1;border-radius:8px;padding:10px 16px;font-size:0.8rem;color:#475569;margin-top:10px;">
           <span style="color:#94A3B8;font-size:0.65rem;display:block;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.08em;">Operator</span>
@@ -1690,32 +1691,164 @@ footer {
         </div>
         <div class="equip-grid">
           <div class="equip-card reveal reveal-delay-1">
-            <div class="equip-icon">🏗️</div>
+            <div class="equip-icon">
+              <!-- Fixed Crane / Ship-to-Shore -->
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Boom arm angled up -->
+                <line x1="8" y1="34" x2="8" y2="8" stroke="#002060" stroke-width="2.2" stroke-linecap="round"/>
+                <line x1="8" y1="8" x2="32" y2="18" stroke="#002060" stroke-width="2" stroke-linecap="round"/>
+                <!-- Vertical hoist wire -->
+                <line x1="28" y1="19" x2="28" y2="30" stroke="#3B82F6" stroke-width="1.4" stroke-dasharray="2 1.5"/>
+                <!-- Spreader bar -->
+                <rect x="23" y="29" width="10" height="3" rx="1" fill="#3B82F6"/>
+                <!-- Container -->
+                <rect x="22" y="32" width="12" height="6" rx="1.5" fill="#002060" opacity="0.75"/>
+                <line x1="28" y1="32" x2="28" y2="38" stroke="#6BA4FF" stroke-width="0.8"/>
+                <!-- Base/rail -->
+                <rect x="4" y="34" width="8" height="3" rx="1" fill="#002060"/>
+                <circle cx="5.5" cy="37.5" r="1.2" fill="#475569"/>
+                <circle cx="10.5" cy="37.5" r="1.2" fill="#475569"/>
+                <!-- Counter weight -->
+                <rect x="2" y="12" width="5" height="7" rx="1" fill="#475569" opacity="0.6"/>
+                <!-- Tie rope -->
+                <line x1="8" y1="8" x2="8" y2="8" stroke="#002060" stroke-width="1"/>
+              </svg>
+            </div>
             <div class="equip-num">2</div>
             <div class="equip-label">Fixed Crane<br><span style="font-size:0.6rem;color:#475569;">Ship-to-shore</span></div>
           </div>
           <div class="equip-card reveal reveal-delay-2">
-            <div class="equip-icon">🔧</div>
+            <div class="equip-icon">
+              <!-- Reach Stacker -->
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Body -->
+                <rect x="3" y="22" width="22" height="11" rx="2.5" fill="#002060" opacity="0.85"/>
+                <!-- Cabin -->
+                <rect x="17" y="17" width="8" height="8" rx="1.5" fill="#002060"/>
+                <rect x="18.5" y="18.5" width="5" height="4" rx="1" fill="#93C5FD" opacity="0.7"/>
+                <!-- Boom arm extending forward -->
+                <line x1="8" y1="22" x2="8" y2="10" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="8" y1="10" x2="30" y2="10" stroke="#3B82F6" stroke-width="2.2" stroke-linecap="round"/>
+                <!-- Spreader -->
+                <rect x="27" y="7" width="8" height="3" rx="1" fill="#3B82F6"/>
+                <!-- Container on spreader -->
+                <rect x="26" y="10" width="10" height="6" rx="1" fill="#002060" opacity="0.7"/>
+                <line x1="31" y1="10" x2="31" y2="16" stroke="#6BA4FF" stroke-width="0.8"/>
+                <!-- Wheels -->
+                <circle cx="8" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="8" cy="34.5" r="1.4" fill="#475569"/>
+                <circle cx="20" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="20" cy="34.5" r="1.4" fill="#475569"/>
+              </svg>
+            </div>
             <div class="equip-num">4</div>
             <div class="equip-label">Reach Stacker<br><span style="font-size:0.6rem;color:#475569;">RS units</span></div>
           </div>
           <div class="equip-card reveal reveal-delay-3">
-            <div class="equip-icon">⚙️</div>
+            <div class="equip-icon">
+              <!-- Side Loader -->
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Main body -->
+                <rect x="4" y="20" width="28" height="12" rx="2.5" fill="#002060" opacity="0.85"/>
+                <!-- Cabin -->
+                <rect x="22" y="14" width="10" height="9" rx="1.5" fill="#002060"/>
+                <rect x="23.5" y="15.5" width="7" height="5" rx="1" fill="#93C5FD" opacity="0.7"/>
+                <!-- Side forks extending left -->
+                <rect x="1" y="23" width="12" height="2.5" rx="1" fill="#3B82F6"/>
+                <rect x="1" y="27" width="12" height="2.5" rx="1" fill="#3B82F6"/>
+                <!-- Container on forks -->
+                <rect x="1" y="16" width="10" height="8" rx="1.5" fill="#002060" opacity="0.6"/>
+                <line x1="6" y1="16" x2="6" y2="24" stroke="#6BA4FF" stroke-width="0.8"/>
+                <!-- Wheels -->
+                <circle cx="9" cy="34" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="9" cy="34" r="1.4" fill="#475569"/>
+                <circle cx="26" cy="34" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="26" cy="34" r="1.4" fill="#475569"/>
+              </svg>
+            </div>
             <div class="equip-num">1</div>
             <div class="equip-label">Side Loader<br><span style="font-size:0.6rem;color:#475569;">Unit</span></div>
           </div>
           <div class="equip-card reveal reveal-delay-1">
-            <div class="equip-icon">🚜</div>
+            <div class="equip-icon">
+              <!-- Forklift -->
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Body -->
+                <rect x="10" y="18" width="22" height="14" rx="2.5" fill="#002060" opacity="0.85"/>
+                <!-- Mast (vertical) -->
+                <rect x="10" y="8" width="3" height="20" rx="1" fill="#3B82F6"/>
+                <rect x="14" y="8" width="3" height="20" rx="1" fill="#3B82F6" opacity="0.6"/>
+                <!-- Forks -->
+                <rect x="4" y="26" width="10" height="2.2" rx="1" fill="#002060"/>
+                <rect x="4" y="29.5" width="10" height="2.2" rx="1" fill="#002060"/>
+                <!-- Cabin window -->
+                <rect x="22" y="19" width="8" height="7" rx="1.2" fill="#93C5FD" opacity="0.6"/>
+                <!-- Counterweight (back) -->
+                <rect x="29" y="22" width="5" height="8" rx="1" fill="#475569" opacity="0.6"/>
+                <!-- Wheels -->
+                <circle cx="15" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="15" cy="34.5" r="1.4" fill="#475569"/>
+                <circle cx="28" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="28" cy="34.5" r="1.4" fill="#475569"/>
+              </svg>
+            </div>
             <div class="equip-num">3</div>
             <div class="equip-label">Forklift<br><span style="font-size:0.6rem;color:#475569;">Units</span></div>
           </div>
           <div class="equip-card reveal reveal-delay-2">
-            <div class="equip-icon">🚛</div>
+            <div class="equip-icon">
+              <!-- Head Truck (tractor unit) -->
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Cabin -->
+                <rect x="22" y="14" width="14" height="16" rx="2.5" fill="#002060" opacity="0.9"/>
+                <!-- Windshield -->
+                <rect x="24" y="15.5" width="10" height="7" rx="1.5" fill="#93C5FD" opacity="0.65"/>
+                <!-- Hood -->
+                <rect x="30" y="22" width="8" height="6" rx="1.5" fill="#002060"/>
+                <!-- Chassis -->
+                <rect x="4" y="26" width="28" height="5" rx="1" fill="#1E293B" opacity="0.7"/>
+                <!-- Fifth wheel / coupling -->
+                <circle cx="16" cy="26.5" r="3" fill="#3B82F6" opacity="0.7"/>
+                <!-- Exhaust stack -->
+                <rect x="23" y="9" width="2.5" height="7" rx="1" fill="#475569"/>
+                <!-- Wheels -->
+                <circle cx="8" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="8" cy="34.5" r="1.4" fill="#475569"/>
+                <circle cx="20" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="20" cy="34.5" r="1.4" fill="#475569"/>
+                <circle cx="30" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="30" cy="34.5" r="1.4" fill="#475569"/>
+              </svg>
+            </div>
             <div class="equip-num">5</div>
             <div class="equip-label">Head Truck<br><span style="font-size:0.6rem;color:#475569;">Units</span></div>
           </div>
           <div class="equip-card reveal reveal-delay-3">
-            <div class="equip-icon">🚚</div>
+            <div class="equip-icon">
+              <!-- Tronton (rigid truck 3-axle) -->
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Cargo box -->
+                <rect x="2" y="16" width="22" height="14" rx="1.5" fill="#002060" opacity="0.7"/>
+                <line x1="8" y1="16" x2="8" y2="30" stroke="#6BA4FF" stroke-width="0.8"/>
+                <line x1="14" y1="16" x2="14" y2="30" stroke="#6BA4FF" stroke-width="0.8"/>
+                <line x1="20" y1="16" x2="20" y2="30" stroke="#6BA4FF" stroke-width="0.8"/>
+                <!-- Cabin -->
+                <rect x="24" y="19" width="13" height="11" rx="2" fill="#002060" opacity="0.9"/>
+                <!-- Windshield -->
+                <rect x="25.5" y="20.5" width="9" height="6" rx="1.2" fill="#93C5FD" opacity="0.65"/>
+                <!-- Chassis -->
+                <rect x="2" y="30" width="36" height="3" rx="1" fill="#1E293B" opacity="0.6"/>
+                <!-- Exhaust -->
+                <rect x="25" y="13" width="2" height="7" rx="1" fill="#475569"/>
+                <!-- Wheels -->
+                <circle cx="7" cy="35" r="3.2" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="7" cy="35" r="1.3" fill="#475569"/>
+                <circle cx="17" cy="35" r="3.2" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="17" cy="35" r="1.3" fill="#475569"/>
+                <circle cx="30" cy="35" r="3.2" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+                <circle cx="30" cy="35" r="1.3" fill="#475569"/>
+              </svg>
+            </div>
             <div class="equip-num">3</div>
             <div class="equip-label">Tronton<br><span style="font-size:0.6rem;color:#475569;">Units</span></div>
           </div>
