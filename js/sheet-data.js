@@ -19,15 +19,17 @@
    sehingga tidak ada tab yang perlu disembunyikan.
    ============================================================ */
 
+const SHEET_PUB_BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSTzuKZdWelRpC8uB3XFnI__wbdVcnpfMVLrbJnsoVdhliDabC6JFUuAkWnAncYrMkWewKDKJpnO076/pub";
+
 const SHEET_URLS = {
-  TERMINAL_MASTER: "PASTE_CSV_URL_TERMINAL_MASTER",
-  INFRASTRUKTUR:   "PASTE_CSV_URL_INFRASTRUKTUR",
-  PERALATAN:       "PASTE_CSV_URL_PERALATAN",
-  TRAFFIC:         "PASTE_CSV_URL_TRAFFIC",
-  PERFORMANCE:     "PASTE_CSV_URL_PERFORMANCE",
-  TARIFF:          "PASTE_CSV_URL_TARIFF",
-  SDM:             "PASTE_CSV_URL_SDM",
-  KONTAK:          "PASTE_CSV_URL_KONTAK",
+  TERMINAL_MASTER: `${SHEET_PUB_BASE}?gid=271236132&single=true&output=csv`,
+  INFRASTRUKTUR:   `${SHEET_PUB_BASE}?gid=1610117028&single=true&output=csv`,
+  PERALATAN:       `${SHEET_PUB_BASE}?gid=1019525911&single=true&output=csv`,
+  TRAFFIC:         `${SHEET_PUB_BASE}?gid=1195278091&single=true&output=csv`,
+  PERFORMANCE:     `${SHEET_PUB_BASE}?gid=391379788&single=true&output=csv`,
+  TARIFF:          `${SHEET_PUB_BASE}?gid=2026412239&single=true&output=csv`,
+  SDM:             `${SHEET_PUB_BASE}?gid=83850765&single=true&output=csv`,
+  KONTAK:          `${SHEET_PUB_BASE}?gid=1872951039&single=true&output=csv`,
 };
 
 // Parser CSV sederhana (menangani koma di dalam tanda kutip)
