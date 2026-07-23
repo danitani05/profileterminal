@@ -71,6 +71,7 @@ async function fetchTab(tabName) {
 }
 
 function fmtNum(n) {
+  if (n === undefined || n === null || n === "" || n === "[TBD]") return undefined;
   const num = Number(String(n).replace(/[^0-9.-]/g, ""));
   if (Number.isNaN(num)) return n;
   return num.toLocaleString("id-ID");
@@ -99,7 +100,12 @@ async function initTerminalData(kodeTerminal) {
 
   // ── S1 Hero ──
   if (trf.length) setText("stat-teus-terakhir", fmtNum(trf[trf.length - 1].volume_teus));
-  setText("stat-kapasitas-terminal", fmtNum(m.kapasitas_teus || i.kapasitas_shore_crane));
+  // Catatan: field kapasitas (kapasitas_teus / kapasitas_shore_crane) BELUM ADA
+  // di skema TERMINAL_MASTER maupun INFRASTRUKTUR saat ini — sengaja tidak
+  // ditimpa kalau datanya kosong, supaya angka statis di HTML (hasil ekstraksi
+  // manual) tidak hilang diganti "0".
+  const capVal = m.kapasitas_teus || i.kapasitas_shore_crane;
+  if (capVal) setText("stat-kapasitas-terminal", fmtNum(capVal));
 
   // ── S3 Traffic chart data ──
   window.TERMINAL_TRAFFIC = trf.map(r => ({ year: r.tahun, vol: Number(r.volume_teus) }));
