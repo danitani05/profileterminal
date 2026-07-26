@@ -308,12 +308,15 @@ async function initTerminalData(kodeTerminal) {
   setText("sdm-technical", sdmRow.technical);
   setText("hr-wording", m.hr_wording);
 
-  // ── S6 Terminal Specifications — Equipment grid 10 tipe, kondisional (poin #7) ──
-  // Kartu yang datanya kosong/tidak ada disembunyikan; hanya tipe dengan data yang ditampilkan.
-  const equipIdMap = {
+  // ── S6 Terminal Specifications — Equipment Fleet (poin: full dinamis dari sheet) ──
+  // Kartu di-generate penuh oleh JS mengikuti URUTAN baris tab PERALATAN.
+  // Angka 0 / kosong disembunyikan. Ikon SVG dipetakan dari nama jenis_alat.
+  // Sub-teks kecil di bawah nama alat diambil dari kolom sub_label di sheet.
+  const equipSlugMap = {
     "Quay Crane": "quay-crane",
     "Harbor Mobile Crane": "harbor-mobile-crane",
     "Fixed Crane (Ship-to-shore)": "fixed-crane",
+    "Fixed Crane": "fixed-crane",
     "Mobile Crane": "mobile-crane",
     "Rubber Tyred Gantry": "rtg",
     "Reach Stacker": "reach-stacker",
@@ -322,19 +325,78 @@ async function initTerminalData(kodeTerminal) {
     "Head Truck": "head-truck",
     "Tronton": "tronton",
   };
-  const presentTypes = new Set();
-  alatRows.forEach(r => {
-    const slug = equipIdMap[r.jenis_alat];
-    if (slug && !isEmptyVal(r.jumlah)) {
-      setText("equip-num-" + slug, r.jumlah);
-      presentTypes.add(slug);
+  const EQUIP_ICONS = {
+    "quay-crane": `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="9" y1="34" x2="9" y2="8" stroke="#002060" stroke-width="2.2" stroke-linecap="round"/><line x1="31" y1="34" x2="31" y2="8" stroke="#002060" stroke-width="2.2" stroke-linecap="round"/><line x1="4" y1="8" x2="38" y2="8" stroke="#002060" stroke-width="2.4" stroke-linecap="round"/><rect x="18" y="6" width="6" height="4" rx="1" fill="#3B82F6"/><line x1="21" y1="10" x2="21" y2="22" stroke="#3B82F6" stroke-width="1.4" stroke-dasharray="2 1.5"/><rect x="16" y="21" width="10" height="3" rx="1" fill="#3B82F6"/><rect x="15" y="24" width="12" height="6" rx="1.5" fill="#002060" opacity="0.75"/><line x1="21" y1="24" x2="21" y2="30" stroke="#6BA4FF" stroke-width="0.8"/><rect x="5" y="34" width="8" height="3" rx="1" fill="#002060"/><rect x="27" y="34" width="8" height="3" rx="1" fill="#002060"/><circle cx="6.5" cy="37.5" r="1.2" fill="#475569"/><circle cx="11.5" cy="37.5" r="1.2" fill="#475569"/><circle cx="28.5" cy="37.5" r="1.2" fill="#475569"/><circle cx="33.5" cy="37.5" r="1.2" fill="#475569"/></svg>`,
+    "rtg": `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="8" y1="33" x2="8" y2="9" stroke="#002060" stroke-width="2.2" stroke-linecap="round"/><line x1="32" y1="33" x2="32" y2="9" stroke="#002060" stroke-width="2.2" stroke-linecap="round"/><line x1="6" y1="9" x2="34" y2="9" stroke="#002060" stroke-width="2.4" stroke-linecap="round"/><rect x="17" y="7" width="6" height="4" rx="1" fill="#3B82F6"/><line x1="20" y1="11" x2="20" y2="20" stroke="#3B82F6" stroke-width="1.4" stroke-dasharray="2 1.5"/><rect x="15" y="19" width="10" height="3" rx="1" fill="#3B82F6"/><rect x="14" y="22" width="12" height="7" rx="1.5" fill="#002060" opacity="0.75"/><line x1="20" y1="22" x2="20" y2="29" stroke="#6BA4FF" stroke-width="0.8"/><circle cx="8" cy="34.5" r="2.2" fill="#475569"/><circle cx="32" cy="34.5" r="2.2" fill="#475569"/></svg>`,
+    "harbor-mobile-crane": `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="26" width="22" height="7" rx="2" fill="#002060" opacity="0.85"/><rect x="10" y="20" width="9" height="7" rx="1.5" fill="#002060"/><rect x="11.5" y="21.5" width="5" height="4" rx="1" fill="#93C5FD" opacity="0.7"/><line x1="16" y1="21" x2="34" y2="8" stroke="#3B82F6" stroke-width="2.4" stroke-linecap="round"/><line x1="34" y1="8" x2="34" y2="18" stroke="#3B82F6" stroke-width="1.4" stroke-dasharray="2 1.5"/><rect x="31" y="18" width="6" height="2.5" rx="1" fill="#3B82F6"/><circle cx="10" cy="34.5" r="2.4" fill="#475569"/><circle cx="18" cy="34.5" r="2.4" fill="#475569"/><circle cx="25" cy="34.5" r="2.4" fill="#475569"/></svg>`,
+    "mobile-crane": `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="27" width="24" height="6" rx="2" fill="#002060" opacity="0.85"/><rect x="5" y="22" width="8" height="6" rx="1.5" fill="#002060"/><rect x="6.5" y="23.5" width="4.5" height="3.5" rx="1" fill="#93C5FD" opacity="0.7"/><line x1="15" y1="27" x2="35" y2="10" stroke="#3B82F6" stroke-width="2.6" stroke-linecap="round"/><line x1="35" y1="10" x2="35" y2="19" stroke="#3B82F6" stroke-width="1.4" stroke-dasharray="2 1.5"/><line x1="4" y1="33" x2="2" y2="36" stroke="#475569" stroke-width="1.6" stroke-linecap="round"/><line x1="28" y1="33" x2="30" y2="36" stroke="#475569" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="34.5" r="2.2" fill="#475569"/><circle cx="22" cy="34.5" r="2.2" fill="#475569"/></svg>`,
+    "fixed-crane": `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="8" y1="34" x2="8" y2="8" stroke="#002060" stroke-width="2.2" stroke-linecap="round"/><line x1="8" y1="8" x2="32" y2="18" stroke="#002060" stroke-width="2" stroke-linecap="round"/><line x1="28" y1="19" x2="28" y2="30" stroke="#3B82F6" stroke-width="1.4" stroke-dasharray="2 1.5"/><rect x="23" y="29" width="10" height="3" rx="1" fill="#3B82F6"/><rect x="22" y="32" width="12" height="6" rx="1.5" fill="#002060" opacity="0.75"/><line x1="28" y1="32" x2="28" y2="38" stroke="#6BA4FF" stroke-width="0.8"/><rect x="4" y="34" width="8" height="3" rx="1" fill="#002060"/><circle cx="5.5" cy="37.5" r="1.2" fill="#475569"/><circle cx="10.5" cy="37.5" r="1.2" fill="#475569"/><rect x="2" y="12" width="5" height="7" rx="1" fill="#475569" opacity="0.6"/><line x1="8" y1="8" x2="8" y2="8" stroke="#002060" stroke-width="1"/></svg>`,
+    "reach-stacker": `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="22" width="22" height="11" rx="2.5" fill="#002060" opacity="0.85"/><rect x="17" y="17" width="8" height="8" rx="1.5" fill="#002060"/><rect x="18.5" y="18.5" width="5" height="4" rx="1" fill="#93C5FD" opacity="0.7"/><line x1="8" y1="22" x2="8" y2="10" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/><line x1="8" y1="10" x2="30" y2="10" stroke="#3B82F6" stroke-width="2.2" stroke-linecap="round"/><rect x="27" y="7" width="8" height="3" rx="1" fill="#3B82F6"/><rect x="26" y="10" width="10" height="6" rx="1" fill="#002060" opacity="0.7"/><line x1="31" y1="10" x2="31" y2="16" stroke="#6BA4FF" stroke-width="0.8"/><circle cx="8" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="8" cy="34.5" r="1.4" fill="#475569"/><circle cx="20" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="20" cy="34.5" r="1.4" fill="#475569"/></svg>`,
+    "side-loader": `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="20" width="28" height="12" rx="2.5" fill="#002060" opacity="0.85"/><rect x="22" y="14" width="10" height="9" rx="1.5" fill="#002060"/><rect x="23.5" y="15.5" width="7" height="5" rx="1" fill="#93C5FD" opacity="0.7"/><rect x="1" y="23" width="12" height="2.5" rx="1" fill="#3B82F6"/><rect x="1" y="27" width="12" height="2.5" rx="1" fill="#3B82F6"/><rect x="1" y="16" width="10" height="8" rx="1.5" fill="#002060" opacity="0.6"/><line x1="6" y1="16" x2="6" y2="24" stroke="#6BA4FF" stroke-width="0.8"/><circle cx="9" cy="34" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="9" cy="34" r="1.4" fill="#475569"/><circle cx="26" cy="34" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="26" cy="34" r="1.4" fill="#475569"/></svg>`,
+    "forklift": `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="18" width="22" height="14" rx="2.5" fill="#002060" opacity="0.85"/><rect x="10" y="8" width="3" height="20" rx="1" fill="#3B82F6"/><rect x="14" y="8" width="3" height="20" rx="1" fill="#3B82F6" opacity="0.6"/><rect x="4" y="26" width="10" height="2.2" rx="1" fill="#002060"/><rect x="4" y="29.5" width="10" height="2.2" rx="1" fill="#002060"/><rect x="22" y="19" width="8" height="7" rx="1.2" fill="#93C5FD" opacity="0.6"/><rect x="29" y="22" width="5" height="8" rx="1" fill="#475569" opacity="0.6"/><circle cx="15" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="15" cy="34.5" r="1.4" fill="#475569"/><circle cx="28" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="28" cy="34.5" r="1.4" fill="#475569"/></svg>`,
+    "head-truck": `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="14" width="14" height="16" rx="2.5" fill="#002060" opacity="0.9"/><rect x="24" y="15.5" width="10" height="7" rx="1.5" fill="#93C5FD" opacity="0.65"/><rect x="30" y="22" width="8" height="6" rx="1.5" fill="#002060"/><rect x="4" y="26" width="28" height="5" rx="1" fill="#1E293B" opacity="0.7"/><circle cx="16" cy="26.5" r="3" fill="#3B82F6" opacity="0.7"/><rect x="23" y="9" width="2.5" height="7" rx="1" fill="#475569"/><circle cx="8" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="8" cy="34.5" r="1.4" fill="#475569"/><circle cx="20" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="20" cy="34.5" r="1.4" fill="#475569"/><circle cx="30" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="30" cy="34.5" r="1.4" fill="#475569"/></svg>`,
+    "tronton": `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="16" width="22" height="14" rx="1.5" fill="#002060" opacity="0.7"/><line x1="8" y1="16" x2="8" y2="30" stroke="#6BA4FF" stroke-width="0.8"/><line x1="14" y1="16" x2="14" y2="30" stroke="#6BA4FF" stroke-width="0.8"/><line x1="20" y1="16" x2="20" y2="30" stroke="#6BA4FF" stroke-width="0.8"/><rect x="24" y="19" width="13" height="11" rx="2" fill="#002060" opacity="0.9"/><rect x="25.5" y="20.5" width="9" height="6" rx="1.2" fill="#93C5FD" opacity="0.65"/><rect x="2" y="30" width="36" height="3" rx="1" fill="#1E293B" opacity="0.6"/><rect x="25" y="13" width="2" height="7" rx="1" fill="#475569"/><circle cx="7" cy="35" r="3.2" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="7" cy="35" r="1.3" fill="#475569"/><circle cx="17" cy="35" r="3.2" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="17" cy="35" r="1.3" fill="#475569"/><circle cx="30" cy="35" r="3.2" fill="#1E293B" stroke="#475569" stroke-width="1"/><circle cx="30" cy="35" r="1.3" fill="#475569"/></svg>`,
+  };
+  // Label tampil = nama jenis_alat tanpa embel "(Ship-to-shore)" biar rapi
+  function equipDisplayName(jenis) {
+    return String(jenis || "").replace(/\s*\(Ship-to-shore\)\s*/i, "").trim();
+  }
+  const equipGridEl = document.getElementById("equip-grid");
+  if (equipGridEl) {
+    const cardsHTML = alatRows
+      .filter(r => {
+        const n = Number(String(r.jumlah).replace(/[^0-9.-]/g, ""));
+        return !isEmptyVal(r.jumlah) && n > 0; // 0 / kosong disembunyikan
+      })
+      .map((r, idx) => {
+        const slug = equipSlugMap[String(r.jenis_alat).trim()] || "";
+        const icon = EQUIP_ICONS[slug] || "";
+        const name = esc(equipDisplayName(r.jenis_alat));
+        const sub = isEmptyVal(r.sub_label) ? "" : esc(r.sub_label);
+        const subHTML = sub ? `<br><span style="font-size:0.6rem;color:#475569;">${sub}</span>` : "";
+        const delay = "reveal-delay-" + ((idx % 3) + 1);
+        return `<div class="equip-card reveal ${delay}">
+            <div class="equip-icon">${icon}</div>
+            <div class="equip-num">${esc(r.jumlah)}</div>
+            <div class="equip-label">${name}${subHTML}</div>
+          </div>`;
+      })
+      .join("");
+    equipGridEl.innerHTML = cardsHTML;
+  }
+
+  // ── Gate System (poin #1) — "X In / Y Out" dari gate_in/gate_out; sub-teks gate_note ──
+  (function renderGate() {
+    const valEl = document.getElementById("gate-system-value");
+    const subEl = document.getElementById("gate-system-note");
+    const hasIn = !isEmptyVal(m.gate_in);
+    const hasOut = !isEmptyVal(m.gate_out);
+    if (valEl) {
+      valEl.textContent = (hasIn || hasOut)
+        ? `${hasIn ? m.gate_in : "0"} In / ${hasOut ? m.gate_out : "0"} Out`
+        : "\u2014"; // em-dash kalau lane belum diisi
     }
-  });
-  Object.values(equipIdMap).forEach(slug => {
-    const card = document.querySelector('[data-equip="' + slug + '"]');
-    if (card) card.style.display = presentTypes.has(slug) ? "" : "none";
-  });
-  setText("development-need-text", m.development_need); // poin #11
+    if (subEl) {
+      if (isEmptyVal(m.gate_note)) {
+        subEl.textContent = "";
+        subEl.style.display = "none";
+      } else {
+        subEl.textContent = m.gate_note;
+        subEl.style.display = "";
+      }
+    }
+  })();
+  // Development Need (poin #3): teks dari sheet; kalau kosong, seluruh box disembunyikan
+  (function renderDevNeed() {
+    const box = document.getElementById("development-need-box");
+    const txt = document.getElementById("development-need-text");
+    if (isEmptyVal(m.development_need)) {
+      if (box) box.style.display = "none";
+    } else {
+      if (box) box.style.display = "";
+      if (txt) txt.textContent = m.development_need;
+    }
+  })();
   setText("lini-note-1", m.lini_note); // poin #10 (rincian "Lini 1 & Lini 2" lain di Support Requests otomatis ikut ter-render ulang dari m.support_requests di atas)
 
   // ── S9 Tariff — ringkasan + rincian dinamis per kelompok (poin #16, #17) ──
