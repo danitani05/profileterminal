@@ -1064,7 +1064,7 @@ footer {
      SECTION 1: HERO
      ============================================================ -->
 <section id="hero">
-  <div style="position:absolute;inset:0;background-image:url('foto-s1-hero.jpg');background-size:cover;background-position:center 40%;filter:brightness(0.6) saturate(0.85);transform:scale(1.03);z-index:0;"></div>
+  <div style="position:absolute;inset:0;background-image:url('foto-s1-hero.jpg');background-size:cover;background-position:center 40%;afilter:brightness(0.6) saturate(0.85);transform:scale(1.03);z-index:0;"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,32,96,0.5) 0%,rgba(6,13,26,0.35) 50%,rgba(6,13,26,0.6) 100%);z-index:0;"></div>
   <div style="position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(transparent,var(--bg-primary));z-index:1;pointer-events:none;"></div>
   <div class="hero-ring"></div>
@@ -1637,8 +1637,8 @@ footer {
           </div>
           <div class="spec-card reveal reveal-delay-4">
             <div class="spec-card-label">Gate System</div>
-            <div class="spec-card-value">—</div>
-            <div class="spec-card-sub" style="color:var(--danger);">RCV/DLV not yet operational</div>
+            <div class="spec-card-value" id="gate-system-value">—</div>
+            <div class="spec-card-sub" id="gate-system-note" style="color:var(--danger);">RCV/DLV not yet operational</div>
           </div>
         </div>
 
@@ -1687,174 +1687,11 @@ footer {
       <div>
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
           <p class="section-label" style="margin-bottom:0;">Equipment Fleet</p>
-          <span class="need-badge">⚠ Needs: QCC · RTG · Side Loader</span>
         </div>
-        <div class="equip-grid">
-          <div class="equip-card reveal reveal-delay-1">
-            <div class="equip-icon">
-              <!-- Fixed Crane / Ship-to-Shore -->
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Boom arm angled up -->
-                <line x1="8" y1="34" x2="8" y2="8" stroke="#002060" stroke-width="2.2" stroke-linecap="round"/>
-                <line x1="8" y1="8" x2="32" y2="18" stroke="#002060" stroke-width="2" stroke-linecap="round"/>
-                <!-- Vertical hoist wire -->
-                <line x1="28" y1="19" x2="28" y2="30" stroke="#3B82F6" stroke-width="1.4" stroke-dasharray="2 1.5"/>
-                <!-- Spreader bar -->
-                <rect x="23" y="29" width="10" height="3" rx="1" fill="#3B82F6"/>
-                <!-- Container -->
-                <rect x="22" y="32" width="12" height="6" rx="1.5" fill="#002060" opacity="0.75"/>
-                <line x1="28" y1="32" x2="28" y2="38" stroke="#6BA4FF" stroke-width="0.8"/>
-                <!-- Base/rail -->
-                <rect x="4" y="34" width="8" height="3" rx="1" fill="#002060"/>
-                <circle cx="5.5" cy="37.5" r="1.2" fill="#475569"/>
-                <circle cx="10.5" cy="37.5" r="1.2" fill="#475569"/>
-                <!-- Counter weight -->
-                <rect x="2" y="12" width="5" height="7" rx="1" fill="#475569" opacity="0.6"/>
-                <!-- Tie rope -->
-                <line x1="8" y1="8" x2="8" y2="8" stroke="#002060" stroke-width="1"/>
-              </svg>
-            </div>
-            <div class="equip-num" id="equip-num-fixed-crane">2</div>
-            <div class="equip-label">Fixed Crane<br><span style="font-size:0.6rem;color:#475569;">Ship-to-shore</span></div>
-          </div>
-          <div class="equip-card reveal reveal-delay-2">
-            <div class="equip-icon">
-              <!-- Reach Stacker -->
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Body -->
-                <rect x="3" y="22" width="22" height="11" rx="2.5" fill="#002060" opacity="0.85"/>
-                <!-- Cabin -->
-                <rect x="17" y="17" width="8" height="8" rx="1.5" fill="#002060"/>
-                <rect x="18.5" y="18.5" width="5" height="4" rx="1" fill="#93C5FD" opacity="0.7"/>
-                <!-- Boom arm extending forward -->
-                <line x1="8" y1="22" x2="8" y2="10" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
-                <line x1="8" y1="10" x2="30" y2="10" stroke="#3B82F6" stroke-width="2.2" stroke-linecap="round"/>
-                <!-- Spreader -->
-                <rect x="27" y="7" width="8" height="3" rx="1" fill="#3B82F6"/>
-                <!-- Container on spreader -->
-                <rect x="26" y="10" width="10" height="6" rx="1" fill="#002060" opacity="0.7"/>
-                <line x1="31" y1="10" x2="31" y2="16" stroke="#6BA4FF" stroke-width="0.8"/>
-                <!-- Wheels -->
-                <circle cx="8" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="8" cy="34.5" r="1.4" fill="#475569"/>
-                <circle cx="20" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="20" cy="34.5" r="1.4" fill="#475569"/>
-              </svg>
-            </div>
-            <div class="equip-num" id="equip-num-reach-stacker">4</div>
-            <div class="equip-label">Reach Stacker<br><span style="font-size:0.6rem;color:#475569;">RS units</span></div>
-          </div>
-          <div class="equip-card reveal reveal-delay-3">
-            <div class="equip-icon">
-              <!-- Side Loader -->
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Main body -->
-                <rect x="4" y="20" width="28" height="12" rx="2.5" fill="#002060" opacity="0.85"/>
-                <!-- Cabin -->
-                <rect x="22" y="14" width="10" height="9" rx="1.5" fill="#002060"/>
-                <rect x="23.5" y="15.5" width="7" height="5" rx="1" fill="#93C5FD" opacity="0.7"/>
-                <!-- Side forks extending left -->
-                <rect x="1" y="23" width="12" height="2.5" rx="1" fill="#3B82F6"/>
-                <rect x="1" y="27" width="12" height="2.5" rx="1" fill="#3B82F6"/>
-                <!-- Container on forks -->
-                <rect x="1" y="16" width="10" height="8" rx="1.5" fill="#002060" opacity="0.6"/>
-                <line x1="6" y1="16" x2="6" y2="24" stroke="#6BA4FF" stroke-width="0.8"/>
-                <!-- Wheels -->
-                <circle cx="9" cy="34" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="9" cy="34" r="1.4" fill="#475569"/>
-                <circle cx="26" cy="34" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="26" cy="34" r="1.4" fill="#475569"/>
-              </svg>
-            </div>
-            <div class="equip-num" id="equip-num-side-loader">1</div>
-            <div class="equip-label">Side Loader<br><span style="font-size:0.6rem;color:#475569;">Unit</span></div>
-          </div>
-          <div class="equip-card reveal reveal-delay-1">
-            <div class="equip-icon">
-              <!-- Forklift -->
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Body -->
-                <rect x="10" y="18" width="22" height="14" rx="2.5" fill="#002060" opacity="0.85"/>
-                <!-- Mast (vertical) -->
-                <rect x="10" y="8" width="3" height="20" rx="1" fill="#3B82F6"/>
-                <rect x="14" y="8" width="3" height="20" rx="1" fill="#3B82F6" opacity="0.6"/>
-                <!-- Forks -->
-                <rect x="4" y="26" width="10" height="2.2" rx="1" fill="#002060"/>
-                <rect x="4" y="29.5" width="10" height="2.2" rx="1" fill="#002060"/>
-                <!-- Cabin window -->
-                <rect x="22" y="19" width="8" height="7" rx="1.2" fill="#93C5FD" opacity="0.6"/>
-                <!-- Counterweight (back) -->
-                <rect x="29" y="22" width="5" height="8" rx="1" fill="#475569" opacity="0.6"/>
-                <!-- Wheels -->
-                <circle cx="15" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="15" cy="34.5" r="1.4" fill="#475569"/>
-                <circle cx="28" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="28" cy="34.5" r="1.4" fill="#475569"/>
-              </svg>
-            </div>
-            <div class="equip-num" id="equip-num-forklift">3</div>
-            <div class="equip-label">Forklift<br><span style="font-size:0.6rem;color:#475569;">Units</span></div>
-          </div>
-          <div class="equip-card reveal reveal-delay-2">
-            <div class="equip-icon">
-              <!-- Head Truck (tractor unit) -->
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Cabin -->
-                <rect x="22" y="14" width="14" height="16" rx="2.5" fill="#002060" opacity="0.9"/>
-                <!-- Windshield -->
-                <rect x="24" y="15.5" width="10" height="7" rx="1.5" fill="#93C5FD" opacity="0.65"/>
-                <!-- Hood -->
-                <rect x="30" y="22" width="8" height="6" rx="1.5" fill="#002060"/>
-                <!-- Chassis -->
-                <rect x="4" y="26" width="28" height="5" rx="1" fill="#1E293B" opacity="0.7"/>
-                <!-- Fifth wheel / coupling -->
-                <circle cx="16" cy="26.5" r="3" fill="#3B82F6" opacity="0.7"/>
-                <!-- Exhaust stack -->
-                <rect x="23" y="9" width="2.5" height="7" rx="1" fill="#475569"/>
-                <!-- Wheels -->
-                <circle cx="8" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="8" cy="34.5" r="1.4" fill="#475569"/>
-                <circle cx="20" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="20" cy="34.5" r="1.4" fill="#475569"/>
-                <circle cx="30" cy="34.5" r="3.5" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="30" cy="34.5" r="1.4" fill="#475569"/>
-              </svg>
-            </div>
-            <div class="equip-num" id="equip-num-head-truck">5</div>
-            <div class="equip-label">Head Truck<br><span style="font-size:0.6rem;color:#475569;">Units</span></div>
-          </div>
-          <div class="equip-card reveal reveal-delay-3">
-            <div class="equip-icon">
-              <!-- Tronton (rigid truck 3-axle) -->
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Cargo box -->
-                <rect x="2" y="16" width="22" height="14" rx="1.5" fill="#002060" opacity="0.7"/>
-                <line x1="8" y1="16" x2="8" y2="30" stroke="#6BA4FF" stroke-width="0.8"/>
-                <line x1="14" y1="16" x2="14" y2="30" stroke="#6BA4FF" stroke-width="0.8"/>
-                <line x1="20" y1="16" x2="20" y2="30" stroke="#6BA4FF" stroke-width="0.8"/>
-                <!-- Cabin -->
-                <rect x="24" y="19" width="13" height="11" rx="2" fill="#002060" opacity="0.9"/>
-                <!-- Windshield -->
-                <rect x="25.5" y="20.5" width="9" height="6" rx="1.2" fill="#93C5FD" opacity="0.65"/>
-                <!-- Chassis -->
-                <rect x="2" y="30" width="36" height="3" rx="1" fill="#1E293B" opacity="0.6"/>
-                <!-- Exhaust -->
-                <rect x="25" y="13" width="2" height="7" rx="1" fill="#475569"/>
-                <!-- Wheels -->
-                <circle cx="7" cy="35" r="3.2" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="7" cy="35" r="1.3" fill="#475569"/>
-                <circle cx="17" cy="35" r="3.2" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="17" cy="35" r="1.3" fill="#475569"/>
-                <circle cx="30" cy="35" r="3.2" fill="#1E293B" stroke="#475569" stroke-width="1"/>
-                <circle cx="30" cy="35" r="1.3" fill="#475569"/>
-              </svg>
-            </div>
-            <div class="equip-num" id="equip-num-tronton">3</div>
-            <div class="equip-label">Tronton<br><span style="font-size:0.6rem;color:#475569;">Units</span></div>
-          </div>
+        <div class="equip-grid" id="equip-grid">
         </div>
-        <div style="margin-top:20px;padding:16px 20px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18);border-radius:12px;font-size:0.8rem;color:rgba(248,113,113,0.8);line-height:1.6;">
-          <strong style="color:var(--danger);">Development Need:</strong> QCC (Quay Container Crane), RTG (Rubber Tyred Gantry), and additional Side Loaders required to support incoming cargo surge from PSN Wanam development and food estate programs in South Papua.
+        <div id="development-need-box" style="margin-top:20px;padding:16px 20px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.18);border-radius:12px;font-size:0.8rem;color:rgba(248,113,113,0.8);line-height:1.6;">
+          <strong style="color:var(--danger);">Development Need:</strong> <span id="development-need-text">QCC (Quay Container Crane), RTG (Rubber Tyred Gantry), and additional Side Loaders required to support incoming cargo surge from PSN Wanam development and food estate programs in South Papua.</span>
         </div>
       </div>
     </div>
