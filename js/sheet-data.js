@@ -355,7 +355,7 @@ async function initTerminalData(kodeTerminal) {
         const sub = isEmptyVal(r.sub_label) ? "" : esc(r.sub_label);
         const subHTML = sub ? `<br><span style="font-size:0.6rem;color:#475569;">${sub}</span>` : "";
         const delay = "reveal-delay-" + ((idx % 3) + 1);
-        return `<div class="equip-card reveal ${delay}">
+        return `<div class="equip-card reveal ${delay} visible">
             <div class="equip-icon">${icon}</div>
             <div class="equip-num">${esc(r.jumlah)}</div>
             <div class="equip-label">${name}${subHTML}</div>
@@ -363,13 +363,6 @@ async function initTerminalData(kodeTerminal) {
       })
       .join("");
     equipGridEl.innerHTML = cardsHTML;
-    // Kartu di-generate SETELAH IntersectionObserver scroll-reveal terpasang
-    // (observer hanya menangkap elemen .reveal yang ada saat page load).
-    // Kartu baru ini tidak akan pernah dapat class .visible dari observer,
-    // jadi kita tampilkan langsung agar tidak tetap opacity:0 (poin bugfix).
-    requestAnimationFrame(() => {
-      equipGridEl.querySelectorAll(".equip-card.reveal").forEach(c => c.classList.add("visible"));
-    });
   }
 
   // ── Gate System (poin #1) — "X In / Y Out" dari gate_in/gate_out; sub-teks gate_note ──
