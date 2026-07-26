@@ -363,6 +363,13 @@ async function initTerminalData(kodeTerminal) {
       })
       .join("");
     equipGridEl.innerHTML = cardsHTML;
+    // Kartu di-generate SETELAH IntersectionObserver scroll-reveal terpasang
+    // (observer hanya menangkap elemen .reveal yang ada saat page load).
+    // Kartu baru ini tidak akan pernah dapat class .visible dari observer,
+    // jadi kita tampilkan langsung agar tidak tetap opacity:0 (poin bugfix).
+    requestAnimationFrame(() => {
+      equipGridEl.querySelectorAll(".equip-card.reveal").forEach(c => c.classList.add("visible"));
+    });
   }
 
   // ── Gate System (poin #1) — "X In / Y Out" dari gate_in/gate_out; sub-teks gate_note ──
