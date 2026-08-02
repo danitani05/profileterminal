@@ -216,6 +216,14 @@ async function initTerminalData(kodeTerminal) {
   if (capVal) setText("stat-kapasitas-terminal", fmtNum(capVal));
   setText("hero-subtitle", m.hero_subtitle); // poin #1
 
+  // ── Foto hero dinamis dari kolom foto_url (TERMINAL_MASTER) ──
+  // Jika foto_url terisi, pasang sebagai background-image div hero.
+  // Jika kosong / [TBD], biarkan gradient navy default (fallback CSS) tampil.
+  const heroPhotoEl = document.getElementById("hero-photo");
+  if (heroPhotoEl && !isEmptyVal(m.foto_url)) {
+    heroPhotoEl.style.backgroundImage = "url('" + m.foto_url + "')";
+  }
+
   // ── S2 About / Terminal Overview (poin #3, #4) ──
   setText("about-desc-1", m.about_desc_1);
   setText("about-desc-2", m.about_desc_2); // catatan: markup <strong> pada angka TEUs hilang jika desc2 diedit lewat sheet (plain text)
