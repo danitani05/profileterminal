@@ -1102,7 +1102,7 @@ footer {
         <div class="hero-stat-icon" style="width:40px;height:40px;border-radius:8px;background:rgba(52,211,153,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:22px;color:#34d399;">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
-        <div class="hero-stat-num" style="color:#34d399;">+14%</div>
+        <div class="hero-stat-num" id="stat-yoy" style="color:#34d399;">+14%</div>
         <div class="hero-stat-label">YoY Growth</div>
       </div>
       <div class="hero-stat">
@@ -1182,11 +1182,11 @@ footer {
 
         <!-- SLIDESHOW UTAMA -->
         <div style="position:relative;border-radius:12px;overflow:hidden;height:300px;background:#0a1628;">
-          <div class="asl asl-on" id="asl0"><img src="about-terminal.jpg" alt="Merauke Container Terminal" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Merauke Container Terminal</div><div class="asl-num">1 / 5</div></div>
-          <div class="asl" id="asl1"><img src="about-operasional.jpg" alt="Container Cargo Handling Activities" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Container Cargo Handling Activities</div><div class="asl-num">2 / 5</div></div>
-          <div class="asl" id="asl2"><img src="about-suku-papua.jpg" alt="The Asmat tribe from South Papua" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">The Asmat tribe from South Papua</div><div class="asl-num">3 / 5</div></div>
-          <div class="asl" id="asl3"><img src="about-drone-kota.jpg" alt="Merauke City" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Merauke City</div><div class="asl-num">4 / 5</div></div>
-          <div class="asl" id="asl4"><img src="about-alam-papua.jpg" alt="Wasur National Park" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Wasur National Park</div><div class="asl-num">5 / 5</div></div>
+          <div class="asl asl-on" id="asl0"><img src="../photos/merauke/terminal.jpg" alt="Merauke Container Terminal" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Merauke Container Terminal</div><div class="asl-num">1 / 5</div></div>
+          <div class="asl" id="asl1"><img src="../photos/merauke/operasional.jpg" alt="Container Cargo Handling Activities" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Container Cargo Handling Activities</div><div class="asl-num">2 / 5</div></div>
+          <div class="asl" id="asl2"><img src="../photos/merauke/budaya-lokal.jpg" alt="The Asmat tribe from South Papua" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">The Asmat tribe from South Papua</div><div class="asl-num">3 / 5</div></div>
+          <div class="asl" id="asl3"><img src="../photos/merauke/kota.jpg" alt="Merauke City" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Merauke City</div><div class="asl-num">4 / 5</div></div>
+          <div class="asl" id="asl4"><img src="../photos/merauke/alam-sekitar.jpg" alt="Wasur National Park" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Wasur National Park</div><div class="asl-num">5 / 5</div></div>
         </div>
 
         <!-- PROGRESS BAR -->
@@ -2423,12 +2423,21 @@ window.renderThroughputChart([
 <script>
 (function(){
   const DUR = 5000;
+  // Path foto dibuat dinamis dari slug halaman (sama seperti logic di sheet-data.js),
+  // BUKAN hardcode nama file lama (about-*.jpg) yang sudah tidak ada di repo —
+  // itu penyebab galeri sempat benar lalu balik jadi broken tiap auto-rotate.
+  const GALLERY_FILES_LOCAL = ["terminal", "operasional", "budaya-lokal", "kota", "alam-sekitar"];
+  const slugMatch = location.pathname.match(/terminal-([a-z0-9-]+)\.html/i);
+  const slugLocal = slugMatch ? slugMatch[1] : null;
+  function photoPath(fileIdx) {
+    return slugLocal ? `../photos/${slugLocal}/${GALLERY_FILES_LOCAL[fileIdx]}.jpg` : "";
+  }
   const PHOTOS = [
-    { src:'about-terminal.jpg',    alt:'Merauke Container Terminal',          label:'Merauke Container Terminal' },
-    { src:'about-operasional.jpg', alt:'Container Cargo Handling Activities',         label:'Container Cargo Handling Activities' },
-    { src:'about-suku-papua.jpg',  alt:'The Asmat tribe from South Papua',   label:'The Asmat tribe from South Papua' },
-    { src:'about-drone-kota.jpg',  alt:'Merauke City',      label:'Merauke City' },
-    { src:'about-alam-papua.jpg',  alt:'Wasur National Park',   label:'Wasur National Park' },
+    { src: photoPath(0), alt:'Merauke Container Terminal',          label:'Merauke Container Terminal' },
+    { src: photoPath(1), alt:'Container Cargo Handling Activities', label:'Container Cargo Handling Activities' },
+    { src: photoPath(2), alt:'The Asmat tribe from South Papua',    label:'The Asmat tribe from South Papua' },
+    { src: photoPath(3), alt:'Merauke City',                        label:'Merauke City' },
+    { src: photoPath(4), alt:'Wasur National Park',                 label:'Wasur National Park' },
   ];
 
   const slides = [0,1,2,3,4].map(i => document.getElementById('asl'+i));
