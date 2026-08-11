@@ -216,6 +216,14 @@ async function initTerminalData(kodeTerminal) {
   if (capVal) setText("stat-kapasitas-terminal", fmtNum(capVal));
   setText("hero-subtitle", m.hero_subtitle); // poin #1
 
+  // Box Ship Hours (BSH) di hero — ambil dari tab PERFORMANCE, indikator
+  // "Ship Unloading Rate" (sama seperti baris di tabel S4 Performance),
+  // supaya angka hero & tabel selalu konsisten dari satu sumber.
+  const bshRow = perfRows.find(r => String(r.indikator || "").trim() === "Ship Unloading Rate");
+  if (bshRow && !isEmptyVal(bshRow.realisasi)) {
+    setText("stat-bsh", bshRow.realisasi + " " + (bshRow.satuan || "B/S/H"));
+  }
+
   // ── Foto hero dinamis dari kolom foto_url (TERMINAL_MASTER) ──
   // Jika foto_url terisi, pasang sebagai background-image div hero.
   // Jika kosong / [TBD], biarkan gradient navy default (fallback CSS) tampil.
@@ -296,6 +304,27 @@ async function initTerminalData(kodeTerminal) {
   setText("cap-val-yard-crane", i.kapasitas_yard_crane ? fmtNum(i.kapasitas_yard_crane) + " TEUs" : undefined);
   setText("cap-val-berth", i.kapasitas_berth ? fmtNum(i.kapasitas_berth) + " TEUs" : undefined);
   setText("cap-val-yard", i.kapasitas_yard ? fmtNum(i.kapasitas_yard) + " TEUs" : undefined);
+
+  // Gate In / Gate Out capacity (kolom baru di tab INFRASTRUKTUR:
+  // kapasitas_gate_in, kapasitas_gate_out). Skala bar mengikuti skala
+  // yang sama dgn Shore Crane (dipakai sebagai acuan 100% di 4 bar lain).
+  (function fillGateCapacity() {
+    const capMax = Number(i.kapasitas_shore_crane) || 0;
+    [["cap-val-gate-in", i.kapasitas_gate_in], ["cap-val-gate-out", i.kapasitas_gate_out]].forEach(([id, rawVal]) => {
+      if (isEmptyVal(rawVal)) return; // biarkan default "[TBD]" & bar abu-abu
+      const valEl = document.getElementById(id);
+      if (!valEl) return;
+      valEl.textContent = fmtNum(rawVal) + " TEUs";
+      valEl.style.color = "";
+      const fillEl = valEl.closest(".cap-row")?.querySelector(".progress-fill");
+      if (fillEl) {
+        fillEl.classList.remove("none");
+        const pct = capMax > 0 ? Math.min(100, (Number(rawVal) / capMax) * 100) : 100;
+        fillEl.dataset.width = pct.toFixed(1);
+        fillEl.style.width = pct.toFixed(1) + "%";
+      }
+    });
+  })();
   setText("infra-berth-length", !isEmptyVal(i.panjang_dermaga_m) ? i.panjang_dermaga_m + " m" : undefined);
   setText("infra-draft", !isEmptyVal(i.draft_mlws) ? "−" + Math.abs(Number(String(i.draft_mlws).replace(/[^0-9.-]/g, ""))) + " mLWS" : undefined);
   setText("infra-cy", !isEmptyVal(i.luas_cy_ha) ? i.luas_cy_ha + " ha" : undefined);
