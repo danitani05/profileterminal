@@ -2364,6 +2364,8 @@ window.renderThroughputChart = function (chartData) {
   if (!chartEl || !chartData || !chartData.length) return;
   chartEl.innerHTML = '';
   const maxVol = Math.max(...chartData.map(d => d.vol));
+  const bars = [];
+  let firstLbl = null, lastLbl = null;
   chartData.forEach((d, i) => {
     const barH = (d.vol / maxVol) * 155;
     const wrap = document.createElement('div');
@@ -2379,6 +2381,8 @@ window.renderThroughputChart = function (chartData) {
     lbl.className = 'bar-label-top';
     lbl.textContent = fmtThroughputLabel(d.vol);
     wrap.appendChild(lbl);
+    if (i === 0) firstLbl = lbl;
+    if (i === chartData.length - 1) lastLbl = lbl;
     const bar = document.createElement('div');
     bar.className = 'bar-intl';
     bar.style.width = '100%';
@@ -2392,14 +2396,89 @@ window.renderThroughputChart = function (chartData) {
     yearLbl.textContent = d.year;
     wrap.appendChild(yearLbl);
     chartEl.appendChild(wrap);
-    const cObs = new IntersectionObserver((entries) => {
-      entries.forEach(en => {
-        if (en.isIntersecting) { setTimeout(() => { bar.style.height = barH + 'px'; }, i * 80); cObs.unobserve(en.target); }
-      });
-    }, { threshold: 0.3 });
-    cObs.observe(chartEl);
+    bars.push({ bar, barH });
   });
+
+  // ── Satu observer untuk seluruh chart (bukan 1 observer per bar) ──
+  // Animasikan semua bar dengan stagger, lalu gambar panah CAGR SETELAH
+  // animasi tinggi bar benar-benar selesai — bukan sesaat setelah render,
+  // supaya panah tidak salah ambil posisi bar saat masih 0px (nempel bawah).
+  const cObs = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      cObs.unobserve(en.target);
+      bars.forEach(({ bar, barH }, i) => {
+        setTimeout(() => { bar.style.height = barH + 'px'; }, i * 80);
+      });
+      const maxStagger = (bars.length - 1) * 80;
+      const transitionMs = 1300; // sedikit di atas durasi transition CSS .bar-intl (1.2s)
+      setTimeout(() => {
+        if (chartData.length < 2 || !firstLbl || !lastLbl) return;
+        const yrStart = Number(chartData[0].year), yrEnd = Number(chartData[chartData.length - 1].year);
+        const volStart = Number(chartData[0].vol), volEnd = Number(chartData[chartData.length - 1].vol);
+        const nYears = yrEnd - yrStart;
+        if (nYears > 0 && volStart > 0) {
+          const cagr = (Math.pow(volEnd / volStart, 1 / nYears) - 1) * 100;
+          drawCagrArrow(chartEl, firstLbl, lastLbl, cagr);
+        }
+      }, maxStagger + transitionMs);
+    });
+  }, { threshold: 0.3 });
+  cObs.observe(chartEl);
 };
+
+function drawCagrArrow(chartEl, fromLbl, toLbl, cagrPct) {
+  const svgNS = 'http://www.w3.org/2000/svg';
+  chartEl.querySelectorAll('svg.cagr-arrow-overlay').forEach(el => el.remove());
+  const chartRect = chartEl.getBoundingClientRect();
+  const r1 = fromLbl.getBoundingClientRect();
+  const r2 = toLbl.getBoundingClientRect();
+  const x1 = r1.left + r1.width / 2 - chartRect.left;
+  const y1 = r1.top - chartRect.top - 4;
+  const x2 = r2.left + r2.width / 2 - chartRect.left;
+  const y2 = r2.top - chartRect.top - 4;
+  const peakY = Math.min(y1, y2) - 26;
+  const color = cagrPct >= 0 ? '#34D399' : '#EF4444';
+
+  const svg = document.createElementNS(svgNS, 'svg');
+  svg.setAttribute('class', 'cagr-arrow-overlay');
+  svg.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;';
+
+  const defs = document.createElementNS(svgNS, 'defs');
+  const marker = document.createElementNS(svgNS, 'marker');
+  marker.setAttribute('id', 'cagrArrowHead');
+  marker.setAttribute('viewBox', '0 0 10 10');
+  marker.setAttribute('refX', '8'); marker.setAttribute('refY', '5');
+  marker.setAttribute('markerWidth', '7'); marker.setAttribute('markerHeight', '7');
+  marker.setAttribute('orient', 'auto-start-reverse');
+  const arrowPath = document.createElementNS(svgNS, 'path');
+  arrowPath.setAttribute('d', 'M0,0 L10,5 L0,10 Z');
+  arrowPath.setAttribute('fill', color);
+  marker.appendChild(arrowPath);
+  defs.appendChild(marker);
+  svg.appendChild(defs);
+
+  const path = document.createElementNS(svgNS, 'path');
+  path.setAttribute('d', `M${x1},${y1} Q${(x1 + x2) / 2},${peakY} ${x2},${y2}`);
+  path.setAttribute('stroke', color);
+  path.setAttribute('stroke-width', '2');
+  path.setAttribute('fill', 'none');
+  path.setAttribute('stroke-dasharray', '5,4');
+  path.setAttribute('marker-end', 'url(#cagrArrowHead)');
+  svg.appendChild(path);
+
+  const label = document.createElementNS(svgNS, 'text');
+  label.setAttribute('x', (x1 + x2) / 2);
+  label.setAttribute('y', peakY - 8);
+  label.setAttribute('text-anchor', 'middle');
+  label.setAttribute('fill', color);
+  label.setAttribute('font-size', '12');
+  label.setAttribute('font-weight', '700');
+  label.textContent = 'CAGR ' + (cagrPct >= 0 ? '+' : '') + cagrPct.toFixed(1) + '%';
+  svg.appendChild(label);
+
+  chartEl.appendChild(svg);
+}
 // Render awal pakai data statis (fallback bila fetch live gagal/offline)
 window.renderThroughputChart([
   { year: '2020', vol: 39251 },
