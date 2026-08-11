@@ -212,6 +212,20 @@ async function initTerminalData(kodeTerminal) {
 
   // ── S1 Hero ──
   if (trf.length) setText("stat-teus-terakhir", fmtNum(trf[trf.length - 1].volume_teus));
+
+  // YoY Growth di hero — dihitung otomatis dari 2 tahun terakhir tab TRAFFIC,
+  // TIDAK perlu kolom baru (beda dgn Kapasitas/BSH yg butuh kolom terpisah).
+  if (trf.length >= 2) {
+    const lastV = Number(trf[trf.length - 1].volume_teus);
+    const prevV = Number(trf[trf.length - 2].volume_teus);
+    const yoyEl = document.getElementById("stat-yoy");
+    if (yoyEl && prevV > 0) {
+      const yoy = ((lastV - prevV) / prevV) * 100;
+      yoyEl.textContent = (yoy >= 0 ? "+" : "") + yoy.toFixed(1) + "%";
+      yoyEl.style.color = yoy >= 0 ? "#34d399" : "var(--danger)";
+    }
+  }
+
   const capVal = m.kapasitas_teus || i.kapasitas_shore_crane;
   if (capVal) setText("stat-kapasitas-terminal", fmtNum(capVal));
   setText("hero-subtitle", m.hero_subtitle); // poin #1
