@@ -124,6 +124,15 @@ function esc(s) {
   return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
+// Format angka Indonesia: tambahkan titik sebagai pemisah ribuan.
+// HANYA diterapkan pada string bilangan bulat murni (mis. "27523" -> "27.523"),
+// supaya angka desimal seperti "7.69" atau "46.82" tidak ikut berubah.
+function fmtIDNumber(v) {
+  const s = String(v ?? "").trim();
+  if (/^-?\d+$/.test(s)) return Number(s).toLocaleString("id-ID");
+  return s;
+}
+
 // ── Galeri Foto (about-grid): caption sheet-driven + path foto dinamis per terminal ──
 // Urutan slot: 1=terminal, 2=operasional, 3=budaya lokal, 4=kota (foto udara),
 // 5=alam/landmark sekitar. Nama file foto distandarkan sama di semua terminal;
@@ -348,7 +357,7 @@ async function initTerminalData(kodeTerminal) {
   const perfTable = document.getElementById("perf-table-body");
   if (perfTable && perfRows.length) {
     perfTable.innerHTML = perfRows.map(r => `
-      <tr><td>${esc(r.indikator)}</td><td>${esc(r.realisasi)} ${esc(r.satuan)}</td><td>${esc(r.rkap)} ${esc(r.satuan)}</td><td>${esc(r.periode)}</td></tr>
+      <tr><td>${esc(r.indikator)}</td><td>${esc(fmtIDNumber(r.realisasi))} ${esc(r.satuan)}</td><td>${esc(fmtIDNumber(r.rkap))} ${esc(r.satuan)}</td><td>${esc(r.periode)}</td></tr>
     `).join("");
   }
   setText("realization-note", m.realization_note); // poin #14, label "Financial KPI — {realization_note}" — kata "KPI" sudah statis di HTML (poin #13)
@@ -358,6 +367,19 @@ async function initTerminalData(kodeTerminal) {
   setText("sdm-support", sdmRow.support);
   setText("sdm-technical", sdmRow.technical);
   setText("hr-wording", m.hr_wording);
+
+  // ── S8 Development visual: placeholder -> foto asli kalau kolom sheet diisi ──
+  // Kolom baru di tab TERMINAL_MASTER: foto_pengembangan_url. Kalau kosong,
+  // placeholder dashed-border tetap tampil (tidak dihilangkan dari kode).
+  if (!isEmptyVal(m.foto_pengembangan_url)) {
+    const devImg = document.getElementById("dev-visual-img");
+    const devPh = document.getElementById("dev-visual-placeholder");
+    if (devImg && devPh) {
+      devImg.src = m.foto_pengembangan_url;
+      devImg.style.display = "block";
+      devPh.style.display = "none";
+    }
+  }
 
   // ── S6 Terminal Specifications — Equipment Fleet (poin: full dinamis dari sheet) ──
   // Kartu di-generate penuh oleh JS mengikuti URUTAN baris tab PERALATAN.
