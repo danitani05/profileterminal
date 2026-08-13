@@ -273,7 +273,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-stats {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 16px; max-width: 820px; margin: 0 auto 48px;
 }
 .hero-stat {
@@ -965,7 +965,7 @@ footer {
   .ratio-grid { grid-template-columns: 1fr 1fr; }
   .dev-grid { grid-template-columns: 1fr; }
   .sdm-breakdown { grid-template-columns: repeat(3, 1fr); }
-  .hero-stats { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .tariff-summary-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 480px) {
@@ -1102,15 +1102,8 @@ footer {
         <div class="hero-stat-icon" style="width:40px;height:40px;border-radius:8px;background:rgba(52,211,153,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:22px;color:#34d399;">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
-        <div class="hero-stat-num" style="color:#34d399;">+14%</div>
+        <div class="hero-stat-num" id="stat-yoy" style="color:#34d399;">+14%</div>
         <div class="hero-stat-label">YoY Growth</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-icon" style="width:40px;height:40px;border-radius:8px;background:rgba(251,191,36,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:22px;color:#fbbf24;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V10l7-7 7 7v10"/><path d="M12 20v-5"/><rect x="9" y="9" width="6" height="5"/></svg>
-        </div>
-        <div class="hero-stat-num">—</div>
-        <div class="hero-stat-label">Box Ship Hours</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-icon" style="width:40px;height:40px;border-radius:8px;background:rgba(167,139,250,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:22px;color:#a78bfa;">
@@ -1182,11 +1175,11 @@ footer {
 
         <!-- SLIDESHOW UTAMA -->
         <div style="position:relative;border-radius:12px;overflow:hidden;height:300px;background:#0a1628;">
-          <div class="asl asl-on" id="asl0"><img src="about-terminal.jpg" alt="Merauke Container Terminal" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Merauke Container Terminal</div><div class="asl-num">1 / 5</div></div>
-          <div class="asl" id="asl1"><img src="about-operasional.jpg" alt="Container Cargo Handling Activities" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Container Cargo Handling Activities</div><div class="asl-num">2 / 5</div></div>
-          <div class="asl" id="asl2"><img src="about-suku-papua.jpg" alt="The Asmat tribe from South Papua" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">The Asmat tribe from South Papua</div><div class="asl-num">3 / 5</div></div>
-          <div class="asl" id="asl3"><img src="about-drone-kota.jpg" alt="Merauke City" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Merauke City</div><div class="asl-num">4 / 5</div></div>
-          <div class="asl" id="asl4"><img src="about-alam-papua.jpg" alt="Wasur National Park" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Wasur National Park</div><div class="asl-num">5 / 5</div></div>
+          <div class="asl asl-on" id="asl0"><img src="../photos/jayapura/terminal.jpg" alt="Jayapura Container Terminal" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Jayapura Container Terminal</div><div class="asl-num">1 / 5</div></div>
+          <div class="asl" id="asl1"><img src="../photos/jayapura/operasional.jpg" alt="Container Cargo Handling Activities" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Container Cargo Handling Activities</div><div class="asl-num">2 / 5</div></div>
+          <div class="asl" id="asl2"><img src="../photos/jayapura/budaya-lokal.jpg" alt="The Tabi tribe from Northern Papua" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">The Tabi tribe from Northern Papua</div><div class="asl-num">3 / 5</div></div>
+          <div class="asl" id="asl3"><img src="../photos/jayapura/kota.jpg" alt="Jayapura City" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Jayapura City</div><div class="asl-num">4 / 5</div></div>
+          <div class="asl" id="asl4"><img src="../photos/jayapura/alam-sekitar.jpg" alt="Youtefa Bay Nature Tourism Park" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.82);"><div class="asl-cap">Youtefa Bay Nature Tourism Park</div><div class="asl-num">5 / 5</div></div>
         </div>
 
         <!-- PROGRESS BAR -->
@@ -1239,7 +1232,7 @@ footer {
       <div class="reveal" style="max-width:560px;">
         <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#002060;margin-bottom:10px;">Hinterland &amp; Connectivity</p>
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.4rem,2.4vw,2.1rem);font-weight:800;color:#0A1428;letter-spacing:-0.02em;line-height:1.2;margin-bottom:14px;white-space:nowrap;">Shipping Routes &amp; <span style="color:#002060;">Trade Flows</span></h2>
-        <p style="font-size:1rem;color:#475569;line-height:1.75;">TPK Merauke connects South Papua to the national supply chain via four dedicated shipping lines from Surabaya.</p>
+        <p id="hinterland-desc" style="font-size:1rem;color:#475569;line-height:1.75;">TPK Jayapura connects Papua to national and international supply chains through its network of shipping routes.</p>
       </div>
     </div>
   </div>
@@ -1612,7 +1605,7 @@ footer {
     <div class="reveal">
       <p class="section-label">Infrastructure &amp; Equipment</p>
       <h2 class="section-title">Terminal <span class="grad-text">Specifications</span></h2>
-      <p class="section-sub">Berth, yard, and equipment capabilities supporting domestic container operations in South Papua.</p>
+      <p class="section-sub" id="specs-desc">Berth, yard, and equipment capabilities supporting container operations in Papua.</p>
     </div>
 
     <div class="specs-layout" style="margin-top:40px;">
@@ -1675,8 +1668,15 @@ footer {
           </div>
           <div class="cap-row reveal reveal-delay-5">
             <div class="cap-header">
-              <div class="cap-label">Gate RCV/DLV</div>
-              <div class="cap-values" style="color:var(--danger);">Not Available</div>
+              <div class="cap-label">Gate In</div>
+              <div class="cap-values" id="cap-val-gate-in" style="color:var(--text-muted);">[TBD]</div>
+            </div>
+            <div class="progress-track"><div class="progress-fill none" data-width="5"></div></div>
+          </div>
+          <div class="cap-row reveal reveal-delay-5">
+            <div class="cap-header">
+              <div class="cap-label">Gate Out</div>
+              <div class="cap-values" id="cap-val-gate-out" style="color:var(--text-muted);">[TBD]</div>
             </div>
             <div class="progress-track"><div class="progress-fill none" data-width="5"></div></div>
           </div>
@@ -1747,14 +1747,14 @@ footer {
         <div class="kpi-card">
           <div class="kpi-icon">📊</div>
           <div class="kpi-value blue" data-count="18284" data-format="comma">0</div>
-          <div class="kpi-label">Container Volume (Apr YTD)</div>
+          <div class="kpi-label">Container Volume (YTD)</div>
           <div class="kpi-rkap">RKAP 2026: 52,465 TEUs</div>
           <div class="status-badge status-up">▲ 103% vs RKAP YTD</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-icon">💰</div>
           <div class="kpi-value blue">Rp 39.4M</div>
-          <div class="kpi-label">Revenue (Apr YTD)</div>
+          <div class="kpi-label">Revenue (YTD)</div>
           <div class="kpi-rkap">RKAP 2026: Rp 101.0B</div>
           <div class="status-badge status-up">▲ On Track</div>
         </div>
@@ -1795,7 +1795,7 @@ footer {
         <thead>
           <tr>
             <th>KPI Indicator</th>
-            <th>Realization (Apr 2026)</th>
+            <th>Realization</th>
             <th>RKAP 2026</th>
             <th>Status</th>
           </tr>
@@ -1837,7 +1837,7 @@ footer {
       <div style="flex:1;padding-left:28px;border-left:1px solid var(--card-border);">
         <div style="font-size:0.88rem;color:var(--text-muted);line-height:1.8;">
           RKAP 2026: <span style="color:var(--text-primary);">71 persons</span> &nbsp;·&nbsp;
-          Realization Apr 2025: <span style="color:var(--text-primary);">60 persons</span><br>
+          Realization 2025: <span style="color:var(--text-primary);">60 persons</span><br>
           Includes external entities: <span style="color:var(--accent-lt);">BIMA (8 persons)</span> and <span style="color:var(--accent-lt);">LEGI (1 person)</span> non-SPTP
         </div>
       </div>
@@ -2006,7 +2006,18 @@ footer {
     <div class="reveal">
       <p class="section-label">Strategic Outlook</p>
       <h2 class="section-title">Development &amp; <span class="grad-text">Growth Potential</span></h2>
-      <p class="section-sub">TPK Merauke is at a critical inflection point. National strategic projects in Merauke signal an imminent cargo surge that requires immediate capacity preparation.</p>
+      <p class="section-sub" id="development-desc">TPK Jayapura continues to strengthen its role as the main logistics gateway for Northern Papua, supporting regional trade and economic growth.</p>
+    </div>
+
+    <!-- Development visual placeholder -->
+    <div class="reveal reveal-delay-1" style="margin-top:40px;">
+      <div id="dev-visual-wrap" style="position:relative;border:1.5px dashed rgba(96,165,250,0.35);border-radius:16px;background:rgba(255,255,255,0.03);aspect-ratio:21/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;overflow:hidden;">
+        <img id="dev-visual-img" src="" alt="TPK Jayapura development visual" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+        <div id="dev-visual-placeholder" style="display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--text-muted);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:0.8rem;letter-spacing:0.03em;">Development Visual — TPK Jayapura (placeholder)</span>
+        </div>
+      </div>
     </div>
 
     <!-- PSN highlight box -->
@@ -2136,7 +2147,7 @@ footer {
           <div class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <div>
             <div class="contact-info-title">Operating Hours</div>
-            <div class="contact-info-val">24 Hours / 7 Days<br><span style="font-size:0.78rem;color:var(--text-muted);">WIT (UTC+9) — Merauke, South Papua</span></div>
+            <div class="contact-info-val">24 Hours / 7 Days<br><span style="font-size:0.78rem;color:var(--text-muted);">WIT (UTC+9) — Jayapura, Papua</span></div>
           </div>
         </div>
       </div>
@@ -2357,6 +2368,8 @@ window.renderThroughputChart = function (chartData) {
   if (!chartEl || !chartData || !chartData.length) return;
   chartEl.innerHTML = '';
   const maxVol = Math.max(...chartData.map(d => d.vol));
+  const bars = [];
+  const allLbls = [];
   chartData.forEach((d, i) => {
     const barH = (d.vol / maxVol) * 155;
     const wrap = document.createElement('div');
@@ -2372,6 +2385,7 @@ window.renderThroughputChart = function (chartData) {
     lbl.className = 'bar-label-top';
     lbl.textContent = fmtThroughputLabel(d.vol);
     wrap.appendChild(lbl);
+    allLbls.push(lbl);
     const bar = document.createElement('div');
     bar.className = 'bar-intl';
     bar.style.width = '100%';
@@ -2385,15 +2399,101 @@ window.renderThroughputChart = function (chartData) {
     yearLbl.textContent = d.year;
     wrap.appendChild(yearLbl);
     chartEl.appendChild(wrap);
-    const cObs = new IntersectionObserver((entries) => {
-      entries.forEach(en => {
-        if (en.isIntersecting) { setTimeout(() => { bar.style.height = barH + 'px'; }, i * 80); cObs.unobserve(en.target); }
-      });
-    }, { threshold: 0.3 });
-    cObs.observe(chartEl);
+    bars.push({ bar, barH });
   });
+
+  // ── Satu observer untuk seluruh chart: animasikan semua bar dengan stagger,
+  // lalu gambar panah SETELAH animasi tinggi bar selesai (bukan sesaat setelah
+  // render), supaya panah tidak salah ambil posisi bar saat masih 0px.
+  const cObs = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      cObs.unobserve(en.target);
+      bars.forEach(({ bar, barH }, i) => {
+        setTimeout(() => { bar.style.height = barH + 'px'; }, i * 80);
+      });
+      const maxStagger = (bars.length - 1) * 80;
+      const transitionMs = 1300;
+      setTimeout(() => {
+        if (chartData.length < 2) return;
+        const yrStart = Number(chartData[0].year), yrEnd = Number(chartData[chartData.length - 1].year);
+        const volStart = Number(chartData[0].vol), volEnd = Number(chartData[chartData.length - 1].vol);
+        const nYears = yrEnd - yrStart;
+        const cagr = (nYears > 0 && volStart > 0) ? (Math.pow(volEnd / volStart, 1 / nYears) - 1) * 100 : null;
+        drawYearlyArrows(chartEl, allLbls, chartData, cagr);
+      }, maxStagger + transitionMs);
+    });
+  }, { threshold: 0.3 });
+  cObs.observe(chartEl);
 };
-// Render awal pakai data statis (fallback bila fetch live gagal/offline)
+
+// Panah per-tahun: menghubungkan tiap bar ke bar berikutnya, warna hijau jika
+// naik / merah jika turun. Label CAGR keseluruhan tampil satu kali di tengah atas.
+function drawYearlyArrows(chartEl, lbls, chartData, cagrPct) {
+  const svgNS = 'http://www.w3.org/2000/svg';
+  chartEl.querySelectorAll('svg.cagr-arrow-overlay').forEach(el => el.remove());
+  if (lbls.length < 2) return;
+  const chartRect = chartEl.getBoundingClientRect();
+  const pts = lbls.map(lbl => {
+    const r = lbl.getBoundingClientRect();
+    return { x: r.left + r.width / 2 - chartRect.left, y: r.top - chartRect.top - 4 };
+  });
+
+  const svg = document.createElementNS(svgNS, 'svg');
+  svg.setAttribute('class', 'cagr-arrow-overlay');
+  svg.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;';
+
+  const defs = document.createElementNS(svgNS, 'defs');
+  ['#34D399', '#EF4444'].forEach((color, idx) => {
+    const marker = document.createElementNS(svgNS, 'marker');
+    marker.setAttribute('id', idx === 0 ? 'yrArrowHeadUp' : 'yrArrowHeadDown');
+    marker.setAttribute('viewBox', '0 0 10 10');
+    marker.setAttribute('refX', '8'); marker.setAttribute('refY', '5');
+    marker.setAttribute('markerWidth', '6'); marker.setAttribute('markerHeight', '6');
+    marker.setAttribute('orient', 'auto-start-reverse');
+    const arrowPath = document.createElementNS(svgNS, 'path');
+    arrowPath.setAttribute('d', 'M0,0 L10,5 L0,10 Z');
+    arrowPath.setAttribute('fill', color);
+    marker.appendChild(arrowPath);
+    defs.appendChild(marker);
+  });
+  svg.appendChild(defs);
+
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p1 = pts[i], p2 = pts[i + 1];
+    const volUp = Number(chartData[i + 1].vol) >= Number(chartData[i].vol);
+    const color = volUp ? '#34D399' : '#EF4444';
+    const marker = volUp ? 'yrArrowHeadUp' : 'yrArrowHeadDown';
+    const peakY = Math.min(p1.y, p2.y) - 16;
+    const path = document.createElementNS(svgNS, 'path');
+    path.setAttribute('d', `M${p1.x},${p1.y} Q${(p1.x + p2.x) / 2},${peakY} ${p2.x},${p2.y}`);
+    path.setAttribute('stroke', color);
+    path.setAttribute('stroke-width', '1.6');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke-dasharray', '4,3');
+    path.setAttribute('marker-end', `url(#${marker})`);
+    svg.appendChild(path);
+  }
+
+  if (cagrPct !== null) {
+    const minY = Math.min(...pts.map(p => p.y));
+    const midX = (pts[0].x + pts[pts.length - 1].x) / 2;
+    const color = cagrPct >= 0 ? '#34D399' : '#EF4444';
+    const label = document.createElementNS(svgNS, 'text');
+    label.setAttribute('x', midX);
+    label.setAttribute('y', minY - 30);
+    label.setAttribute('text-anchor', 'middle');
+    label.setAttribute('fill', color);
+    label.setAttribute('font-size', '12');
+    label.setAttribute('font-weight', '700');
+    label.textContent = 'CAGR ' + (cagrPct >= 0 ? '+' : '') + cagrPct.toFixed(1) + '%';
+    svg.appendChild(label);
+  }
+
+  chartEl.appendChild(svg);
+}
+// Render awal pakai data statis (fallback bila fetch live gagal/offline) —
+// TODO: ganti dengan angka traffic Jayapura sesungguhnya (ini masih placeholder).
 window.renderThroughputChart([
   { year: '2020', vol: 39251 },
   { year: '2021', vol: 40292 },
@@ -2409,12 +2509,21 @@ window.renderThroughputChart([
 <script>
 (function(){
   const DUR = 5000;
+  // Path foto dibuat dinamis dari slug halaman (sama seperti logic di sheet-data.js),
+  // BUKAN hardcode nama file lama (about-*.jpg) yang sudah tidak ada di repo —
+  // itu penyebab galeri sempat benar lalu balik jadi broken tiap auto-rotate.
+  const GALLERY_FILES_LOCAL = ["terminal", "operasional", "budaya-lokal", "kota", "alam-sekitar"];
+  const slugMatch = location.pathname.match(/terminal-([a-z0-9-]+)\.html/i);
+  const slugLocal = slugMatch ? slugMatch[1] : null;
+  function photoPath(fileIdx) {
+    return slugLocal ? `../photos/${slugLocal}/${GALLERY_FILES_LOCAL[fileIdx]}.jpg` : "";
+  }
   const PHOTOS = [
-    { src:'about-terminal.jpg',    alt:'Merauke Container Terminal',          label:'Merauke Container Terminal' },
-    { src:'about-operasional.jpg', alt:'Container Cargo Handling Activities',         label:'Container Cargo Handling Activities' },
-    { src:'about-suku-papua.jpg',  alt:'The Asmat tribe from South Papua',   label:'The Asmat tribe from South Papua' },
-    { src:'about-drone-kota.jpg',  alt:'Merauke City',      label:'Merauke City' },
-    { src:'about-alam-papua.jpg',  alt:'Wasur National Park',   label:'Wasur National Park' },
+    { src: photoPath(0), alt:'Jayapura Container Terminal',          label:'Jayapura Container Terminal' },
+    { src: photoPath(1), alt:'Container Cargo Handling Activities',  label:'Container Cargo Handling Activities' },
+    { src: photoPath(2), alt:'The Tabi tribe from Northern Papua',   label:'The Tabi tribe from Northern Papua' },
+    { src: photoPath(3), alt:'Jayapura City',                        label:'Jayapura City' },
+    { src: photoPath(4), alt:'Youtefa Bay Nature Tourism Park',      label:'Youtefa Bay Nature Tourism Park' },
   ];
 
   const slides = [0,1,2,3,4].map(i => document.getElementById('asl'+i));
