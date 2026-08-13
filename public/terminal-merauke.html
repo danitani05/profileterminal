@@ -1754,14 +1754,14 @@ footer {
         <div class="kpi-card">
           <div class="kpi-icon">📊</div>
           <div class="kpi-value blue" data-count="18284" data-format="comma">0</div>
-          <div class="kpi-label">Container Volume (Apr YTD)</div>
+          <div class="kpi-label">Container Volume (YTD)</div>
           <div class="kpi-rkap">RKAP 2026: 52,465 TEUs</div>
           <div class="status-badge status-up">▲ 103% vs RKAP YTD</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-icon">💰</div>
           <div class="kpi-value blue">Rp 39.4M</div>
-          <div class="kpi-label">Revenue (Apr YTD)</div>
+          <div class="kpi-label">Revenue (YTD)</div>
           <div class="kpi-rkap">RKAP 2026: Rp 101.0B</div>
           <div class="status-badge status-up">▲ On Track</div>
         </div>
@@ -1802,7 +1802,7 @@ footer {
         <thead>
           <tr>
             <th>KPI Indicator</th>
-            <th>Realization (Apr 2026)</th>
+            <th>Realization</th>
             <th>RKAP 2026</th>
             <th>Status</th>
           </tr>
@@ -1844,7 +1844,7 @@ footer {
       <div style="flex:1;padding-left:28px;border-left:1px solid var(--card-border);">
         <div style="font-size:0.88rem;color:var(--text-muted);line-height:1.8;">
           RKAP 2026: <span style="color:var(--text-primary);">71 persons</span> &nbsp;·&nbsp;
-          Realization Apr 2025: <span style="color:var(--text-primary);">60 persons</span><br>
+          Realization 2025: <span style="color:var(--text-primary);">60 persons</span><br>
           Includes external entities: <span style="color:var(--accent-lt);">BIMA (8 persons)</span> and <span style="color:var(--accent-lt);">LEGI (1 person)</span> non-SPTP
         </div>
       </div>
@@ -2014,6 +2014,17 @@ footer {
       <p class="section-label">Strategic Outlook</p>
       <h2 class="section-title">Development &amp; <span class="grad-text">Growth Potential</span></h2>
       <p class="section-sub">TPK Merauke is at a critical inflection point. National strategic projects in Merauke signal an imminent cargo surge that requires immediate capacity preparation.</p>
+    </div>
+
+    <!-- Development visual placeholder (poin: gambar pengembangan TPK Merauke) -->
+    <div class="reveal reveal-delay-1" style="margin-top:40px;">
+      <div id="dev-visual-wrap" style="position:relative;border:1.5px dashed rgba(96,165,250,0.35);border-radius:16px;background:rgba(255,255,255,0.03);aspect-ratio:21/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;overflow:hidden;">
+        <img id="dev-visual-img" src="" alt="TPK Merauke development visual" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+        <div id="dev-visual-placeholder" style="display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--text-muted);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:0.8rem;letter-spacing:0.03em;">Development Visual — TPK Merauke (placeholder)</span>
+        </div>
+      </div>
     </div>
 
     <!-- PSN highlight box -->
@@ -2365,7 +2376,7 @@ window.renderThroughputChart = function (chartData) {
   chartEl.innerHTML = '';
   const maxVol = Math.max(...chartData.map(d => d.vol));
   const bars = [];
-  let firstLbl = null, lastLbl = null;
+  const allLbls = [];
   chartData.forEach((d, i) => {
     const barH = (d.vol / maxVol) * 155;
     const wrap = document.createElement('div');
@@ -2381,8 +2392,7 @@ window.renderThroughputChart = function (chartData) {
     lbl.className = 'bar-label-top';
     lbl.textContent = fmtThroughputLabel(d.vol);
     wrap.appendChild(lbl);
-    if (i === 0) firstLbl = lbl;
-    if (i === chartData.length - 1) lastLbl = lbl;
+    allLbls.push(lbl);
     const bar = document.createElement('div');
     bar.className = 'bar-intl';
     bar.style.width = '100%';
@@ -2400,7 +2410,7 @@ window.renderThroughputChart = function (chartData) {
   });
 
   // ── Satu observer untuk seluruh chart (bukan 1 observer per bar) ──
-  // Animasikan semua bar dengan stagger, lalu gambar panah CAGR SETELAH
+  // Animasikan semua bar dengan stagger, lalu gambar panah SETELAH
   // animasi tinggi bar benar-benar selesai — bukan sesaat setelah render,
   // supaya panah tidak salah ambil posisi bar saat masih 0px (nempel bawah).
   const cObs = new IntersectionObserver((entries) => {
@@ -2413,69 +2423,82 @@ window.renderThroughputChart = function (chartData) {
       const maxStagger = (bars.length - 1) * 80;
       const transitionMs = 1300; // sedikit di atas durasi transition CSS .bar-intl (1.2s)
       setTimeout(() => {
-        if (chartData.length < 2 || !firstLbl || !lastLbl) return;
+        if (chartData.length < 2) return;
         const yrStart = Number(chartData[0].year), yrEnd = Number(chartData[chartData.length - 1].year);
         const volStart = Number(chartData[0].vol), volEnd = Number(chartData[chartData.length - 1].vol);
         const nYears = yrEnd - yrStart;
-        if (nYears > 0 && volStart > 0) {
-          const cagr = (Math.pow(volEnd / volStart, 1 / nYears) - 1) * 100;
-          drawCagrArrow(chartEl, firstLbl, lastLbl, cagr);
-        }
+        const cagr = (nYears > 0 && volStart > 0) ? (Math.pow(volEnd / volStart, 1 / nYears) - 1) * 100 : null;
+        drawYearlyArrows(chartEl, allLbls, chartData, cagr);
       }, maxStagger + transitionMs);
     });
   }, { threshold: 0.3 });
   cObs.observe(chartEl);
 };
 
-function drawCagrArrow(chartEl, fromLbl, toLbl, cagrPct) {
+// Panah per-tahun: menghubungkan tiap bar ke bar berikutnya (2020→2021→...→2025),
+// warna hijau jika naik / merah jika turun dibanding tahun sebelumnya.
+// Label CAGR keseluruhan tetap ditampilkan satu kali di atas tengah chart.
+function drawYearlyArrows(chartEl, lbls, chartData, cagrPct) {
   const svgNS = 'http://www.w3.org/2000/svg';
   chartEl.querySelectorAll('svg.cagr-arrow-overlay').forEach(el => el.remove());
+  if (lbls.length < 2) return;
   const chartRect = chartEl.getBoundingClientRect();
-  const r1 = fromLbl.getBoundingClientRect();
-  const r2 = toLbl.getBoundingClientRect();
-  const x1 = r1.left + r1.width / 2 - chartRect.left;
-  const y1 = r1.top - chartRect.top - 4;
-  const x2 = r2.left + r2.width / 2 - chartRect.left;
-  const y2 = r2.top - chartRect.top - 4;
-  const peakY = Math.min(y1, y2) - 26;
-  const color = cagrPct >= 0 ? '#34D399' : '#EF4444';
+  const pts = lbls.map(lbl => {
+    const r = lbl.getBoundingClientRect();
+    return { x: r.left + r.width / 2 - chartRect.left, y: r.top - chartRect.top - 4 };
+  });
 
   const svg = document.createElementNS(svgNS, 'svg');
   svg.setAttribute('class', 'cagr-arrow-overlay');
   svg.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;';
 
   const defs = document.createElementNS(svgNS, 'defs');
-  const marker = document.createElementNS(svgNS, 'marker');
-  marker.setAttribute('id', 'cagrArrowHead');
-  marker.setAttribute('viewBox', '0 0 10 10');
-  marker.setAttribute('refX', '8'); marker.setAttribute('refY', '5');
-  marker.setAttribute('markerWidth', '7'); marker.setAttribute('markerHeight', '7');
-  marker.setAttribute('orient', 'auto-start-reverse');
-  const arrowPath = document.createElementNS(svgNS, 'path');
-  arrowPath.setAttribute('d', 'M0,0 L10,5 L0,10 Z');
-  arrowPath.setAttribute('fill', color);
-  marker.appendChild(arrowPath);
-  defs.appendChild(marker);
+  ['#34D399', '#EF4444'].forEach((color, idx) => {
+    const marker = document.createElementNS(svgNS, 'marker');
+    marker.setAttribute('id', idx === 0 ? 'yrArrowHeadUp' : 'yrArrowHeadDown');
+    marker.setAttribute('viewBox', '0 0 10 10');
+    marker.setAttribute('refX', '8'); marker.setAttribute('refY', '5');
+    marker.setAttribute('markerWidth', '6'); marker.setAttribute('markerHeight', '6');
+    marker.setAttribute('orient', 'auto-start-reverse');
+    const arrowPath = document.createElementNS(svgNS, 'path');
+    arrowPath.setAttribute('d', 'M0,0 L10,5 L0,10 Z');
+    arrowPath.setAttribute('fill', color);
+    marker.appendChild(arrowPath);
+    defs.appendChild(marker);
+  });
   svg.appendChild(defs);
 
-  const path = document.createElementNS(svgNS, 'path');
-  path.setAttribute('d', `M${x1},${y1} Q${(x1 + x2) / 2},${peakY} ${x2},${y2}`);
-  path.setAttribute('stroke', color);
-  path.setAttribute('stroke-width', '2');
-  path.setAttribute('fill', 'none');
-  path.setAttribute('stroke-dasharray', '5,4');
-  path.setAttribute('marker-end', 'url(#cagrArrowHead)');
-  svg.appendChild(path);
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p1 = pts[i], p2 = pts[i + 1];
+    const volUp = Number(chartData[i + 1].vol) >= Number(chartData[i].vol);
+    const color = volUp ? '#34D399' : '#EF4444';
+    const marker = volUp ? 'yrArrowHeadUp' : 'yrArrowHeadDown';
+    const peakY = Math.min(p1.y, p2.y) - 16;
+    const path = document.createElementNS(svgNS, 'path');
+    path.setAttribute('d', `M${p1.x},${p1.y} Q${(p1.x + p2.x) / 2},${peakY} ${p2.x},${p2.y}`);
+    path.setAttribute('stroke', color);
+    path.setAttribute('stroke-width', '1.6');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke-dasharray', '4,3');
+    path.setAttribute('marker-end', `url(#${marker})`);
+    svg.appendChild(path);
+  }
 
-  const label = document.createElementNS(svgNS, 'text');
-  label.setAttribute('x', (x1 + x2) / 2);
-  label.setAttribute('y', peakY - 8);
-  label.setAttribute('text-anchor', 'middle');
-  label.setAttribute('fill', color);
-  label.setAttribute('font-size', '12');
-  label.setAttribute('font-weight', '700');
-  label.textContent = 'CAGR ' + (cagrPct >= 0 ? '+' : '') + cagrPct.toFixed(1) + '%';
-  svg.appendChild(label);
+  // Label CAGR keseluruhan — satu label ringkasan di atas tengah chart
+  if (cagrPct !== null) {
+    const minY = Math.min(...pts.map(p => p.y));
+    const midX = (pts[0].x + pts[pts.length - 1].x) / 2;
+    const color = cagrPct >= 0 ? '#34D399' : '#EF4444';
+    const label = document.createElementNS(svgNS, 'text');
+    label.setAttribute('x', midX);
+    label.setAttribute('y', minY - 30);
+    label.setAttribute('text-anchor', 'middle');
+    label.setAttribute('fill', color);
+    label.setAttribute('font-size', '12');
+    label.setAttribute('font-weight', '700');
+    label.textContent = 'CAGR ' + (cagrPct >= 0 ? '+' : '') + cagrPct.toFixed(1) + '%';
+    svg.appendChild(label);
+  }
 
   chartEl.appendChild(svg);
 }
