@@ -239,14 +239,6 @@ async function initTerminalData(kodeTerminal) {
   if (capVal) setText("stat-kapasitas-terminal", fmtNum(capVal));
   setText("hero-subtitle", m.hero_subtitle); // poin #1
 
-  // Box Ship Hours (BSH) di hero — ambil dari tab PERFORMANCE, indikator
-  // "Ship Unloading Rate" (sama seperti baris di tabel S4 Performance),
-  // supaya angka hero & tabel selalu konsisten dari satu sumber.
-  const bshRow = perfRows.find(r => String(r.indikator || "").trim() === "Ship Unloading Rate");
-  if (bshRow && !isEmptyVal(bshRow.realisasi)) {
-    setText("stat-bsh", bshRow.realisasi + " " + (bshRow.satuan || "B/S/H"));
-  }
-
   // ── Foto hero dinamis dari kolom foto_url (TERMINAL_MASTER) ──
   // Jika foto_url terisi, pasang sebagai background-image div hero.
   // Jika kosong / [TBD], biarkan gradient navy default (fallback CSS) tampil.
@@ -258,6 +250,13 @@ async function initTerminalData(kodeTerminal) {
   // ── S2 About / Terminal Overview (poin #3, #4) ──
   setText("about-desc-1", m.about_desc_1);
   setText("about-desc-2", m.about_desc_2); // catatan: markup <strong> pada angka TEUs hilang jika desc2 diedit lewat sheet (plain text)
+
+  // ── Subtitle section lain yang tadinya hardcode teks "Merauke" ──
+  // Kolom baru di TERMINAL_MASTER: hinterland_desc, specs_desc, development_desc.
+  // Kalau kosong, teks fallback bawaan HTML tetap tampil (bukan dihilangkan).
+  setText("hinterland-desc", m.hinterland_desc);
+  setText("specs-desc", m.specs_desc);
+  setText("development-desc", m.development_desc);
   // Mini-stat cards Terminal Overview — data sama dgn INFRASTRUKTUR, label bahasa Inggris & format seragam
   setText("about-stat-berth", !isEmptyVal(i.panjang_dermaga_m) ? fmtNum(i.panjang_dermaga_m) + " m" : undefined);
   setText("about-stat-cy", !isEmptyVal(i.luas_cy_ha) ? fmtNum(i.luas_cy_ha) + " Ha" : undefined);
