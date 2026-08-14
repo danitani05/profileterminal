@@ -1572,6 +1572,8 @@ footer {
           <g id="port-tmk" class="port-node" style="display:none;"><circle cx="1095" cy="286" r="12" fill="#0891B2" opacity="0.12"/><circle cx="1095" cy="286" r="6.5" fill="#0891B2"/><circle cx="1095" cy="286" r="3.5" fill="white"/><text x="1095" y="272" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="800" fill="white" stroke="#002060" stroke-width="2.5" paint-order="stroke fill" text-anchor="middle">Timika</text></g>
           <g id="port-agats" class="port-node" style="display:none;"><circle cx="1127" cy="313" r="12" fill="#0891B2" opacity="0.12"/><circle cx="1127" cy="313" r="6.5" fill="#0891B2"/><circle cx="1127" cy="313" r="3.5" fill="white"/><text x="1127" y="331" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="800" fill="white" stroke="#002060" stroke-width="2.5" paint-order="stroke fill" text-anchor="middle">Agats</text></g>
           <g id="port-mrk" class="port-node" style="display:none;"><circle cx="1183" cy="392" r="18" fill="#002060" opacity="0.10"/><circle cx="1183" cy="392" r="11" fill="#002060" opacity="0.18"/><circle cx="1183" cy="392" r="7" fill="#002060"/><circle cx="1183" cy="392" r="3.5" fill="white"/><text x="1183" y="410" font-family="Plus Jakarta Sans,sans-serif" font-size="14" font-weight="800" fill="white" stroke="#002060" stroke-width="3" paint-order="stroke fill" text-anchor="middle">Merauke</text></g>
+          <g id="port-soq" class="port-node" style="display:none;"><circle cx="953" cy="206" r="12" fill="#0891B2" opacity="0.12"/><circle cx="953" cy="206" r="6.5" fill="#0891B2"/><circle cx="953" cy="206" r="3.5" fill="white"/><text x="953" y="192" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="800" fill="white" stroke="#002060" stroke-width="2.5" paint-order="stroke fill" text-anchor="middle">Sorong</text></g>
+          <g id="port-jyp" class="port-node" style="display:none;"><circle cx="1194" cy="232" r="18" fill="#002060" opacity="0.10"/><circle cx="1194" cy="232" r="11" fill="#002060" opacity="0.18"/><circle cx="1194" cy="232" r="7" fill="#002060"/><circle cx="1194" cy="232" r="3.5" fill="white"/><text x="1194" y="218" font-family="Plus Jakarta Sans,sans-serif" font-size="14" font-weight="800" fill="white" stroke="#002060" stroke-width="3" paint-order="stroke fill" text-anchor="middle">Jayapura</text></g>
         </svg>
         <div id="routeMapLabel" style="background:white;border:1px solid #CBD5E1;border-radius:8px;padding:10px 16px;font-size:0.8rem;color:#475569;margin-top:10px;">
           <span style="color:#94A3B8;font-size:0.65rem;display:block;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.08em;">Operator</span>
@@ -1716,18 +1718,18 @@ footer {
     <div class="perf-hero reveal reveal-delay-1" style="margin-top:36px;">
       <div class="perf-counter-group">
         <div class="counter-item">
-          <div class="counter-year">FY 2024</div>
-          <div class="counter-value" data-count="46429" data-format="comma">0</div>
+          <div class="counter-year" id="perf-fy-prev-label">FY 2024</div>
+          <div class="counter-value" id="perf-fy-prev-value" data-count="46429" data-format="comma">0</div>
           <div class="counter-unit">TEUs</div>
         </div>
         <div class="arrow-sep">→</div>
         <div class="counter-item">
-          <div class="counter-year">FY 2025</div>
-          <div class="counter-value target" data-count="52715" data-format="comma">0</div>
+          <div class="counter-year" id="perf-fy-cur-label">FY 2025</div>
+          <div class="counter-value target" id="perf-fy-cur-value" data-count="52715" data-format="comma">0</div>
           <div class="counter-unit">TEUs</div>
         </div>
       </div>
-      <div class="growth-badge">+14% YoY</div>
+      <div class="growth-badge" id="perf-growth-badge">+14% YoY</div>
     </div>
 
     <!-- Bar chart -->
@@ -1736,7 +1738,7 @@ footer {
       <div class="bar-chart" id="throughputChart"></div>
       <div class="chart-legend">
         <div class="legend-item"><div class="legend-dot" style="background:var(--accent-lt);"></div>Volume</div>
-        <div class="legend-item" style="margin-left:16px;"><span style="color:var(--success);font-weight:700;">+34.3%</span>&nbsp;Cumulative 2020–2025</div>
+        <div class="legend-item" id="throughput-cumulative" style="margin-left:16px;"><span style="color:var(--success);font-weight:700;">+34.3%</span>&nbsp;Cumulative 2020–2025</div>
       </div>
     </div>
 
@@ -1836,9 +1838,9 @@ footer {
       </div>
       <div style="flex:1;padding-left:28px;border-left:1px solid var(--card-border);">
         <div style="font-size:0.88rem;color:var(--text-muted);line-height:1.8;">
-          RKAP 2026: <span style="color:var(--text-primary);">71 persons</span> &nbsp;·&nbsp;
-          Realization 2025: <span style="color:var(--text-primary);">60 persons</span><br>
-          Includes external entities: <span style="color:var(--accent-lt);">BIMA (8 persons)</span> and <span style="color:var(--accent-lt);">LEGI (1 person)</span> non-SPTP
+          RKAP 2026: <span id="sdm-rkap-value" style="color:var(--text-primary);">71 persons</span> &nbsp;·&nbsp;
+          Realization: <span id="sdm-realization-value" style="color:var(--text-primary);">60 persons</span><br>
+          <span id="sdm-external-line" style="display:none;">Includes external entities: <span style="color:var(--accent-lt);">BIMA (8 persons)</span> and <span style="color:var(--accent-lt);">LEGI (1 person)</span> non-SPTP</span>
         </div>
       </div>
     </div>
@@ -2305,6 +2307,10 @@ document.querySelectorAll('.cap-row').forEach(el => {
 });
 
 // ── Hinterland route interactivity — peta SVG real ──────────
+// Diubah jadi window.setTerminalRoutes(routes) supaya bisa dipanggil ulang
+// dengan data LIVE dari tab ROUTES (sheet-data.js), bukan cuma render sekali
+// pakai data statis Merauke. Kalau ports tidak dikenal di PORTS, path/pin utk
+// segmen itu dilewati (tidak menebak koordinat) — teks rute tetap tampil.
 (function() {
   var PORTS = {
     sby:   { x: 479, y: 359 },
@@ -2312,21 +2318,32 @@ document.querySelectorAll('.cap-row').forEach(el => {
     tual:  { x: 989, y: 315 },
     tmk:   { x:1095, y: 286 },
     agats: { x:1127, y: 313 },
-    mrk:   { x:1183, y: 392 }
+    mrk:   { x:1183, y: 392 },
+    // soq (Sorong) & jyp (Jayapura): dikalibrasi dari lat/lon asli (least-squares
+    // fit 6 titik dikenal, residual <2px) lalu diverifikasi visual di browser —
+    // soq digeser turun ~19px dari hasil hitung murni (187->206) karena posisi
+    // aslinya sedikit terpotong di luar viewBox crop peta.
+    soq:   { x: 953, y: 206 },
+    jyp:   { x:1194, y: 232 }
   };
-  var ROUTES = [
-    { ports:['sby','mks','tmk','mrk'], label:'SPIL', route:'Surabaya → Makassar → Timika → Merauke',
-      curves:[[540,255,610,255],[800,235,1000,235],[1110,295,1150,345]] },
-    { ports:['sby','mks','tual','tmk','mrk'], label:'Tanto', route:'Surabaya → Makassar → Tual → Timika → Merauke',
-      curves:[[540,255,610,255],[760,258,900,258],[1025,270,1065,268],[1110,295,1150,345]] },
-    { ports:['sby','mrk'], label:'Temas Direct', route:'Surabaya → Merauke (Express)',
-      curves:[[660,218,1020,218]] },
-    { ports:['sby','tmk','agats','mrk'], label:'Temas', route:'Surabaya → Timika → Agats → Merauke',
-      curves:[[800,235,1000,235],[1100,280,1115,295],[1135,325,1158,365]] }
-  ];
   var svgNS = 'http://www.w3.org/2000/svg';
   var autoTimer = null, currentIdx = 0;
-  function makeBezierPath(p1,p2,cp){return 'M '+p1.x+','+p1.y+' C '+cp[0]+','+cp[1]+' '+cp[2]+','+cp[3]+' '+p2.x+','+p2.y;}
+  var ROUTES = [
+    { ports:['sby','mks','tmk','mrk'], label:'SPIL', route:'Surabaya → Makassar → Timika → Merauke' },
+    { ports:['sby','mks','tual','tmk','mrk'], label:'Tanto', route:'Surabaya → Makassar → Tual → Timika → Merauke' },
+    { ports:['sby','mrk'], label:'Temas Direct', route:'Surabaya → Merauke (Express)' },
+    { ports:['sby','tmk','agats','mrk'], label:'Temas', route:'Surabaya → Timika → Agats → Merauke' }
+  ];
+
+  function makeBezierPath(p1,p2){
+    // Kurva otomatis: titik tengah digeser tegak lurus garis p1-p2, supaya
+    // tetap melengkung natural tanpa perlu hand-tuned control point per rute.
+    var mx=(p1.x+p2.x)/2, my=(p1.y+p2.y)/2;
+    var dx=p2.x-p1.x, dy=p2.y-p1.y, dist=Math.sqrt(dx*dx+dy*dy)||1;
+    var nx=-dy/dist, ny=dx/dist, bow=Math.min(dist*0.18,40);
+    var cx=mx+nx*bow, cy=my+ny*bow;
+    return 'M '+p1.x+','+p1.y+' Q '+cx+','+cy+' '+p2.x+','+p2.y;
+  }
   function animatePath(el,dur){var len=el.getTotalLength?el.getTotalLength():300;el.style.strokeDasharray=len;el.style.strokeDashoffset=len;el.style.transition='none';el.getBoundingClientRect();el.style.transition='stroke-dashoffset '+dur+'ms cubic-bezier(0.4,0,0.2,1)';el.style.strokeDashoffset='0';}
   function activateRoute(idx){
     currentIdx=idx; var r=ROUTES[idx];
@@ -2337,20 +2354,43 @@ document.querySelectorAll('.cap-row').forEach(el => {
     var layer=document.getElementById('routePathsLayer');
     if(!layer)return;
     while(layer.firstChild)layer.removeChild(layer.firstChild);
-    r.ports.forEach(function(pid){var el=document.getElementById('port-'+pid);if(el)el.style.display='';});
-    r.ports.forEach(function(pid,i){
+    var knownPorts = r.ports.filter(function(pid){ return !!PORTS[pid]; });
+    knownPorts.forEach(function(pid){var el=document.getElementById('port-'+pid);if(el)el.style.display='';});
+    knownPorts.forEach(function(pid,i){
       if(i===0)return;
-      var p1=PORTS[r.ports[i-1]],p2=PORTS[pid],cp=r.curves[i-1];
+      var p1=PORTS[knownPorts[i-1]],p2=PORTS[pid];
       setTimeout(function(){
         var h=document.createElementNS(svgNS,'path');
-        h.setAttribute('d',makeBezierPath(p1,p2,cp));h.setAttribute('stroke','#0891B2');h.setAttribute('stroke-width','3');h.setAttribute('stroke-opacity','0.08');h.setAttribute('fill','none');layer.appendChild(h);
+        h.setAttribute('d',makeBezierPath(p1,p2));h.setAttribute('stroke','#0891B2');h.setAttribute('stroke-width','3');h.setAttribute('stroke-opacity','0.08');h.setAttribute('fill','none');layer.appendChild(h);
         var p=document.createElementNS(svgNS,'path');
-        p.setAttribute('d',makeBezierPath(p1,p2,cp));p.setAttribute('stroke','#0891B2');p.setAttribute('stroke-width','1.2');p.setAttribute('stroke-dasharray','6,3');p.setAttribute('fill','none');p.setAttribute('marker-end','url(#arrow-route)');layer.appendChild(p);animatePath(p,600);
+        p.setAttribute('d',makeBezierPath(p1,p2));p.setAttribute('stroke','#0891B2');p.setAttribute('stroke-width','1.2');p.setAttribute('stroke-dasharray','6,3');p.setAttribute('fill','none');p.setAttribute('marker-end','url(#arrow-route)');layer.appendChild(p);animatePath(p,600);
       },(i-1)*700);
     });
   }
+  function rebuildRouteList() {
+    var wrap = document.getElementById('routeListHL');
+    if (!wrap) return;
+    wrap.innerHTML = ROUTES.map(function(r, i) {
+      return '<div class="route-item-adaline' + (i === 0 ? ' active' : '') + '" data-ri="' + i + '">' +
+        '<div style="display:flex;gap:20px;align-items:flex-start;">' +
+        '<span class="ri-num">' + (i + 1) + '</span>' +
+        '<div><div class="ri-title">' + r.label + '</div>' +
+        '<div class="ri-desc">' + r.route + '</div></div></div></div>';
+    }).join('');
+    document.querySelectorAll('.route-item-adaline').forEach(function(el, i) {
+      el.addEventListener('click', function () { clearInterval(autoTimer); activateRoute(i); });
+    });
+  }
+  window.setTerminalRoutes = function(routes) {
+    if (!routes || !routes.length) return;
+    ROUTES = routes;
+    clearInterval(autoTimer);
+    rebuildRouteList();
+    activateRoute(0);
+    autoTimer = setInterval(function () { activateRoute((currentIdx + 1) % ROUTES.length); }, 4000);
+  };
   document.addEventListener('DOMContentLoaded',function(){
-    document.querySelectorAll('.route-item-adaline').forEach(function(el,i){el.addEventListener('click',function(){clearInterval(autoTimer);activateRoute(i);});});
+    rebuildRouteList();
     activateRoute(0);
     autoTimer=setInterval(function(){activateRoute((currentIdx+1)%ROUTES.length);},4000);
   });
