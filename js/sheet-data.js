@@ -319,6 +319,25 @@ async function initTerminalData(kodeTerminal) {
     if (cumGrowth !== undefined) {
       setHTML("throughput-cumulative", `<span style="color:var(--success);font-weight:700;">+${cumGrowth.toFixed(1)}%</span>&nbsp;Cumulative ${trf[0].tahun}–${trf[trf.length - 1].tahun}`);
     }
+
+    // ── Performance Highlights: counter FY sebelumnya -> FY terakhir + badge YoY ──
+    // (sebelumnya hardcode "FY 2024 -> FY 2025" & "+14% YoY" — kebetulan cocok utk
+    // Merauke sehingga bug-nya tidak ketahuan, tapi salah utk terminal lain.)
+    const prevRow = trf[trf.length - 2], curRow = trf[trf.length - 1];
+    const prevVal = Number(prevRow.volume_teus), curVal = Number(curRow.volume_teus);
+    setText("perf-fy-prev-label", "FY " + prevRow.tahun);
+    setText("perf-fy-prev-value", fmtNum(prevVal));
+    setText("perf-fy-cur-label", "FY " + curRow.tahun);
+    setText("perf-fy-cur-value", fmtNum(curVal));
+    if (prevVal > 0) {
+      const yoyPerf = ((curVal - prevVal) / prevVal) * 100;
+      const badgeEl = document.getElementById("perf-growth-badge");
+      if (badgeEl) {
+        badgeEl.textContent = (yoyPerf >= 0 ? "+" : "") + yoyPerf.toFixed(1) + "% YoY";
+        badgeEl.style.color = yoyPerf >= 0 ? "" : "var(--danger)";
+        badgeEl.style.background = yoyPerf >= 0 ? "" : "rgba(239,68,68,0.12)";
+      }
+    }
   }
 
   // ── S3 Kapasitas & Infrastruktur (poin #4, #8, #9) ──
@@ -366,6 +385,20 @@ async function initTerminalData(kodeTerminal) {
   setText("sdm-support", sdmRow.support);
   setText("sdm-technical", sdmRow.technical);
   setText("hr-wording", m.hr_wording);
+
+  // Total, RKAP, Realisasi dari tab SDM (kolom total_pegawai/rkap_pegawai/realisasi_apr)
+  if (!isEmptyVal(sdmRow.total_pegawai)) {
+    const totalEl = document.getElementById("sdm-total");
+    if (totalEl) { totalEl.textContent = fmtNum(sdmRow.total_pegawai); totalEl.dataset.count = sdmRow.total_pegawai; }
+  }
+  if (!isEmptyVal(sdmRow.rkap_pegawai)) setText("sdm-rkap-value", fmtNum(sdmRow.rkap_pegawai) + " persons");
+  if (!isEmptyVal(sdmRow.realisasi_apr)) setText("sdm-realization-value", fmtNum(sdmRow.realisasi_apr) + " persons");
+  // Baris "Includes external entities..." hanya tampil kalau kolom catatan diisi
+  // (bukan kosong / "-" / "[TBD]") — supaya tidak salah tampil BIMA/LEGI punya Merauke di terminal lain.
+  const sdmNoteEl = document.getElementById("sdm-external-line");
+  if (sdmNoteEl && !isEmptyVal(sdmRow.catatan) && sdmRow.catatan !== "-") {
+    sdmNoteEl.style.display = "";
+  }
 
   // ── S8 Development visual: placeholder -> foto asli kalau kolom sheet diisi ──
   // Kolom baru di tab TERMINAL_MASTER: foto_pengembangan_url. Kalau kosong,
